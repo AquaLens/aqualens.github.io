@@ -1,0 +1,1794 @@
+html, body {
+  height: auto;
+}
+
+/* make sure page doesn't overflow horizontally */
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100vw;
+}
+
+/* code to help debug */
+/* * {
+  outline: 1px solid rgba(255, 0, 0, 0.2);
+} */
+
+.water_animation_container {
+    height: 100vh;
+    background-size: contain;
+    position: relative;
+    overflow: hidden;
+    display: block;
+}
+
+/* id for water audio */
+#bubbly-sound {
+  display: none;
+}
+
+.aqualens_title,
+.act1_section {
+  position: absolute;
+  z-index: 1;
+  color: white;
+}
+
+.aqualens_subtitle {
+  font-family: 'Futura', sans-serif;
+  font-size: 1.6vw; 
+  font-weight: 300; 
+  color: white; 
+  margin: 0; 
+  margin-top: 10px;
+  opacity: 0.8; 
+}
+
+.aqualens_title {
+  font-family: 'Futura';
+  font-weight: bold;
+  font-size: 5vw;
+  top: 30%;
+  left: 10%;
+  text-shadow: 0 0 10px rgba(158, 181, 203, 1);
+}
+
+/* set container div for progress bar */
+#story {
+  position: relative;
+}
+
+.progress_bar {
+  position: fixed;
+  top: 0;
+  height: 1%;
+  background: #3498db;
+  width: 0%;
+  z-index: 1000;
+}
+
+/* whole pin section for video/text at the bottom of scene 1 */
+.pin_section {
+  position: relative;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  border: none; 
+  box-sizing: border-box; 
+}
+
+/* style scene */
+.scene1 {
+  position: relative;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  border: none; 
+  box-sizing: border-box; 
+}
+
+/* scene 1 background image styling */
+.at_the_surface {
+  width: 100vw;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  z-index: 0;
+  padding: 0;
+  margin: 0;
+  margin-bottom: -1px;
+  -webkit-mask-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0)); /* fade at the top from the video */
+  background-size: contain;
+  border: none;
+  box-sizing: border-box;
+}
+
+/* scroll text with css animation */
+.scroll_text {
+  position: absolute; 
+  top: 25%; 
+  left: 9%; 
+  color: white; 
+  font-size: 2vw; 
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  animation: bounce 1.3s infinite alternate ease-in-out;
+}
+
+/* various parts of the whole div */
+.scroll_text p {
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+}
+
+#scroll_arrow_box {
+  display: flex;
+  align-items: center;
+}
+
+#scroll_arrow {
+  width: 2.2vw;
+  height: auto;
+}
+
+/* animation for scroll text */
+@keyframes bounce {
+  0% {
+    transform: translateY(0); /* start at original position */
+  }
+  50% {
+    transform: translateY(22%); /* move up 22% */
+  }
+  100% {
+    transform: translateY(0); /* return to original position */
+  }
+}
+
+#below_surface_text {
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  top: 53%;
+  color: white; 
+  font-size: 1.8vw; 
+  z-index: 10;
+  padding: 0% 5%;
+}
+
+/* blink vid make sure no whitespace around */
+.blink_vid {
+  width: 100vw;
+  margin: 0%;
+  margin-top: -1px;
+  margin-bottom: -1px;
+  padding: 0%;
+  object-fit: cover;
+  display: block;
+  will-change: transform;
+  border: none;
+  box-sizing: border-box;
+}
+
+.act1_section {
+  bottom: 21%;
+  left: 21%;
+  padding-right: 4%;
+  z-index: 10;
+}
+
+.act1_text_section_2 {
+  bottom: 10%;
+  left: 20%;
+  padding-right: 4%;
+  z-index: 10;
+}
+
+.act1_text {
+  color: white;
+  font-size: 2vw;
+  width: 80%;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hero_buttons {
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+  display: flex;
+  gap: 2vw;
+  z-index: 1;
+}
+
+#dive_button,
+#explore_button {
+  padding: 1vw 2vw;
+  font-size: 1.5vw;
+  cursor: pointer;
+  background: white;
+  border: none;
+  color: #222;
+  border-radius: 5px;
+  transition: transform 0.2s ease;
+  white-space: nowrap;
+}
+
+/* expand on hover */
+#dive_button:hover,
+#explore_button:hover {
+  transform: scale(1.05);
+}
+
+.picture {
+  width: 100vw;
+  object-fit: cover;
+  display: block;
+  z-index: -10;
+  padding: 0;
+  margin: 0;
+  background-size: contain;
+}
+
+.pin_section_2 {
+  position: relative;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  border: none; 
+  box-sizing: border-box; 
+}
+
+.scene2 {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  border: none; 
+  box-sizing: border-box; 
+}
+
+.act2_pollutant_section {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  top: 0;
+}
+
+/* add animations to pollutants, slightly alter time */
+/* added drop shadow */
+#nitrate {
+  position: absolute;
+  max-width: 100%; 
+  z-index: 3;
+  animation: bobbing 2s infinite alternate ease-in-out;
+  filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.3));
+}
+
+#ammonium {
+  position: absolute;
+  max-width: 100%; 
+  z-index: 3;  
+  animation: bobbing 1.8s infinite alternate ease-in-out;
+  filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.425));
+}
+
+#plastic_bag {
+  position: absolute;
+  max-width: 100%; 
+  z-index: 3;
+  animation: bobbing 1.9s infinite alternate ease-in-out;
+  filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.28));
+}
+
+/* containers to position the pollutants */
+.nitrate_container {
+  position: absolute;
+  top: 7%;
+  left: 10%;
+  width: 15%;
+  z-index: 1000;
+}
+
+.ammonium_container {
+  position: absolute;
+  top: 19%;
+  right: 10%;
+  width: 15%;
+  z-index: 1000;
+}
+
+.plastic_bag_container {
+  position: absolute;
+  top: 31%;
+  right: 30%;
+  width: 12%;
+  z-index: 1000;
+}
+
+/* animation for pollutants */
+@keyframes bobbing {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(7%); /* move up 7% */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* tooltip that appears on hover, nitrate */
+.tooltip {
+  position: relative;
+  transform: translateX(34.5%);
+  color: black;
+  background:white;
+  border-radius: 1vw;
+  width: 50vw;
+  padding: 8% 12%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  white-space: nowrap;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  text-wrap: wrap;
+}
+
+/* tooltip tip for nitrate tooltip */
+.tooltip:before {
+    content:"";
+    position: absolute;
+    height: 0%;
+    width: 0%;
+    top: 40%;
+    left: -3.8%;
+    border-width: 1vw;
+    border-color: transparent white transparent transparent;
+    border-style: solid;
+}
+
+/* tooltip that appears on hover, ammonium */
+.tooltip_left {
+  position: relative;
+  transform: translateX(-105%);
+  color: black;
+  background:white;
+  border-radius: 1vw;
+  width: 50vw;
+  padding: 8% 12%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  white-space: nowrap;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  text-wrap: wrap;
+}
+
+/* tooltip tip for ammonium tooltip */
+.tooltip_left:after {
+    content:"";
+    position: absolute;
+    height: 0%;
+    width: 0%;
+    top: 40%;
+    right: -3.8%;
+    border-width: 1vw;
+    border-color: transparent transparent transparent white;
+    border-style: solid;
+}
+
+/* tooltip that appears on hover, plastic bag */
+.tooltip_lefter {
+  position: relative;
+  transform: translateX(-105%); 
+  color: black;
+  background:white;
+  border-radius: 1vw;
+  width: 50vw;
+  padding: 8% 12%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  white-space: nowrap;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  text-wrap: wrap;
+}
+
+/* tooltip tip for plastic bag tooltip */
+.tooltip_lefter:after {
+    content:"";
+    position: absolute;
+    height: 0%;
+    width: 0%;
+    top: 40%;
+    right: -3.8%;
+    border-width: 1vw;
+    border-color: transparent transparent transparent white;
+    border-style: solid;
+}
+
+/* text styling */
+.tooltip_text {
+  font-size: 2vw;
+  color: rgb(37, 37, 37);
+}
+
+/* make tooltips visible on hover */
+.nitrate_container:hover .tooltip {
+  opacity: 1;
+}
+
+.ammonium_container:hover .tooltip_left {
+  opacity: 1;
+}
+
+.plastic_bag_container:hover .tooltip_lefter {
+  opacity: 1;
+}
+
+/* "Hover on me!" text styling */
+#hover_container {
+  position: absolute;
+  top: 12.8%;
+  left: 17%;
+  width: 15%;
+  z-index: 100;
+}
+
+#hover_text_container {
+  position: absolute;
+  top: 16.19%;
+  left: 26%;
+  z-index: 100;
+  overflow: hidden;
+}
+
+#hover_text {
+  color: white;
+  font-size: 2vw;
+  opacity: 1;
+  transform: translateY(-100);
+}
+
+.act2_text_section_1 {
+  position: absolute;
+  top: 45%;
+  left: 18%;
+  z-index: 10;
+}
+
+.act2_text_1 {
+  color: white;
+  font-size: 2vw;
+  width: 80%;
+  opacity: 0;
+  text-align: left;
+}
+
+/* graphs and graphs text positioning and styling */
+#graph1 {
+  position: absolute;
+  width: 44%;
+  top: 54%;
+  right: 5%;
+  transform: scale(0.01); 
+  opacity: 0;
+  transform-origin: center;
+  z-index: 12;
+}
+
+#graph1_text_wrapper {
+  position: absolute;
+  top: 56%;
+  left: 17.85%;
+  width: 33%;
+  padding-right: 3%;
+  height: auto;
+  overflow: hidden; /* hides the sliding text until it enters */
+  z-index: 10;
+}
+
+#graph1_text {
+  color: white;
+  font-size: 3.5vw;
+  text-align: right;
+  transform: translateX(102%);
+  will-change: transform;
+}
+
+#graph2 {
+  position: absolute;
+  width: 44%;
+  top: 71%;
+  left: 5%;
+  transform: scale(0.01); 
+  opacity: 0;
+  transform-origin: center;
+}
+
+
+#graph2_text_wrapper {
+  position: absolute;
+  top: 72.9%;
+  right: 5.9%;
+  width: 45%;
+  padding-left: 3%;
+  height: auto;
+  overflow: hidden; /* hides the sliding text until it enters */
+  z-index: 10;
+}
+
+#graph2_text {
+  color: white;
+  font-size: 3vw;
+  text-align: left;
+  transform: translateX(102%);
+  will-change: transform;
+}
+
+/* rounding the corners on the images */
+.data_image {
+  border-radius: 13px;
+  width: 100%
+}
+
+.act2_text_section_2 {
+  position: absolute;
+  bottom: 4.59%;
+  right: 5.5%;
+  z-index: 10;
+  width: 75%;
+}
+
+.act2_text_2 {
+  color: white;
+  font-size: 2vw;
+  width: 100%;
+  opacity: 0;
+}
+
+#explore_the_data_button {
+  position: absolute;
+  bottom: 10.5%;
+  right: 10%;
+  padding: 1vw 2vw;
+  font-size: 1.5vw;
+  cursor: pointer;
+  background: white;
+  border: none;
+  color: #222;
+  border-radius: 5px;
+  transition: transform 0.2s ease;
+}
+
+/* button expands on hover */
+#explore_the_data_button:hover {
+  transform: scale(1.05);
+}
+
+#join_linkedin_button {
+  position: absolute;
+  bottom: 5%;
+  right: 10%;
+  padding: 1vw 2vw;
+  font-size: 1.5vw;
+  cursor: pointer;
+  background: white;
+  border: none;
+  color: #222;
+  border-radius: 5px;
+  transition: transform 0.2s ease;
+}
+
+/* button expands on hover */
+#join_linkedin_button:hover {
+  transform: scale(1.05);
+}
+
+#explore_the_projects_button {
+  position: absolute;
+  bottom: 5%;
+  right: 10%;
+  padding: 1vw 2vw;
+  font-size: 1.5vw;
+  cursor: pointer;
+  background: white;
+  border: none;
+  color: #222;
+  border-radius: 5px;
+  transition: transform 0.2s ease;
+}
+
+/* button expands on hover */
+#explore_the_projects_button:hover {
+  transform: scale(1.05);
+}
+
+.scene3 {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  border: none; 
+  box-sizing: border-box; 
+}
+
+.pin_section_3 {
+  position: relative;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  border: none; 
+  box-sizing: border-box; 
+}
+
+/* quote box image styling */
+.quote {
+  position: absolute;
+  width: 100%;
+}
+
+/* containers vary based on required styling */
+.quote_text_container {
+  position: absolute;
+  z-index: 100;
+  left: 13.9%;
+  padding-top: 3.4%;
+  padding-right: 5%;
+  width: 83%;
+  text-wrap: wrap;
+  height: 100%;
+}
+
+.quote_text_container_right_2 {
+  position: absolute;
+  z-index: 100;
+  padding-top: 5.3%;
+  left: 8.3%;
+  width: 83%;
+  text-wrap: wrap;
+  height: 100%;
+  margin-inline: auto; 
+}
+
+.quote_text_container_right {
+  position: absolute;
+  z-index: 100;
+  padding-top: 3.4%;
+  padding-right: 4.5%;
+  left: 8.8%;
+  width: 83%;
+  text-wrap: wrap;
+  height: 100%;
+  margin-inline: auto; 
+}
+
+/* quote text styling */
+.quote_text {
+  color: black;
+  font-size: 1.7vw;
+}
+
+/* positioning on quotes */
+#quote_1 {
+  position: absolute;
+  top: 4.2%;
+  left: 16%;
+  width: 60%;
+  z-index: 3;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.05s ease-out;
+}
+
+#quote_2 {
+  position: absolute;
+  top: 20.4%;
+  right: 16.5%;
+  width: 60%;
+  z-index: 3;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.05s ease-out;
+}
+
+#quote_3 {
+  position: absolute;
+  top: 36.4%;
+  left: 16%;
+  width: 60%;
+  z-index: 3;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.05s ease-out;
+}
+
+#quote_4 {
+  position: absolute;
+  top: 52.2%;
+  right: 16.5%;
+  width: 60%;
+  z-index: 3;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.05s ease-out;
+}
+
+#quote_5 {
+  position: absolute;
+  top: 68.4%;
+  left: 16%;
+  width: 60%;
+  z-index: 3;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.05s ease-out;
+}
+
+/* styling of job titles */
+.quoter_text {
+  color: white;
+  font-size: 2.5vw;
+}
+
+/* positioning of job titles */
+#quoter_1 {
+  position: absolute;
+  top: 16%;
+  left: 4.5%;
+  width: 60%;
+  z-index: 100;
+}
+
+#quoter_2 {
+  position: absolute;
+  top: 31.8%;
+  right: -41.2%;
+  width: 60%;
+  z-index: 100;
+}
+
+#quoter_3 {
+  position: absolute;
+  top: 48%;
+  left: 4.5%;
+  width: 60%;
+  z-index: 100;
+}
+
+#quoter_4 {
+  position: absolute;
+  top: 63.9%;
+  right: -38.1%;
+  width: 60%;
+  z-index: 100;
+}
+
+#quoter_5 {
+  position: absolute;
+  top: 80.1%;
+  left: 4.5%;
+  width: 60%;
+  z-index: 100;
+}
+
+.act3_text_section {
+  position: absolute;
+  z-index: 10;
+  bottom: 10.5%;
+  left: 17.8%;
+}
+
+.act3_text{
+  color: white;
+  font-size: 2.5vw;
+  width: 90%;
+  opacity: 0;
+}
+
+.scene4 {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  border: none; 
+  box-sizing: border-box; 
+}
+
+/* hand positioning */
+#hand_container {
+  position: absolute;
+  top: 7.4%;
+  left: -48.05%;
+  width: 48.1%;
+  z-index: 3;
+}
+
+/* hand image styling */
+#hand { 
+  position: absolute;
+  width: 100%;
+  z-index: 3;
+}
+
+.act4_text_section {
+  position: absolute;
+  z-index: 10;
+  top: 7%;
+  left: 50%;
+}
+
+.act4_text{
+  color: white;
+  font-size: 3.5vw;
+  width: 95%;
+  opacity: 1;
+}
+
+/* box for project information */
+.project_container {
+  position: absolute;
+  z-index: 10;
+  width: 70%;
+  height: 15%;
+  left: 15%;
+  background-color: white;
+  border-radius: 25px;
+  top: 0%;
+  border: solid 4px white;
+  padding-top: 2.5%;
+  padding-left: 3.5%;
+  padding-right: 3.5%;
+  padding-bottom: 2.5%;
+}
+
+/* various styling for project containers */
+.project_title {
+  font-size: 2.25vw;
+}
+
+.project_text {
+  width: 64%;
+  font-size: 1vw;
+}
+
+.project_image {
+  position: absolute;
+  width: auto;
+  height:86%;
+  right: 3.5%;
+  top: 7%;
+  border-radius: 2%;
+}
+
+.pin_section_5 {
+  position: relative;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  border: none; 
+  box-sizing: border-box; 
+}
+
+.scene5 {
+  position: relative;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  border: none; 
+  box-sizing: border-box; 
+}
+
+#act5_text_section_1 {
+  position: absolute;
+  z-index: 10;
+  bottom: 58%;
+  left: 22%;
+  width: 70%;
+}
+
+#act5_text_section_2 {
+  position: absolute;
+  z-index: 10;
+  bottom: 34%;
+  left: 37%;
+}
+
+#act5_text_1 {
+  color: white;
+  font-size: 2vw;
+  width: 100%;
+  opacity: 0;
+}
+
+#act5_text_2 {
+  color: white;
+  font-size: 4vw;
+  width: 100%;
+  opacity: 0;
+}
+
+/* video of froggy resurfacing */
+.surface_vid {
+  width: 100vw;
+  margin: 0%;
+  margin-top: -2px;
+  margin-bottom: -1px;
+  padding: 0%;
+  object-fit: cover;
+  display: block;
+  will-change: transform;
+  border: none;
+  box-sizing: border-box;
+  line-height: 0;
+  backface-visibility: hidden;
+}
+
+/* post-story section */
+.explore {
+  position: relative;
+  margin-top: 100px;
+  margin-left: 80px;
+  margin-right: 80px;
+  margin-bottom: 100px;
+}
+
+/* various about area styling */
+#about_initiative{
+  margin: 0% 10% 5% 10%;
+  display: flex;
+}
+
+#about_initiative_title_container{
+  flex: 1;
+  padding-right: 3%;
+  align-self: center;
+}
+
+#about_initiative_title{
+  font-size: 4.5vw;
+  font-weight: bold;
+  text-align: right;
+  line-height: 4.8vw;
+}
+
+#about_initiative_text_container{
+  flex: 3;
+  align-self: center;
+}
+
+#about_initiative_text{
+  font-size: 1.75vw;
+  line-height: 2.47vw;
+}
+
+.what_next {
+  text-align: center;
+  font-weight: bold;
+  font-size: 56px;
+  padding-bottom: 26px;
+}
+
+/* three website boxes overall container */
+.website_sections {
+  display: flex;
+  justify-content: space-between   ;
+  gap: 30px; /* minimum spacing */
+  padding: 20px;
+  flex-wrap: nowrap;
+}
+
+/* singular box styling */
+.section_box {
+  width: 300px;
+  height: 300px;
+  background-color: rgb(164, 181, 202);
+  border: rgb(164, 181, 202) solid 0.8px;
+  color: white;
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 16px;
+  transition: all 0.2s ease-in-out;
+  padding: 10%;
+}
+
+/* change colour on hover */
+.section_box:hover {
+  background-color: white;
+  border: black solid 0.8px;
+  color: black;
+}
+
+/* stack vertically if boxes + gaps won't fit */
+@media (max-width: 1080px) {
+  .website_sections {
+    flex-direction: column;
+    gap: 20px; /* vertical spacing when stacked */
+    align-items: center; /* center vertically stacked boxes */  
+  }
+}
+
+/* overall froggy container */
+#meet_froggy {
+  position: relative;
+  background-color: rgb(217, 217, 217);
+  width: 100%;
+  padding: 5% 10%;
+  display: flex;
+  border-radius: 20px;
+  margin-top: 5%;
+  gap: 10%;
+}
+
+/* various froggy container styling */
+#froggy_title_container {
+  border: 0;
+}
+
+#froggy_title {
+  font-size: 280%;
+  font-weight: bold;
+}
+
+#froggy_text_container {
+  border: 0;
+}
+
+#froggy_text {
+  font-size: 200%;
+}
+
+#froggy_button {
+  font-size: 130%;
+  cursor: pointer;
+  background-color: rgb(50, 99, 161);
+  color: white;
+  padding: 18px;
+  border-radius: 6px;
+  margin-top: 10px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+/* enlarge and change colour on hover */
+#froggy_button:hover {
+  background-color: rgb(149, 173, 203);
+  color: white;
+  transform: scale(1.05);
+}
+
+#froggy_img_container {
+  background-color: white;
+  padding: 22%;
+  width: 100%;
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  align-self: center;
+}
+
+#froggy_img {
+  width: 100%;
+  height: auto;
+  align-self: center;
+}
+
+#meet_froggy_container {
+  align-self: center;
+}
+
+.meet_froggy_coontainers {
+  border: 0;
+  padding: 0;
+}
+
+/* stack vertically if child containers don't fit */
+@media (max-width: 1080px) {
+  .meet_froggy_containers {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* ============ Mobile Responsive Styles ============ */
+
+/* Tablet and below (768px) */
+@media (max-width: 768px) {
+
+  /* --- Hero / Water Animation --- */
+  .aqualens_title {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    top: 22%;
+    left: 5%;
+    right: 5%;
+    text-align: center;
+  }
+
+  .aqualens_subtitle {
+    font-size: clamp(0.9rem, 3.8vw, 1.3rem);
+    margin-left: 0 !important;
+    text-align: center;
+  }
+
+  .hero_buttons {
+    bottom: auto;
+    top: 50%;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 10px;
+  }
+
+  #dive_button,
+  #explore_button {
+    font-size: clamp(0.8rem, 3vw, 1rem);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* --- Scene 1 --- */
+  .scroll_text {
+    font-size: clamp(1rem, 4.5vw, 1.6rem);
+    top: 18%;
+    left: 5%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .scroll_text p {
+    white-space: normal;
+  }
+
+  #scroll_arrow {
+    width: clamp(1.2rem, 6vw, 2.5rem);
+  }
+
+  #below_surface_text {
+    font-size: clamp(0.9rem, 4vw, 1.4rem);
+    top: 45%;
+    padding: 0 8%;
+  }
+
+  .act1_section {
+    bottom: 28%;
+    left: 5%;
+    padding-right: 5%;
+  }
+
+  .act1_text {
+    font-size: clamp(0.95rem, 4vw, 1.4rem);
+    width: 100%;
+  }
+
+  /* --- Scene 2 - Pollutants --- */
+  .nitrate_container {
+    top: 4%;
+    left: 3%;
+    width: 28%;
+  }
+
+  .ammonium_container {
+    top: 4%;
+    right: 3%;
+    width: 28%;
+  }
+
+  .plastic_bag_container {
+    top: 18%;
+    right: 28%;
+    width: 22%;
+  }
+
+  /* Tooltips - narrower for mobile */
+  .tooltip {
+    width: 75vw;
+    padding: 5% 8%;
+    border-radius: 8px;
+    transform: translateX(10%);
+  }
+
+  .tooltip_left {
+    width: 75vw;
+    padding: 5% 8%;
+    border-radius: 8px;
+    transform: translateX(-65%);
+  }
+
+  .tooltip_lefter {
+    width: 75vw;
+    padding: 5% 8%;
+    border-radius: 8px;
+    transform: translateX(-65%);
+  }
+
+  .tooltip_text {
+    font-size: clamp(0.75rem, 3vw, 1.1rem);
+    white-space: normal;
+  }
+
+  /* Tooltip arrows */
+  .tooltip:before {
+    left: -4.5%;
+    border-width: 1.5vw;
+  }
+
+  .tooltip_left:after {
+    right: -4.5%;
+    border-width: 1.5vw;
+  }
+
+  .tooltip_lefter:after {
+    right: -4.5%;
+    border-width: 1.5vw;
+  }
+
+  /* Hover prompt */
+  #hover_container {
+    top: 10%;
+    left: 35%;
+    width: auto;
+  }
+
+  #hover_container lottie-player {
+    width: 15vw !important;
+    height: 15vw !important;
+  }
+
+  #hover_text_container {
+    top: 15%;
+    left: 52%;
+  }
+
+  #hover_text {
+    font-size: clamp(0.9rem, 3.5vw, 1.3rem);
+  }
+
+  /* Act 2 text */
+  .act2_text_section_1 {
+    top: 38%;
+    left: 5%;
+    width: 90%;
+  }
+
+  .act2_text_1 {
+    font-size: clamp(0.95rem, 3.8vw, 1.4rem);
+    width: 100%;
+  }
+
+  .act2_text_section_2 {
+    bottom: 14%;
+    right: 5%;
+    left: 5%;
+    width: 90%;
+  }
+
+  .act2_text_2 {
+    font-size: clamp(0.95rem, 3.8vw, 1.4rem);
+    width: 100%;
+  }
+
+  /* Graphs - stack vertically */
+  #graph1 {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    right: auto;
+    width: 90%;
+  }
+
+  #graph2 {
+    position: absolute;
+    top: 68%;
+    left: 5%;
+    right: auto;
+    width: 90%;
+  }
+
+  #graph1_text_wrapper {
+    top: 52.5%;
+    left: 5%;
+    width: 90%;
+  }
+
+  #graph2_text_wrapper {
+    top: 70.5%;
+    right: auto;
+    left: 5%;
+    width: 90%;
+  }
+
+  #graph1_text,
+  #graph2_text {
+    font-size: clamp(1rem, 4.5vw, 1.6rem);
+    text-align: center;
+    transform: none;
+  }
+
+  #explore_the_data_button {
+    font-size: clamp(0.85rem, 3vw, 1.1rem);
+    padding: 0.7rem 1.4rem;
+    border-radius: 8px;
+    bottom: 6%;
+    right: 5%;
+    min-height: 44px;
+  }
+
+  /* --- Scene 3 - Quotes --- */
+  #quote_1,
+  #quote_2,
+  #quote_3,
+  #quote_4,
+  #quote_5 {
+    width: 88%;
+    left: 6%;
+    right: auto;
+  }
+
+  .quote_text {
+    font-size: clamp(0.8rem, 3.2vw, 1.2rem);
+  }
+
+  .quoter_text {
+    font-size: clamp(0.85rem, 3.5vw, 1.3rem);
+  }
+
+  /* Reposition quoter labels */
+  #quoter_1 { top: 16%; left: 5%; width: auto; }
+  #quoter_2 { top: 32%; left: auto; right: 5%; width: auto; }
+  #quoter_3 { top: 48%; left: 5%; width: auto; }
+  #quoter_4 { top: 64%; left: auto; right: 5%; width: auto; }
+  #quoter_5 { top: 80%; left: 5%; width: auto; }
+
+  .act3_text_section {
+    bottom: 14%;
+    left: 5%;
+    width: 90%;
+  }
+
+  .act3_text {
+    font-size: clamp(1rem, 4.5vw, 1.6rem);
+    width: 100%;
+  }
+
+  #join_linkedin_button {
+    font-size: clamp(0.8rem, 2.8vw, 1rem);
+    padding: 0.7rem 1.4rem;
+    border-radius: 8px;
+    bottom: 6%;
+    right: 5%;
+    min-height: 44px;
+  }
+
+  /* --- Scene 4 - Projects --- */
+  .act4_text_section {
+    top: 5%;
+    left: 5%;
+    width: 90%;
+  }
+
+  .act4_text {
+    font-size: clamp(1.1rem, 5vw, 2rem);
+    width: 100%;
+  }
+
+  #hand_container {
+    display: none;
+  }
+
+  .project_container {
+    width: 90%;
+    left: 5%;
+    height: auto;
+    min-height: 110px;
+    padding: 4%;
+    border-radius: 16px;
+  }
+
+  .project_title {
+    font-size: clamp(1rem, 4vw, 1.4rem);
+  }
+
+  .project_text {
+    font-size: clamp(0.7rem, 2.5vw, 0.95rem);
+    width: 100%;
+  }
+
+  .project_image {
+    position: relative;
+    width: 100%;
+    height: auto;
+    max-height: 120px;
+    object-fit: cover;
+    right: auto;
+    top: auto;
+    margin-top: 8px;
+    border-radius: 8px;
+  }
+
+  #project_container_1 { top: 32%; }
+  #project_container_2 { top: 50%; }
+  #project_container_3 { top: 68%; }
+
+  #explore_the_projects_button {
+    font-size: clamp(0.8rem, 2.8vw, 1rem);
+    padding: 0.7rem 1.4rem;
+    border-radius: 8px;
+    bottom: 3%;
+    right: 5%;
+    min-height: 44px;
+  }
+
+  /* --- Scene 5 --- */
+  #act5_text_section_1 {
+    bottom: 62%;
+    left: 5%;
+    width: 90%;
+  }
+
+  #act5_text_1 {
+    font-size: clamp(0.95rem, 3.8vw, 1.4rem);
+  }
+
+  #act5_text_section_2 {
+    bottom: 38%;
+    left: 5%;
+    width: 90%;
+  }
+
+  #act5_text_2 {
+    font-size: clamp(1.5rem, 7vw, 3rem);
+  }
+
+  /* --- Post-Story Explore Section --- */
+  .explore {
+    margin: 40px 16px 60px 16px;
+  }
+
+  #about_initiative {
+    flex-direction: column;
+    margin: 0 0 2rem 0;
+  }
+
+  #about_initiative_title_container {
+    padding-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  #about_initiative_title {
+    font-size: clamp(1.6rem, 7vw, 3rem);
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  #about_initiative_text {
+    font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+    line-height: 1.5;
+  }
+
+  .what_next {
+    font-size: clamp(1.5rem, 7vw, 2.5rem);
+    padding-bottom: 16px;
+  }
+
+  .section_box {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    min-height: 140px;
+    font-size: clamp(1rem, 4.5vw, 1.5rem);
+    padding: 12%;
+  }
+
+  /* --- Meet Froggy --- */
+  #meet_froggy {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  #froggy_img_container {
+    max-width: 180px;
+    margin: 0 auto;
+    padding: 15%;
+  }
+
+  #froggy_title {
+    font-size: clamp(1.4rem, 6vw, 2rem);
+  }
+
+  #froggy_text {
+    font-size: clamp(0.95rem, 4vw, 1.3rem);
+  }
+
+  #froggy_button {
+    font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+    padding: 14px 24px;
+    min-height: 44px;
+  }
+}
+
+/* Small phones (480px and below) */
+@media (max-width: 480px) {
+
+  .aqualens_title {
+    font-size: clamp(1.6rem, 9vw, 2.5rem);
+    top: 18%;
+  }
+
+  .aqualens_subtitle {
+    font-size: clamp(0.8rem, 4.5vw, 1rem);
+  }
+
+  .hero_buttons {
+    top: 48%;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 8px;
+  }
+
+  #dive_button,
+  #explore_button {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.8rem;
+    min-height: 40px;
+  }
+
+  /* Pollutants */
+  .nitrate_container { width: 32%; left: 2%; }
+  .ammonium_container { width: 32%; right: 2%; }
+  .plastic_bag_container { width: 26%; right: 18%; top: 17%; }
+
+  /* Tooltips */
+  .tooltip,
+  .tooltip_left,
+  .tooltip_lefter {
+    width: 85vw;
+    padding: 4% 6%;
+  }
+
+  .tooltip_text {
+    font-size: 0.72rem;
+  }
+
+  #hover_container {
+    top: 9%;
+    left: 30%;
+  }
+
+  #hover_container lottie-player {
+    width: 18vw !important;
+    height: 18vw !important;
+  }
+
+  #hover_text {
+    font-size: 0.85rem;
+  }
+
+  /* Act 2 */
+  .act2_text_section_1 { top: 36%; }
+  .act2_text_1 { font-size: 0.9rem; }
+  .act2_text_2 { font-size: 0.9rem; }
+
+  /* Graphs */
+  #graph1 { top: 48%; }
+  #graph2 { top: 66%; }
+  #graph1_text_wrapper { top: 50.5%; }
+  #graph2_text_wrapper { top: 68.5%; }
+  #graph1_text,
+  #graph2_text { font-size: 0.9rem; }
+
+  #explore_the_data_button {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    bottom: 5%;
+  }
+
+  /* Quotes */
+  #quote_1,
+  #quote_2,
+  #quote_3,
+  #quote_4,
+  #quote_5 {
+    width: 94%;
+    left: 3%;
+  }
+
+  .quote_text { font-size: 0.72rem; }
+  .quoter_text { font-size: 0.78rem; }
+
+  .act3_text { font-size: 0.95rem; }
+
+  #join_linkedin_button {
+    font-size: 0.75rem;
+    padding: 0.5rem 1rem;
+  }
+
+  /* Scene 4 */
+  .act4_text { font-size: 1rem; }
+
+  .project_container {
+    width: 96%;
+    left: 2%;
+    min-height: 100px;
+  }
+
+  .project_title { font-size: 0.9rem; }
+  .project_text { font-size: 0.65rem; }
+
+  #project_container_1 { top: 30%; }
+  #project_container_2 { top: 48%; }
+  #project_container_3 { top: 66%; }
+
+  #explore_the_projects_button {
+    font-size: 0.75rem;
+    padding: 0.5rem 1rem;
+  }
+
+  /* Scene 5 */
+  #act5_text_1 { font-size: 0.9rem; }
+  #act5_text_2 { font-size: 1.4rem; }
+
+  /* Explore */
+  .explore {
+    margin: 30px 10px 50px 10px;
+  }
+
+  #about_initiative_title {
+    font-size: clamp(1.3rem, 8vw, 2rem);
+  }
+
+  #about_initiative_text {
+    font-size: 0.85rem;
+  }
+
+  .what_next {
+    font-size: clamp(1.2rem, 8vw, 2rem);
+  }
+
+  .section_box {
+    min-height: 120px;
+    font-size: clamp(0.9rem, 5vw, 1.3rem);
+    padding: 10%;
+  }
+
+  #meet_froggy {
+    padding: 1.5rem 1rem;
+  }
+
+  #froggy_title {
+    font-size: clamp(1.2rem, 7vw, 1.6rem);
+  }
+
+  #froggy_text {
+    font-size: 0.9rem;
+  }
+
+  #froggy_button {
+    font-size: 0.85rem;
+    padding: 12px 20px;
+  }
+}
+
+/* ============ Critical mobile overrides (applies to all mobile sizes) ============ */
+
+@media (max-width: 768px) {
+
+  /* Ensure body doesn't overflow horizontally */
+  body, html {
+    overflow-x: hidden !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+  }
+
+  /* Transparent header over water — no background, above buttons */
+  body.home header {
+    min-height: auto !important;
+    padding: 0.5rem 0;
+    z-index: 2000 !important;
+  }
+
+  /* Keep logo + hamburger in a row */
+  body.home .header-content {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center;
+  }
+
+  /* Nav dropdown on mobile — column layout */
+  body.home .nav-links {
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+  }
+
+  /* White hamburger for transparent header */
+  body.home .hamburger span {
+    background: #fff;
+  }
+
+  /* Prevent hamburger from inheriting the 44px min-size button rule */
+  body.home .hamburger {
+    min-width: unset !important;
+    min-height: unset !important;
+  }
+
+  /* Nav links in mobile dropdown — dark text on light bg (readable in the white dropdown) */
+  body.home .nav-links a {
+    color: #333 !important;
+    text-shadow: none;
+  }
+
+  body.home .nav-links a:hover {
+    color: #000 !important;
+  }
+
+  body.home .dropdown-menu li a {
+    color: #333 !important;
+    text-shadow: none;
+  }
+
+  /* Ensure the water GIF scales properly */
+  #bg-video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  /* Prevent images from causing overflow */
+  img {
+    max-width: 100%;
+  }
+
+  /* Make all buttons have reasonable minimum touch size */
+  button, .btn, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Ensure the story section doesn't overflow */
+  #story {
+    overflow: hidden;
+  }
+
+  /* Prevent pin spacer issues */
+  .pin_section,
+  .pin_section_2,
+  .pin_section_3,
+  .pin_section_4,
+  .pin_section_5,
+  #enlarged_pin {
+    overflow: hidden;
+  }
+
+  /* Scene background images */
+  .at_the_surface,
+  .picture,
+  .surface_vid,
+  .blink_vid {
+    width: 100vw !important;
+    height: auto !important;
+    min-height: 250px;
+    object-fit: cover;
+  }
+}

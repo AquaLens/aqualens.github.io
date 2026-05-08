@@ -1,0 +1,586 @@
+/* ==================== BUTTON COMPONENTS ==================== */
+
+/* project navigation button */
+.button-top {
+    margin-top: 1rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.btn-projects {
+    display: inline-block;
+    background-color: #933f8d;
+    color: #ffffff;
+    padding: 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    width: 250px;
+    transition: background-color 0.2s ease;
+    text-align: center;
+}
+
+.btn-projects:hover {
+    background-color: #CCCCCC;
+    color: #000000;
+}
+
+/* Submit project button */
+.submit-idea-btn {
+    align-self: flex-end;
+    background-color: #933f8d;
+    color: #ffffff;
+    padding: 1rem 1.4rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.submit-idea-btn:hover {
+    background-color: #CCCCCC;
+    color: #000000;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* ==================== LOADING INDICATOR ==================== */
+
+.loading-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: none;
+}
+
+.loading-message {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+}
+
+/* ==================== MAIN LAYOUT STRUCTURE ==================== */
+
+/* Main container for sidebar and content */
+main {
+    display: flex;
+    flex-wrap: nowrap; /* prevent vertical stacking */
+    align-items: flex-start;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Sidebar container stack */
+.sidebar-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 1 1 220px;
+    max-width: 250px;
+}
+
+/* Main content area (map and projects) */
+.projects-section {
+    flex: 2; 
+}
+
+.projects-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* ==================== SIDEBAR FILTERS SECTION ==================== */
+
+/* Sidebar container styling */
+aside {
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    flex: 1 1 220px;
+    max-width: 250px;
+}
+
+/* Filter section header */
+.filters h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+/* Individual filter group container */
+.filter-group {
+    margin-bottom: 1.5rem;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 0.25rem;
+    cursor: pointer;
+}
+
+/* Selected items display (countries/tags) */
+.selected-countries {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.country-chip {
+    background-color: #e0f0ff;
+    border: 1px solid #90caff;
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+.country-chip .remove-btn {
+    margin-left: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    line-height: 1;
+}
+
+/* ==================== SEARCH FUNCTIONALITY ==================== */
+
+/* Search container and spacing */
+.search-container {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Search input field  */
+.search-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #4a90e2;
+    background: white;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+/* Search field label */
+.search-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Clear search button */
+.search-clear {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #999;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    display: none;
+}
+
+.search-wrapper {
+    position: relative;
+}
+
+/* Search results information display */
+.search-results-info {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #666;
+    font-style: italic;
+}
+
+/* ==================== FROGGY CHAT HELPER ==================== */
+
+/* Froggy help section container */
+.froggy-help {
+    background-color: #ffffff;
+    border: 1px solid #d3d3d3;
+    padding: 1rem;
+    border-radius: 4px;
+    text-align: left;
+}
+
+.froggy-text .title {
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.froggy-text .subtitle {
+    font-weight: normal;
+    margin-bottom: 1rem;
+}
+
+/* Froggy action area with image and button */
+.froggy-action {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.froggy-help img {
+    width: 50px;
+    margin-bottom: 0;
+}
+
+/* Froggy chat button */
+.froggy-help button {
+    background-color: #3B609C;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.froggy-help button:hover {
+    background-color: #CCCCCC;
+    color: #000000;
+}
+
+/* ==================== PROJECT SUBMISSION SECTION ==================== */
+
+/* Submit project idea container */
+.submit-idea-box {
+    margin-top: 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.submit-idea-box h3 {
+    margin-bottom: 0.1rem;
+    text-align: left;
+}
+
+/* ==================== MODAL COMPONENTS ==================== */
+
+/* Modal overlay and positioning */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    padding-top: 80px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Modal content container */
+.modal-content {
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* header  */
+.modal-content h2 {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    text-align: center;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    color: #000;
+}
+
+.modal-content p {
+    margin: 8px 0;
+}
+
+.modal-content strong {
+    color: #333;
+}
+
+#modal-source {
+    display: inline-block;
+    margin-top: 10px;
+    color: #0077cc;
+}
+
+/* ==================== FORM STYLING ==================== */
+
+/* Form element spacing and layout */
+.modal-content form label,
+.modal-content form fieldset,
+.modal-content form details,
+.modal-content form textarea,
+.modal-content form input,
+.modal-content form select {
+    margin-bottom: 20px;
+    display: block;
+    width: 100%;
+}
+
+/* Form section headers */
+.modal-content form h3 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    color: #34495e;
+}
+
+/* Collapsible sections in forms */
+.modal-content form details {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+/* Collapsible section titles */
+.modal-content form details summary {
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+/* Collapsible arrow indicators */
+.modal-content form details summary::after {
+    content: "▼";
+    float: right;
+}
+
+.modal-content form details[open] summary::after {
+    content: "▲";
+}
+
+/* Checkbox grid layout for form options */
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 4px 15px;
+}
+
+.checkbox-grid label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.checkbox-grid input[type="checkbox"] {
+    margin-right: 8px;
+    margin-bottom: 0;
+}
+
+/* Form input field styling */
+.modal-content form input,
+.modal-content form select,
+.modal-content form textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Required field validation styling */
+.modal-content form input:required:invalid,
+.modal-content form select:required:invalid,
+.modal-content form textarea:required:invalid {
+    border-color: #e74c3c;
+    background-color: #fff5f5;
+}
+
+/* ==================== MAP CONTAINER ==================== */
+
+/* Main map container styling */
+#map {
+    height: 80vh; /* 80% of viewport height */
+    min-height: 600px; /* Minimum height for usability */
+    width: 100%;
+    border-radius: 8px;
+    z-index: 1; /* Ensure map stays below modals */
+}
+
+/* Custom tooltip styling for map markers */
+.custom-tooltip {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid #ccc !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    padding: 12px !important;
+    max-width: 250px !important;
+    min-width: 180px !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+}
+
+.custom-tooltip:before {
+    border-top-color: #ccc !important;
+}
+
+/* ==================== PROJECT CARDS & GRID ==================== */
+
+/* Grid layout for project cards */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* Individual project card styling */
+.project-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Project card images */
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 3px solid #3B609C;
+}
+
+/* Project card titles */
+.project-card h3 {
+    padding: 1rem;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* Project keyword badges */
+.project-keyword {
+    position: absolute;
+    background: #3B609C;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    margin: 0.5rem;
+}
+
+/* ==================== EMPTY STATES ==================== */
+
+/* No search results state */
+.no-results {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+    grid-column: 1 / -1;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+/* not properly done, for future improvemnts this needs to be re-adjusted*/
+
+/* Tablet and desktop responsive adjustments */
+@media (min-width: 769px) {
+    .dashboard-button-top {
+        margin-left: 0.5rem;
+    }
+}
+
+/* Mobile responsive design */
+@media (max-width: 768px) {
+    /* Header adjustments for mobile */
+    header {
+        text-align: center;
+    }
+
+    .header-content {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    /* Main layout changes to vertical stack on mobile */
+    main {
+        flex-direction: column;
+    }
+
+    /* Sidebar takes full width on mobile */
+    aside {
+        max-width: 100%;
+    }
+
+    /* Projects section takes full width on mobile */
+    .projects-section {
+        max-width: 100%;
+    }
+
+    /* Navigation adjustments for mobile */
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .btn-dashboard {
+        width: 100%;
+    }
+
+    /* Map size adjustments for mobile */
+    #map {
+        height: 60vh;
+        min-height: 400px;
+    }
+}

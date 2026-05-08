@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AquaLens</title>
+  <!-- import various stylesheets -->
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="homepage.css" />
+  <!-- import GSAP and ScrollTrigger for animated elements -->
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+  <!-- import Lenis for smooth scroll -->
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1/bundled/lenis.min.js"></script>
+  <!-- import lottie for json animation -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>
+  <!-- import own JavaScript file -->
+  <script type="text/javascript" src="homepage.js" defer></script>
+</head>
+
+<body class="home">
+  <!-- import header -->
+  <header id="header"></header>
+
+  <!-- container for precursor to story -->
+  <div class="water_animation_container">
+    <!-- water audio -->
+    <audio id="bubbly-sound" autoplay loop>
+      <source src="/videos/water-noises-241049.mp3" type="audio/mpeg">
+    </audio>
+    <img id="bg-video" src="/videos/water-background.gif" alt="Water background" style="-webkit-mask-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 30%)" />
+    <!-- text elements -->
+    <div class="aqualens_title">
+      Welcome to AquaLens
+      <p class="aqualens_subtitle" style="margin-left: 1%;">A website dedicated to global efforts in improving urban water quality</p>
+    </div>
+    <div class="hero_buttons">
+      <button id="dive_button">Dive In</button>
+      <button id="explore_button">Explore the Projects</button>
+    </div>
+  </div>
+  
+  <!-- story section -->
+  <section id="story">
+    <!-- progress bar div, appears when story starts -->
+    <div class="progress_bar"></div>
+    <!-- scene 1, above the surface -->
+    <div class="pin_section">
+      <div class="scene1">
+        <img class="at_the_surface" src="/images/homepage_media/Size 10.jpg" alt="act1_image">
+        <div class="scroll_text"> 
+          <p style="align-self: center; text-align: center;">Scroll down to reveal the story</p>
+          <div id="scroll_arrow_box">
+            <img id="scroll_arrow" src="/images/homepage_media/arrow.png">
+          </div>
+        </div>
+        <div id="below_surface_text">
+          Below the surface of our cities, entire ecosystems persist quietly - waiting to be seen, understood, and protected...
+        </div>
+        <!-- GIF replaces with jump GIF (see homepage.js) -->
+        <img class="blink_vid" src="/images/homepage_media/Froggy blink-2.gif" alt="Froggy blinking" />
+        <section class="act1_section">    
+          <p class="act1_text">
+            I've lived here for as long as I can remember and I've watched this water change - gradually at first and then altogether. At last, I think it's time someone spoke for it.
+          </p>
+        </section>
+      </div>
+    </div>
+    <!-- scene 2, descent begins -->
+    <div class="pin_section_2">
+      <div class="scene2">
+        <img class="picture" src="/images/homepage_media/Size 13.jpg" alt="picture">
+        <!-- section for 3 pollutants, includes tooltips on hover -->
+        <section class="act2_pollutant_section">
+          <div class="nitrate_container">
+            <img id="nitrate" src="/images/homepage_media/nitrate.png" alt="Nitrate">
+            <div class="tooltip">
+              <p class="tooltip_text">Excess levels of nitrate cause nitrate toxicity to aquatic animals, as it reduces the ability of red blood cells to carry oxygen.</p>
+            </div>
+          </div>
+          <div class="ammonium_container">
+            <img id="ammonium" src="/images/homepage_media/ammonium.png" alt="Ammonium">
+            <div class="tooltip_left">
+              <p class="tooltip_text">Water with high concentrations of ammonia harms, even kills off, aquatic life and produces harmful algal blooms.</p>
+            </div>
+          </div>
+          <div class="plastic_bag_container">
+            <img id="plastic_bag" src="/images/homepage_media/plastic_bag.png" alt="Plastic Bag">
+            <div class="tooltip_lefter">
+              <p class="tooltip_text">Pollution of all kinds – especially consisting of non-biodegradable plastics – are harmful to both aquatic flora and fauna.</p>
+            </div>
+          </div>
+          <!-- text prompting to hover and arrow -->
+          <div id="hover_container">
+              <lottie-player id="hover_lottie" src="/images/homepage_media/hover_animation.json" background="transparent"  speed="0.7"  style="width: 10vw; height: 10vw; transform: rotate(90deg); z-index: 100;"></lottie-player>
+          </div>
+          <section id="hover_text_container">
+            <p id="hover_text"> Hover over me! </p>
+          </section>
+          <section class="act2_text_section_1">
+            <p class="act2_text_1">
+              What lies beneath isn’t just natural… There are systems – pipes, channels, outflows – all designed to move water. But with them come pollutants, microplastics, and excess nutrients. It’s reshaping everything down here…
+            </p>
+          </section>
+          <!-- graphs for data -->
+          <section id="graphs">
+            <a href="/data/?modal=water_quality_map" target ="_blank" rel="noopener noreferrer">
+            <div id="graph1">
+              <img class="data_image" src="images/homepage_media/data_world.png">
+            </div>
+            </a>
+            <div id="graph1_text_wrapper">
+              <div id="graph1_text">
+                Global water quality by country (2023)
+              </div>
+            </div>
+            <a href="/data/?modal=netherlands_concentration" target ="_blank" rel="noopener noreferrer">
+            <div id="graph2">
+              <img class="data_image" src="images/homepage_media/data_netherlands.png">
+            </div>
+            </a>
+            <div id="graph2_text_wrapper">
+              <div id="graph2_text">
+                Concentration of Ammonium and Nitrate Found In Ground Water Bodies in the Netherlands
+              </div>
+            </div>
+          </section>
+          <a href="/data" target="_blank" rel="noopener noreferrer"><button id="explore_the_data_button">Explore the Data</button></a>
+          <section class="act2_text_section_2">
+            <p class="act2_text_2">
+              This isn’t just my story, it’s happening all over the world and it’s affecting people too – especially those least responsible for the damage.          
+            </p>
+          </section>
+        </section>
+      </div>
+    </div>
+    <!-- scene 3, voices around the world -->
+    <div class="pin_section_3">
+      <div class="scene3">
+        <img class="picture" src="/images/homepage_media/Size 14.jpg" alt="picture">
+        <!-- quotes appear -->
+        <div id="quote_1">
+          <img class="quote" src="/images/homepage_media/Untitled_Artwork 69.png" alt="quote">
+          <div class="quote_text_container">
+            <p class="quote_text">
+              “[Plants and animals are] also a stakeholder or a form of life, which doesn’t really have a say (…) it feels like someone or something that you need to protect because it cannot directly protect itself.”          
+            </p>
+          </div>
+        </div>
+        <div id="quoter_1">
+          <p class="quoter_text"> ~ Biodiversity Conservationist </p>
+        </div>
+        <div id="quote_2">
+          <img class="quote" src="/images/homepage_media/Untitled_Artwork 70.png" alt="quote">
+          <div class="quote_text_container_right">
+            <p class="quote_text">
+              “A lot of things are designed and decided for people instead of, well, in a more democratic way or in co-creation. So, I think that... we need everybody for the challenges that we are currently facing.”
+            </p>
+          </div>
+        </div>
+        <div id="quoter_2">
+          <p class="quoter_text"> Placemaker ~ </p>
+        </div>
+        <div id="quote_3">
+          <img class="quote" src="/images/homepage_media/Untitled_Artwork 69.png" alt="quote">
+          <div class="quote_text_container">
+            <p class="quote_text">
+              “The public doesn't know about the water quality. But I think many experts are also unaware, let's say, not necessarily a water ecologist, but many people just tend to not believe that Amsterdam would have one of the dirtiest waters in Europe”
+            </p>
+          </div>
+        </div>
+        <div id="quoter_3">
+          <p class="quoter_text"> ~ Environmental Consultant </p>
+        </div>
+        <div id="quote_4">
+          <img class="quote" src="/images/homepage_media/Untitled_Artwork 70.png" alt="quote">
+          <div class="quote_text_container_right_2">
+            <p class="quote_text">
+              “Placemaking is about listening to stakeholders and improving a place. In terms of ecology, well-being, and socially. The thing is that we try to listen to that and propose improvements.”
+            </p>
+          </div>
+        </div>
+        <div id="quoter_4">
+          <p class="quoter_text"> Urban Planner ~ </p>
+        </div>
+        <div id="quote_5">
+          <img class="quote" src="/images/homepage_media/Untitled_Artwork 69.png" alt="quote">
+          <div class="quote_text_container">
+            <p class="quote_text">
+              “What is green? What does it mean? Because we have many green perspectives (...) but often ‘green’ is regarded as terrestrial ecology. It has to be on the land, because if it is in the water it is not green, but it is blue. Stress is felt.”
+            </p>
+          </div>
+        </div>
+        <div id="quoter_5">
+          <p class="quoter_text"> ~ Aquatic Ecologist </p>
+        </div>
+        <a href="https://www.linkedin.com/groups/13190462/" target ="_blank" rel="noopener noreferrer"><button id="join_linkedin_button">Join the LinkedIn Group</button></a>
+        <section class="act3_text_section">
+          <p class="act3_text">
+            If we’re all connected by water, then it’s decline binds us all too. But maybe… so can its recovery.
+          </p>
+        </section>
+      </div>
+    </div>
+    <!-- make a larger pin section so white space doesn't happen with pin at the end -->
+    <div id="enlarged_pin">
+      <!-- scene 4, discover and exploration -->
+      <div class="pin_section_4">
+        <div class="scene4">
+          <img class="picture" src="/images/homepage_media/Size 6.jpg" alt="picture">
+          <!-- container for appearing hand -->
+          <div id="hand_container">
+            <img id="hand" src="/images/homepage_media/Untitled_Artwork 76.png" alt="hand">
+          </div>
+          <section class="act4_text_section">
+            <p class="act4_text">
+              It’s not too late. Around the world people are listening – <br> to the water and to each other. Take a look at the initiatives all over the globe...
+            </p>
+          </section>
+          <!-- project example containers that appear -->
+          <a href="/projects/?project=Groene%20Kademuren" target ="_blank" rel="noopener noreferrer">
+          <div class="project_container" id="project_container_1" style="top:32.5%">
+            <h1 class="project_title">Groene Kademuren</h1>
+            <p class="project_text">
+              Organization: Municipality of Amsterdam<br>
+              Keyword/Label: Nature Development<br>
+              Location: Netherlands<br>
+              Context: City<br>
+              The Groene Kademuren are a test section of quay walls containing plants. The idea is to create new habitats for plants to green the quay walls. In the prototype construction methods, materials and plant species were tested to see which setting is the most promising to continue further projects.
+            </p>
+            <img class="project_image" src="/images/homepage_media/project_1.jpg" alt="project image">
+          </div>
+          </a>
+          <a href="/projects/?project=Reef%20Ball%20Revetments" target ="_blank" rel="noopener noreferrer">
+          <div class="project_container" id="project_container_2" style="top:50.5%">
+            <h1 class="project_title">Reef Ball Revetments</h1>
+            <p class="project_text">
+              Organization: Reef Ball Foundation<br>
+              Keyword/Label: Object-based Solutions<br>
+              Location: United States of America<br>
+              State: Florida<br>
+              Context: Landscape<br>
+              Reef balls are a revetment tool that prevents the shoreline of beaches from eroding into the ocean. These balls are formed in a way that creates an artificial reed, acting as an habitat for marine life that normally lives in tide pools. The balls can be produced right at the location with limited resources and vary in size and height.
+            </p>
+            <img class="project_image" src="/images/homepage_media/project_2.jpg" alt="project image">
+          </div>
+          </a>
+          <a href="/projects/?project=Bishan%20Park" target ="_blank" rel="noopener noreferrer">
+          <div class="project_container" id="project_container_3" style="top:68.5%">
+            <h1 class="project_title">Bishan Park</h1>
+            <p class="project_text">
+              Organization: Henning Larsen<br>
+              Keyword/Label: Flood Management<br>
+              Location: Singapore<br>
+              Context: City<br>
+              Bishan-Ang Mo Kio Park, redesigned as part of the ABC Waters Programme, showcases a transformative approach to urban water management and public space. The project replaced a 2.7 km concrete drainage channel with a 3 km meandering naturalized river, creating a vibrant, flood-resilient urban park. Spanning 62 hectares, it now features playgrounds, green spaces, restaurants, and eco-friendly design elements. It addresses global urban challenges of water scarcity and flooding.
+            </p>
+            <img class="project_image" src="/images/homepage_media/project_3.jpg" alt="project image">
+          </div>
+          </a>
+          <a href="/projects" target ="_blank" rel="noopener noreferrer"><button id="explore_the_projects_button">Explore the Projects</button></a>
+        </div>
+      </div>
+      <!-- scene 5, resurfacing -->
+      <div class="pin_section_5">
+        <div class="scene5">
+          <!-- looping video that pins -->
+          <img class="surface_vid" src="/images/homepage_media/Froggy resurface 7.gif" alt="Froggy resurfacing" />
+          <div id="act5_text_section_1">
+            <p id="act5_text_1">
+              The future of this water doesn’t belong to experts alone. It belongs to communities, to those willing to listen and to act.
+            </p>
+          </div>
+          <div id="act5_text_section_2">
+            <p id="act5_text_2">
+              It belongs to you.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- explore section, directs to other parts of the website -->
+  <section class="explore">
+    <!-- about initaitve section -->
+    <div id="about_initiative">
+      <div id="about_initiative_title_container"> 
+        <p id="about_initiative_title"> About the Initiative </p> 
+      </div>
+      <div id="about_initiative_text_container">
+        <p id="about_initiative_text">
+          At AquaLens, we collaborate with the Municipality of Amsterdam to spark curiosity and care for underwater landscapes and water ecology. By sharing inspiring initiatives from around the globe, we aim to connect people with the hidden world beneath the surface and empower them to protect and appreciate our aquatic landscapes.
+        </p>
+      </div>
+    </div>
+    <!-- redirecting to other parts of the page -->
+    <p class="what_next"> What's Next? </p>
+    <div class="website_sections">
+      <a href="/projects"> <div class="section_box"> Explore the Projects </div> </a>
+      <a href="/data"> <div class="section_box"> Discover the Data </div> </a>
+      <a href="https://www.linkedin.com/groups/13190462/" target ="_blank" rel="noopener noreferrer"> <div class="section_box"> Join the LinkedIn Community </div> </a>
+    </div>
+    <!-- introducing froggy as an AI-agent section -->
+    <div id="meet_froggy">
+      <div class="meet_froggy_containers" style="flex: 1">
+        <div id="froggy_img_container">
+          <img id="froggy_img" src="/images/homepage_media/Froggy 2-1.png" alt="Froggy">
+        </div>
+      </div>
+      <div class="meet_froggy_containers" style="flex: 3">
+        <div id="meet_froggy_container">
+          <div id="froggy_title_container">
+            <p id="froggy_title"> Have you met Froggy? </p>
+          </div>
+          <div id="froggy_text_container">
+            <p id="froggy_text">
+              Froggy can help you find the information you’re looking for and answer your questions!
+          </div>
+          <a href="/froggy"><button id="froggy_button"> Talk to Froggy </button></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- importing footer -->
+  <footer id="footer"></footer> 
+  <!-- extra script for the header and footer -->
+  <script>
+    // special class to the body so the header knows it's the homepage
+    document.body.classList.add('home');
+    // fetch header and footer HTML
+    fetch('/assets/header.html')
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById('header').innerHTML = html;
+    // manually load and execute the header script
+    return fetch('/assets/header.js');
+  })
+  .then(res => res.text())
+  .then(scriptContent => {
+    // execute the script content
+    eval(scriptContent);
+  });
+
+    fetch('/assets/footer.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('footer').innerHTML = html);
+  </script>
+</body>
+</html>

@@ -1,0 +1,476 @@
+/* Chat Popup (Default) */
+.froggy-chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 600px;
+  height: 700px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  flex-direction: column;
+  z-index: 1000;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Standalone Page Overrides */
+.froggy-standalone-page .froggy-chat-popup {
+  display: flex;
+  position: relative; 
+  width: 100%;
+  max-width: 1100px;
+  height: 80vh;
+  margin: 2rem auto; 
+  bottom: auto;
+  right: auto;
+  transition: opacity 0.3s ease, pointer-events 0.3s ease;
+}
+
+/* Ensure chat is disabled until terms are accepted */
+.froggy-standalone-page .froggy-chat-popup.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.froggy-chat-header {
+  background: linear-gradient(135deg, #7ea53c, #98c749);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 12px 12px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.froggy-header-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.froggy-reset-button {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.3s ease;
+}
+
+.froggy-reset-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.froggy-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.froggy-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Hide close button on standalone page */
+.froggy-standalone-page .froggy-close {
+  display: none;
+}
+
+.froggy-chat-messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: #f8f9fa;
+}
+
+.froggy-message {
+  max-width: 80%;
+  padding: 12px 16px;
+  border-radius: 18px;
+  font-size: 14px;
+  line-height: 1.4;
+  position: relative;
+}
+
+.froggy-user {
+  background: #395d9d;
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.froggy-froggy {
+  background: white;
+  color: #333;
+  align-self: flex-start;
+  border: 1px solid #e1e5e9;
+  border-bottom-left-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.froggy-timestamp {
+  font-size: 11px;
+  opacity: 0.6;
+  margin-top: 5px;
+  text-align: right;
+}
+
+.froggy-user .froggy-timestamp {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.froggy-froggy .froggy-timestamp {
+  color: #666;
+  text-align: left;
+}
+
+.froggy-typing {
+  opacity: 0.8;
+}
+
+.froggy-typing .dot {
+  animation: froggy-typing-animation 1.4s infinite;
+}
+
+.froggy-typing .dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.froggy-typing .dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.froggy-typing .dot:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+@keyframes froggy-typing-animation {
+  0%, 60%, 100% {
+      opacity: 0.3;
+  }
+  30% {
+      opacity: 1;
+  }
+}
+
+.froggy-chat-input {
+  padding: 15px 20px;
+  border-top: 1px solid #e1e5e9;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background: white;
+  border-radius: 0 0 12px 12px;
+}
+
+#froggy-question {
+  flex: 1;
+  border: 1px solid #e1e5e9;
+  border-radius: 20px;
+  padding: 10px 15px;
+  font-size: 14px;
+  resize: none;
+  min-height: 20px;
+  max-height: 80px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+#froggy-question:focus {
+  border-color: #7ea53c;
+}
+
+#froggy-send {
+  background: #7ea53c;
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+#froggy-send:hover {
+  background: #7ea53c;
+  transform: scale(1.05);
+}
+
+#froggy-send:active {
+  transform: scale(0.95);
+}
+
+/* Disclaimer Modal */
+.froggy-disclaimer-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1001;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+
+.froggy-disclaimer-content {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.froggy-disclaimer-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.froggy-disclaimer-title img {
+  width: 32px;
+  height: 32px;
+}
+
+.froggy-disclaimer-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.froggy-disclaimer-text ul {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+.froggy-disclaimer-text li {
+  margin-bottom: 8px;
+}
+
+.froggy-disclaimer-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.froggy-disclaimer-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 100px;
+}
+
+#froggy-agree {
+  background: #7ea53c;
+  color: white;
+}
+
+#froggy-agree:hover {
+  background: #7ea53c;
+  transform: translateY(-1px);
+}
+
+#froggy-decline {
+  background: #f8f9fa;
+  color: #666;
+  border: 1px solid #e1e5e9;
+}
+
+#froggy-decline:hover {
+  background: #e9ecef;
+  border-color: #ced4da;
+}
+
+/* Enhanced styling for standalone page */
+.froggy-standalone-page {
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+.froggy-standalone-page .froggy-chat-popup {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .froggy-chat-popup {
+      width: calc(100vw - 20px);
+      height: calc(100vh - 100px);
+      bottom: 10px;
+      right: 10px;
+      left: 10px;
+  }
+
+  /* Standalone page mobile adjustments */
+  .froggy-standalone-page .froggy-chat-popup {
+      width: calc(100vw - 20px);
+      height: calc(100vh - 120px);
+      margin: 1rem 10px;
+      max-width: none;
+  }
+
+  .froggy-disclaimer-content {
+      margin: 20px;
+      padding: 20px;
+      max-width: 95vw;
+      max-height: 85vh;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      display: flex;
+      flex-direction: column;
+  }
+
+  .froggy-disclaimer-title {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      flex-shrink: 0;
+  }
+
+  .froggy-disclaimer-text {
+      font-size: 0.82rem;
+      line-height: 1.45;
+      margin-bottom: 15px;
+      overflow-y: auto;
+      flex: 1;
+  }
+
+  .froggy-disclaimer-text ul {
+      margin: 10px 0;
+      padding-left: 16px;
+  }
+
+  .froggy-disclaimer-text li {
+      margin-bottom: 5px;
+  }
+
+  .froggy-disclaimer-buttons {
+      flex-shrink: 0;
+      padding-top: 10px;
+      border-top: 1px solid #eee;
+  }
+
+  .froggy-disclaimer-btn {
+      width: 100%;
+      font-size: 0.9rem;
+      padding: 10px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .froggy-chat-popup {
+      width: 100vw;
+      height: calc(100vh - 80px);
+      bottom: 0;
+      right: 0;
+      left: 0;
+      border-radius: 0;
+  }
+
+  .froggy-standalone-page .froggy-chat-popup {
+      width: 100vw;
+      height: calc(100vh - 100px);
+      margin: 0;
+      border-radius: 0;
+  }
+
+  .froggy-chat-header {
+      border-radius: 0;
+      padding: 12px 15px;
+      font-size: 0.95rem;
+  }
+
+  .froggy-disclaimer-content {
+      margin: 10px;
+      padding: 15px;
+      max-width: calc(100vw - 20px);
+      max-height: 90vh;
+      border-radius: 12px;
+  }
+
+  .froggy-disclaimer-title {
+      font-size: 1.1rem;
+  }
+
+  .froggy-disclaimer-text {
+      font-size: 0.78rem;
+  }
+
+  .froggy-disclaimer-btn {
+      font-size: 0.85rem;
+      padding: 10px 14px;
+  }
+}
+
+/* Scrollbar Styling for Chat Messages */
+.froggy-chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.froggy-chat-messages::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.froggy-chat-messages::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.froggy-chat-messages::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Additional styling for better UX on standalone page */
+.froggy-standalone-page .froggy-chat-header {
+  background: linear-gradient(135deg, #7ea53c, #98c749);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 28px;
+}
+
+.froggy-standalone-page .froggy-chat-messages {
+  background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+}
+
+/* Ensure disclaimer modal is always on top */
+.froggy-disclaimer-modal {
+  z-index: 10000;
+}

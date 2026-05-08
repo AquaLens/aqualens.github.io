@@ -1,0 +1,27 @@
+/* ------------ Main Layout ------------ */
+  main {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  /* ------------ Responsive ------------ */
+  @media (max-width: 768px) {
+    header {
+      text-align: center;
+    }
+  
+    .header-content {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  
+    main {
+      flex-direction: column;
+    }
+  
+    .nav-links {
+      flex-direction: column;
+      gap: 0.5rem;
+    }}

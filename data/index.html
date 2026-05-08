@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AquaLens - Data</title>
+  <link rel="stylesheet" href="data.css" />
+  <link rel="stylesheet" href="/css/global.css" />
+</head>
+
+<body>
+
+    <!-- Header -->
+<div id="header"></div>
+
+
+    <div class="container">
+      <main>
+        <h1>Welcome to AquaLens: Water Data Visualizations</h1>
+        <p class="intro">
+          Explore interactive charts and maps that reveal key insights about the world's freshwater resources.
+          These visualizations help explain how water quality and access affect people's health, the environment,
+          and communities around the globe.
+        </p>
+      <section id="data-visualizations">
+        <h2>What You'll Find</h2>
+        <p class="gallery-intro">
+          This page brings together global data from sources like the WHO, UNICEF, and other environmental agencies.
+          You'll see visual stories about clean drinking water, water stress, pollution, and how statistics pertaining to different countries. More actions
+          manage water. Whether you're a student, a policymaker, or just curious — these visuals are designed to make complex water issues easy to understand. </br>
+          <br> The data is shown in five different categories: <strong style="font-weight: 500;"><a href = "#water_quality" class="jump">General Water Quality and Availability</a></strong>, <strong style="font-weight: 500;"><a href = "#chemical_indicators" class="jump">Chemical Indicators</a></strong>, <strong style="font-weight: 500;"><a href = "#ecological" class="jump">Ecological</a></strong>, <strong style="font-weight: 500;"><a href="#health_impacts" class="jump">Health Impacts</a></strong>, and <strong style="font-weight: 500;"><a href="#data_transparency" class="jump">Data Reporting and Transperency</a></strong>.        </p>
+        <p style="color: #2a5885; font-size: 15px; margin-top: 0.5rem;">
+          💡 You can click on any of the bold category names above to jump straight to that section or explore related data stories.
+        </p>
+        
+
+<!-- === GENERAL WATER QUALITY AND AVAILABILITY === -->
+<div class="gallery-section">
+  <h3 class="gallery-section-title" id ="water_quality">General Water Quality and Availability</h3>
+  <div class="gallery-grid">
+    
+    <div class="gallery-item" onclick="openModal('visual_charts_graphs/water_quality_map_2023.html', 'Water Quality Map')">
+      <img src="visual_charts_graphs/images/water_quality.jpg" alt="Percentage of Good Quality Water Bodies" />
+      <h4>Percentage of Good Quality Water Bodies</h4>
+      <p>Global data on countries' water quality</p>
+    </div>
+
+    <div class="gallery-item" onclick="openModal('visual_charts_graphs/water_stress_map.html', 'Water Stress Map')">
+      <img src="visual_charts_graphs/images/water_stress.jpg" alt="Global Water Stress Across Time" />
+      <h4>Global Water Stress</h4>
+      <p>Map visualizing water stress felt globally between 2016 - 2022</p>
+    </div>
+
+
+    <div class="gallery-item" onclick="openModal('visual_charts_graphs/top_20_water_stress_excluding.html', 'Countries with Highest and Lowest Water Stress')">
+      <img src="visual_charts_graphs/images/topstress.jpg" alt="Countries with Highest and Lowest Water Stress (%)" />
+      <h4>Countries with Highest and Lowest Water Stress (%)</h4>
+      <p>Countries with highest and lowest water stress felt between 2016 - 2022 </p>
+    </div>
+      
+
+    <div class="gallery-item" onclick="openModal('visual_charts_graphs/images/random_forest_regression_smaller_fig.png', 'What Drives Water Stress?')">
+      <img src="visual_charts_graphs/images/driving_water_stress.jpg" alt="What Drives Water Stress?"/>
+      <h4>What Drives Water Stress? Insights From Random Forest Machine Learning Model</h4>
+      <p>Explore the factors that help predict water stress, most vulnerable countries, and what this means for policy </p>
+    </div>
+
+    <div class="gallery-item" onclick="openModal('visual_charts_graphs/water_use_efficiency_map_2023.html', 'Water Use Efficiency (US$/m³) Map')">
+      <img src="visual_charts_graphs/images/SDG.jpg" alt="Water Use Efficiency (US$/m³) Map" />
+      <h4>Global Water Use Efficiency (US$/m³) </h4>
+      <p>Map visualizing global water use efficiency in 2022</p>
+    </div>
+
+    <div class="gallery-item" onclick="openModal('visual_charts_graphs/poorest_access_map.html','Access to Drinking Water based on Wealth')">
+      <img src="visual_charts_graphs/images/drinking_water.jpg" alt="Access to Drinking Water based on Wealth" />
+      <h4>Access to Drinking Water based on Wealth - Poorest </h4>
+      <p>Access to drinking Water based on wealth</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- === CHEMICAL INDICATORS === -->
+<div class="gallery-section">
+  <h3 class="gallery-section-title" id="chemical_indicators">Chemical Indicators</h3>
+  <div class="gallery-grid">
+    <div class="gallery-item" onclick="openModal('visual_charts_graphs/ph_map.html', 'Average pH Levels')">
+      <img src="visual_charts_graphs/images/ph_tn.jpg" alt="pH Map" />
+      <h4>Average pH Levels</h4>
+      <p>Visualizing global pH values by country</p>
+    </div>
+
+    <div class="gallery-item" onclick="openModal('visual_charts_graphs/oxygen_map.html', 'Oxygen Map')">
+      <img src="visual_charts_graphs/images/oxygen_demand.jpg" alt="Oxygen Demand" />
+      <h4>Oxygen Demand Map</h4>
+      <p>Average biological oxygen demand in water bodies</p>
+    </div>
+
+    <div class="gallery-item" onclick="openModal('visual_charts_graphs/nitrate_choropleth.html', 'Nitrate Chlorophleth')">
+      <img src="visual_charts_graphs/images/ox_ni.jpg" alt="Oxidized Nitrogen Map" />
+      <h4>Oxidized Nitrogen Map</h4>
+      <p>Average nitrate levels across countries, indicating nutrient pollution intensity</p>
+    </div>
+
+    <div class="gallery-item" onclick="openModal('visual_charts_graphs/nitrogen_vs_oxygen.html', 'Nitrogen Oxygen')">
+      <img src="visual_charts_graphs/images/ni_vs_ox.avif" alt="Nitrogen vs Oxygen Scatter" />
+      <h4>Nitrogen vs Oxygen Scatter</h4>
+      <p>Shows the relationship between oxidized nitrogen and oxygen demand across countries</p>
+    </div>
+
+    <div class="gallery-item" onclick="openModal('visual_charts_graphs/forecast_nitrogen_oxygen.html', 'Forecasting Water Quality: Nitrogen & Oxygen Trends')">
+      <img src="visual_charts_graphs/images/forecast_thumbnail_1.webp" alt="Forecasting Water Quality: Nitrogen & Oxygen Trends" />
+      <h4>Forecast: Nitrogen & Oxygen Demand</h4>
+      <p>Long-term projections of nutrient pollution and organic demand through 2030</p>
+    </div>
+    </div>
+</div>
+
+<!-- === ECOLOGICAL === -->
+<div class="gallery-section">
+  <h3 class="gallery-section-title" id="ecological">Ecological</h3>
+  <div class="gallery-grid">
+    <div class="gallery-item" onclick="openModal('visual_charts_graphs/vme_presence_heatmap.html', 'Presence of Vulnerable Marine Ecosystems')">
+      <img src="visual_charts_graphs/images/vme.jpg" alt="Presence of Vulnerable Marine Ecosystems Heatmap" />
+      <h4>Heatmap with Vulnerable Marine Ecosystems (VME) in the Northeast Atlantic Ocean</h4>
+      <p>Presence of VME and its indicators (e.g. sponge, corals) in the Northeast Atlantic Ocean</p>
+    </div>
+<div class="gallery-item" onclick="openModal('visual_charts_graphs/concentration_properties_GW_NL.html', 'Historical Concentration of Properties Found in GWB in The Netherlands')">
+      <img src="visual_charts_graphs/images/historical_netherlands.jpg" alt="Properties Found Netherlands GW" />
+      <h4>Concentration of Properties Found in GW in The Netherlands</h4>
+      <p>Visualizes historical data of properties (i.e. Ammonium, Nitrate) found in GW bodies in the Netherlands </p>
+    </div>
+    </div>  
+</div>
+          
+<!-- === HEALTH IMPACTS === -->
+<div class="gallery-section">
+  <h3 class="gallery-section-title" id="health_impacts">Health Impacts</h3>
+  <div class="gallery-grid">
+    <div class="gallery-item" onclick="openModal('visual_charts_graphs/scatter_water_cleanliness.html', 'Water quality and Healthcare Facilities')">
+      <img src="visual_charts_graphs/images/w_healthcare.webp" alt="Water quality and Healthcare Facilities" />
+      <h4>Basic Water vs Basic Cleanliness in Healthcare Facilities</h4>
+      <p>Scatter plot showing a positive trend</p>
+    </div>
+    <div class="gallery-item" onclick="openModal('visual_charts_graphs/forecast_diarrheal_ddd.html', 'Forecast: Diarrheal Disease Death Rate')">
+      <img src="visual_charts_graphs/images/death_rate_thumb.avif" alt="Forecast Chart"/>
+      <h4>Forecast: Diarrheal Death Rate</h4>
+      <p>Projected global death rates from diarrheal diseases through 2030</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- === TRANSPARENCY === -->
+<div class="gallery-section">
+  <h3 class="gallery-section-title" id="data_transparency">Data Reporting & Transparency</h3>
+  <div class="gallery-grid">
+    <div class="gallery-item" onclick="openModal('visual_charts_graphs/transparency_map.html', 'Transperency Map')">
+      <img src="visual_charts_graphs/images/Transparency.jpg" alt="Water Reporting Transparency Map" />
+      <h4>Water Reporting Transparency</h4>
+      <p>Shows how consistently countries publish water safety data based on WHO/GLAAS</p>
+    </div>
+  </div>
+</div> 
+
+</section>
+</main>
+</div>
+        
+<!-- Footer -->
+<div id="footer"></div>
+
+<!-- Modal Structure -->
+<div id="modal" class="modal" onclick="closeModal()">
+  <div class = "modal-content-wrapper" onclick= "event.stopPropagation()">
+    <button class ="modal-close" onclick = "closeModal()">x</button>
+    <h2 id="modal-title"></h2>
+    <iframe 
+      id="modal-content" 
+      style="width: 100%; height: 90vh; border: none; border-radius: 8px; margin-bottom: 0; display: block;" 
+      loading="lazy">
+    </iframe>
+
+    <div id = "modal-description" style="margin-top: 0; padding-top: 0;"></div>
+  </div>
+</div>
+          
+    <!-- Scripts -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    
+    <script>
+        // Modal descriptions object - contains all content for each visualization
+        const descriptions = {      
+        'Water Quality Map' : {
+          title: 'Global Water Quality (2023)',
+          html:  
+          `
+          <div class="modal-analysis"> 
+
+            <p>This section analyses countries' and continents' natural water bodies quality in relation to the Sustainable Development Goal (SDG) "good ambient water quality" threshold. The water is separated into three categories: rivers, lakes, and groundwater, with their values combined to assess overall water quality.</p>
+            <p> The first map shows the share of each country's natural water bodies that does meet the SDG, meaning it's of good quality.<strong> Good water quality </strong>(dark blue) means all key physician, chemical, and biological parameters (pH, dissolved oxygen, nutrient levels, turbidity, microbial counts, etc) fall within established safe "reference" ranges. <strong>Poor water quality</strong> (light blue) indicates one or more of those parameters exceed acceptable limits, indicating pollution or ecosystem and public-health risks.</p>
+
+            <p><strong>Top 10 countries with the best water quality and lowest water quality</p></strong>
+            <img src="visual_charts_graphs/top_countries_water_q.png" alt="Top Countries with best Water Quality"/>
+            
+            <p><strong>Continents' overall water quality</p></strong>
+            <img src="visual_charts_graphs/continents_good_water.png" alt="Continents' Water Quality"/>
+            
+            <p><strong>All Countries' water quality shown through rivers, groundwater, and lakes.</p></strong>
+            <img src="visual_charts_graphs/all_countries_water_q.png" alt="All countries' water quality"/>
+            
+            <p>The graphs following the map outline the 10 countries with the highest and lowest water quality, as well as per continent. </p>
+
+            <h3>Key Findings from Water Quality Composition</h3>
+            <p>The stacked bar chart reveals significant disparities in water quality composition across nations:</p>
+            <ul>
+              <li><strong>Top Performers:</strong> Burundi and South Sudan show near-perfect scores across all water types.</li>
+              <li><strong>Regional Patterns:</strong> 
+                <br>- Oceania (excluding Australia/NZ) leads in groundwater quality.
+                <br>- European nations show strong river quality.
+                <br>- Sub-Saharan Africa struggles with open water body pollution.</li>
+              <li><strong> Polarized Distribtuion:</strong>
+                    <br>-23% of countries score below 40% (critical risk).
+                    <br>-Only 15% achieve >80%.</li>
+              <li><strong>Regional Clustering:</strong>
+                    <br>- <span style="color: #3B609C">Scandinavian countries</span> dominate top quartile.
+                    <br>- <span style="color: #C23E1F">Sahel region</span> forms distinct low-quality cluster.</li>
+            </ul>
+
+            <h3>Notable Composition Trends</h3>
+                <p>When examining water type contributions:</p>
+                <ul>
+                  <li><strong>Groundwater Dominance:</strong> Arid regions (e.g., UAE, Morocco) rely heavily on groundwater (>80% of total score).</li>
+                  <li><strong>River Systems Critical:</strong> Water-rich nations (Russia, Brazil) derive 60-70% of their score from river quality.</li>
+                  <li><strong>Pollution Hotspots:</strong> Bahrain and India show catastrophic failure across all three categories (<15% in each).</li>
+                </ul>
+
+            <p style="margin-top:2rem;">
+              <strong>Data Source:</strong>
+              <a href="https://w3.unece.org/SDG/en/Indicator?id=136" target="_blank">UNECE SDG portal, Indicator 6.3.2(a)</a>
+            </p>
+
+
+          </div>` 
+            
+        },
+            
+                    'Water Stress Map' : {
+            title: 'Global Water Stress (2016 - 2022)',
+            html: `<div class="modal-analysis"> 
+                <p>This interactive map visualizes water stress (%), classified as "Low," "Medium," and "High," experienced globally from 2016 to 2022. The Water Stress Indicator monitors the UN's Sustainable Development Goal <strong>(SDG)</strong> 6.4.2. <strong>Water stress</strong> is defined as the ratio of total freshwater withdrawn by all sectors (from economic activity) to the total renewable freshwater resources available in a country, after accounting for environmental flow requirements. This ratio reflects the pressure placed on freshwater systems by human activity, demonstrating whether a country is sustainable in its freshwater supply management.</p>
+                
+                <p><strong>SDG 6.4 Objective:</strong> to achieve a "substantial increase in water-use efficiency across all sectors and ensure sustainable withdrawals and supply of freshwater to address water scarcity."</p> 
+                <ul>
+                  <li><strong>UN Water Stress Classifications:</strong> Our map provides a simpler classification from that of the UN for facilitated analysis. Green represents barely any water stress, yellow groups 'low and medium' stress countries together to show medium stress, and red visualizes 'high and critically high water stress,' to show countries above any sustainable limits.    
+                    <br><strong>- Green (<25%)</strong>: Water withdrawals within safe, sustainable, limits.
+                    <br><strong>- Yellow (25–75%)</strong>: Increasing water withdrawals that show a water resource avaialability may be under pressure. 
+                    <br><strong>- Red (>75%)</strong>: Freshwater withdrawal is under severe pressure. As water stress exceeds beyond 100% (critical), the freshwater withdrawals exceed supply itself, demonstrating a country's water scarcity. 
+                  </li>
+
+                  <li><strong>Key Takeaways:</strong>
+                    <br><strong>Most critically stressed</strong>: Kuwait, United Arab Emirates (UAE), Saudi Arabia, Libya, and Qatar. These countries have freshwater withdrawals that exceed 100% of their renewable water resources.
+                    <br><strong>Note:</strong> Regions such as <strong>Sub-Saharan Africa</strong> or <strong>Latin America</strong> may report lower water stress levels. While countries in these regions may have abundant water bodies, the effects of climate change are still heavily felt. Each countries' classification further benefits from researching whether it has limited infrastructure, inconsistent data collection, or underreported dire situations concerning water withdrawals.
+                  </li>
+
+                  <li><strong>Why is this map useful?</strong>
+                    <br>The map visualizes the way in which countries around the globe manage our most vital, scarce resource. It points to areas of high risk, indicating the countries that are in need of targeted policy changes, or alternatively, accurate and transparent data collection. 
+                  </li>
+                </ul>
+
+                <h3>Case Study: Water Stress in the Netherlands (2011–2022)</h3>
+                <div class="image container">
+                  <iframe src="visual_charts_graphs/netherlands_water_stress_2011_2022.html" 
+                          style="width: 100%; height: 500px; border: none; border-radius: 8px;">
+                </iframe>
+                </div> 
+
+                <p>This line chart tracks the annual percentage of water stress in the Netherlands from 2011 to 2022, based on SDG Indicator 6.4.2. Water stress in the Netherlands has consistently remained below 25%, making it a country with within the low water stress category according to UN thresholds.</p>
+                
+                <p><strong>What does this say about the Netherlands?</strong></p>  
+                <ul>
+                  <li>This suggests that the country is managing its freshwater withdrawals sustainably when compared to the renewable freshwater supply the country has.</li>
+                  <li>The Netherlands is an example of a developed country with high-quality water infrastructure, which has maintained sustainable water withdrawals despite intensive agricultural activity.</li>
+                  <li>Water stress is not an issue for the Netherlands; however, there are other factors to consider when evaluating a country's water management policies and whether these are strong.</li>
+                  <li><strong>Factors to consider</strong>: presence of marine biodiversity, clean water bodies, drinking water quality, properties found in water, among others.</li>
+                </ul>
+                  
+                <p style="margin-top:2rem;"> 
+                  <strong>Data Sources:</strong> 
+                  <a href="https://www.fao.org/aquastat/en/databases/maindatabase" target="_blank">FAO AQUASTAT</a>, 
+                  <a href="https://sdg6data.org/en/indicator/6.4.2" target="_blank">Progress on Level of Water Stress</a>, 
+                  <a href="https://www.unwater.org/publications/progress-level-water-stress-2024-update" target="_blank">UN-Water Report (2024)</a> 
+                </p>
+              </div>`
+
+          },
+                  
+             
+              
+          'Countries with Highest and Lowest Water Stress' : {
+            title: 'Countries with Highest and Lowest Water Stress (2016 - 2022)',
+            html : `<div class="modal-analysis">              
+            
+             <p>This graph visualizes the countries experiencing <strong>highest water stress levels</strong> between 2016 and 2022. It excludes the <strong>five countries with highest water stress</strong> given that these remain the same throughout the years and distort the comparison due to their extreme values. The top five countries with highest water stress (%) are over the "critical" threshold, with values that urge for <strong>strengthened policy</strong> and <strong>immediate action.</strong></p>
+            
+            
+              <p><strong>Calculating Water Stress</strong><p>
+              <ul>
+                  <li>According to the UN, <strong>indicator 6.4.2</strong> is calculated as a ratio based of:</li>
+                      <li><strong>TFWW</strong>: Total freshwater withdrawn</li>
+                      <li><strong>TRFWR</strong>: Total renewable freshwater resources </li>
+                      <li><strong>EFR</strong>: Environmental flow requirements</li>
+             </ul>
+                 
+                 <h3><strong> Water Stress(%) = <span style="display: inline-block; text-align: center;">
+                                                   <sup>TFWW</sup><br>
+                                                   <span style="border-top: 1px solid black;">TRFWR - EFR</span>
+                                                   </span> × 100</strong></h3>  
+                
+              <h3>Water Stress in 2022: Bottom and Top Performers</h3>
+              <img src="visual_charts_graphs/water_stress_2022.png" alt="Countries with Highest and Lowest Water Stress"/>
+              
+              <h3>Key Findings</h3>
+            <p>The stacked bar chart reveals significant global disparities in water resource pressure; highlighting areas for required sustainability efforts and further data collection:</p>
+            
+              <p><strong>Low Water Stress Countries:</strong></p>
+              <ul>
+                <li>Low water stress may be attributed to each country's abundant freshwater availability.</li> 
+                <li><strong>Iceland</strong> or <strong>DR Congo</strong> experience low water stress, despite having completley distinct environmental policies and developmental levels. </li> 
+                <li><strong>Bolivia</strong>, despite being grouped with the bottom countries, experiences water scarcity in different regions of the country. This suggests there are <strong>challenges to data collection</strong> and availability that need further discernment to understand global water stress metrics.</li>
+              </ul>
+               
+              <p><strong>High Water Stress Countries:</strong></p>
+              <ul>
+                <li>Top 5 countries are depleting their freshwater resources.</li>
+                <li>These countries are arid or semi-arid and heavily rely on imports of water or non-renewable groundwater.</li>
+              </ul>
+ 
+                <p style="margin-top:2rem;"> 
+                  <strong>Data Sources:</strong>  
+                  <a href="https://www.unwater.org/publications/progress-level-water-stress-2024-update" target="_blank">UN-Water Report (2024)</a>,
+                  <a href="https://www.fao.org/aquastat/en/databases/maindatabase" target="_blank">FAO AQUASTAT</a>
+                </p>
+          </div>`
+      },
+            
+          'What Drives Water Stress?' : {
+            title: 'Understanding the Features that Influence Water Stress',
+            html : `<div class="modal-analysis">              
+
+               <h3>Understanding Random Forest</h3>
+                 <p>A <strong>Random Forest model</strong> is an ensemble learning technique that consists of multiple decision tress. Random Forest combines the predictions of individual decision trees to produce more accurate and stable predictions.</p> 
+                    
+                 <ul>
+                       <li>The model was trained to predict Water Stress (SDG 6.4.2) for the following year (t+1) using feature data from the current year (t).</li>
+                       <li>The dataset includes the years of reported water stress from 2016 to 2022; therefore, the model generates predictions from 2017 to 2022 based on data from 2016 to 2021.</li>    
+                 </ul>
+                       
+<p><strong>Feature importance</strong> shows which features from the ones used to predict the target variable are most important, meaning <strong>how much each feature contributes to the model's prediction</strong>. Since a country's water stress (%) is calculated from total freshwater withdrawn from economic activity, the features used for the model included water withdrawals from different sectors that contribute to economic activity. Understanding what drives water stress up may <strong>facilitate targeted policy making</strong> that  attempts to tackle water scarcity.</p> 
+                  
+                  <ul>
+                       <li>The main objective of this model wasn't just to achieve high predictive performance, but rather to explore what drives water stress across different country contexts. By using Random Forest, it is possible to explore the features that contribute most to increasing pressure on freshwater resources</li>
+                  </ul>   
+            
+                <h3>Feature Importance Visualized</h3>
+                <img src="visual_charts_graphs/images/feature_importance.png" alt="What Features Help Predict Water Stress?"/>
+                
+                  <p><strong>Key Insights:</strong></p>
+                <ul>
+                    <li><strong>Agricultural water withdrawal</strong> is the feature that, out of all the other ones, most impacted the predictive model's performance. This indicates that from economic activity, water withdrawn for the agriculutral sector (agriculutral practices) is the main driver of water stress.</li>  
+                   <li><strong>GDP per Capita</strong> was not identified as a major predictor of water stress. This indicates that countries that withdraw large volumes of water for their agriculutral practices face a higher likelihood of experiencing higher water stress levles, regardless of the country's economic state.</li>
+                   <li><strong>The industrial sector</strong> drives water stress up, meaning that certain industries may overstress freshwater resources.</li>
+                </ul>
+                
+                   <p><strong>Policy implications:</strong></p> 
+                 <ul>
+                   <li>The investment in sustainable, <strong>low-intensive alternatives to agriculuture</strong> should be explored, especially in country's with high water stress.</li>
+                   <li>Country's with highest water stress (i.e. Kuwait, UAE) are mainly arid areas, suggesting these countries should draft policies that explore alternatives urgently within the agricultural sector.</li> 
+                   <li>In terms of the industrial sector, industries reliant on <strong>heavy water use</strong> should potentially be <strong>tariffed</strong>, while the exploration of <strong>low-water usage technologies</strong> could potentially be <strong>subsidized</strong>. Companies that withdraw less water could also be promoted.  
+                   </li>
+                </ul>
+              
+              <h3>Mean Squared Error (MSE) and R²</h3>
+              <img src="visual_charts_graphs/images/mse_model_errors.png" alt="Model Prediction Errors"/>
+              <p> The <strong>MSE</strong> indicates where the model struggles to learn.<strong> R²</strong> is another metric used to assess how well the model's predictions match the actual values. </p>
+              <p> The model had an MSE = 3729.5 and an R² = 0.99. </p>
+              <p><strong>Interpretation:</strong> Countries with a critically high water stress impact the performance of the model. This can further be explained as countries with extreme values (i.e. Libya or Kuwait) act as outliers that drive up the overall error as the model struggles to learn the patterns in the data and make accurate predictions. This suggests that more structural and contextual features must be considered when evaluating water stress and its drivers, especially in countries experiencing critically high water stress levels. R² is nearly perfect given that some features are part of the way water stress is calculated. Nevertheless, the model points out which sectors deplete freshwater resources the most, indicating the sector public policy should attempt to address.</p>
+              
+             <h3>Case Study: Model's Performance in European Countries With Similar Water Infrastructure and Management to The Netherlands</h3>
+             <p>The different predictions made by the model for the following countries shown below are: <strong>The Netherlands, Belgium, Germany, Denmark and Finland.</strong> Evaluating individual countries helps reveal where the model may be overfitting or struggles to understand the patterns. Spikes could indicate data issues or untracked policy changes, highlighting policy-relevant insights (as the errors are mainly attributed to the outliers). </p>
+             
+             <img src="visual_charts_graphs/images/actual_vs_predicted_Netherlands_Kingdom_of_the.png" alt="Actual vs. Predicted Netherlands Kingdom of the"/>
+             <img src="visual_charts_graphs/images/actual_vs_predicted_Belgium.png" alt="Actual vs. Predicted Belgium"/>
+             <img src="visual_charts_graphs/images/actual_vs_predicted_Germany.png" alt="Actual vs. Predicted Germany"/>
+             <img src="visual_charts_graphs/images/actual_vs_predicted_Denmark.png" alt="Actual vs. Predicted Denmark"/>
+             <img src="visual_charts_graphs/images/actual_vs_predicted_Finland.png" alt="Actual vs. Predicted Finland"/>
+            
+            <p> The visualizations above illustrate the models' predictions in countries similar to the Netherlands; that is, countries that are similar in <strong>water governance policies, infrastructure, and levels of development.</strong> For <strong>future research</strong>, gathering data that is more recent could help predict water stress in the upcoming years, with potentially a reduced MSE if the countries with extrme values are excluded from the dataset. That also suggests analyzing recent data on the features used for the model. </p>   
+             
+             <p style="margin-top:2rem;"> 
+                  <strong>Data Sources:</strong>  
+                  <a href="https://www.fao.org/aquastat/en/databases/maindatabase" target="_blank">FAO AQUASTAT</a> 
+                </p>
+          </div>`
+      },
+            
+          'Water Use Efficiency (US$/m³) Map' : {
+            title: 'Water Use Efficiency (US$/m³) in 2022',
+            html: `<div class="modal-analysis"> 
+                <p>This interactive map visualizes countries' <strong>water use efficiency (US$/m³)</strong> in 2022. This indicator monitors the UN's <strong>Sustainable Development Goal (SDG) 6.4.1</strong> in the attempts of increasing water use efficiency across all sectors by 2030. <strong>Water use efficiency</strong> consists of the ratio between dollar value added and total volume of water used. This ratio reflects the efficiency of a country in using its water to support its economy. It can be understood as a way of evaluating how efficient a country uses its water resources given its economy.</p>
+    
+                <p><strong>SDG 6.4 Objective:</strong> to achieve a "substantial increase in water-use efficiency across all sectors and ensure sustainable withdrawals and supply of freshwater to address water scarcity."</p> 
+                
+    
+                <p><strong>Top 10 countries with the best and worst water use efficiency </strong></p>
+                <img src="visual_charts_graphs/water_efficiency_use_2022.png" alt="Water Use Efficiency"/>
+                <p>The graph compliments the map, illustrating the 10 countries with the most efficient and least efficient water usage.</p>
+                
+             
+                <p><strong>Low-efficiency vs. High-efficiency</strong><p> 
+                <ul>
+                    <li>Countries (i.e. Afghanistan, Madagascar, and Syria) exhibit low water use efficiency, meaning they generate less economic output per cubic meter of water used.</li>
+                    <li>This can be attributed to weak water governance policies and economic reliance on heavy agriculutral practices.</li>
+                    <li>Countries (i.e. Luxembourg, Switzerland, Denmark, and Austria) exhibit high water use efficiency.</li>
+                    <li>These countries' higher efficiency may be attributed to their <strong>advanced infrastructure, targeted policy, stronger water governance policies</strong>, and higher country <strong>development levels.</strong></li>
+              </ul>
+
+                <h3>Evaluating the UN's Sustainable Development Goals</h3>
+                <div class="image container">
+                    <iframe src="visual_charts_graphs/water_stress_water_use.html" 
+                                style="width: 100%; height: 600px; border: none; border-radius: 8px;">
+                    </iframe>
+                </div> 
+
+                <p>The scatter above plots a country's water stress vs. its water use efficiency in the year 2022. The x-axis is on a log scale.</p>
+                
+                <p><strong>Keys insights and Interpetation:</strong> <p>
+                <ul>
+                    <li>The scattter visualizes <strong>no strong relationship</strong> between two of the indicators <strong>(SDG)</strong> from the UN that track goal 6.4. This indicates that a country's efficient water usage is not correlated to their stress level (in terms of water). </li>
+                    <li>Research supports the lack of correlation illustrated as it has been demonstrated that water stress is influenced by a variety of interlinked factors.</li>
+                    <li>While a country may use its water efficiently, <strong>water stress</strong> can futher be linked to overexploitation of resources, weak policies in water governance and management, and regional uneven distribution of water resources. </li>
+                    <li>Accounting for these factors facilitates drafting effective policies that prevent the depletion of freshwater resources.  
+                </li>
+             </ul>
+
+                <p style="margin-top:2rem;"> 
+                <strong>Data Sources:</strong> 
+                <a href="https://www.fao.org/aquastat/en/databases/maindatabase" target="_blank">FAO AQUASTAT</a>, 
+                <a href="https://sdg6data.org/en/indicator/6.4.1" target="_blank">SDG Target 6.4 </a>, 
+                <a href="https://www.unwater.org/publications/progress-water-use-efficiency-2021-update" target="_blank">Progress on Water Use Efficiency 2021</a>
+                <a href="https://doi.org/10.1016/j.scitotenv.2017.09.056" target="_blank">An evaluation of indicator 6.4.2 "Level of water stress</a>.
+                </p>
+           </div>`
+      },
+
+           
+          'Access to Drinking Water based on Wealth' : {
+            title : 'Access to Drinking Water based on Wealth',
+            html : `<div class="modal-analysis"> 
+              <p>This visualization examines disparities in access to basic services between wealth quintiles, aligned with SDG 10 (Reduced Inequalities) and SDG 6 (Clean Water and Sanitation). The map tracks service access gaps through three key metrics:</p>
+              
+              <p>The animated map shows:<br>
+              <strong>Equitable Access</strong> (Dark Green): ≤1.5 ratio between richest and poorest quintiles<br>
+              <strong>Moderate Inequality</strong> (Yellow): 1.6-3.0 ratio<br>
+              <strong>Severe Inequality</strong> (Red): >3.0 ratio</p>
+
+              <p><strong>Extreme Disparity Cases:</strong><br>
+              - Chad (19.2x advantage for richest)<br>
+              - DR Congo (49.8x advantage)<br>
+              - Angola (4.3x advantage)</p>
+
+              <h3>Key Inequality Patterns</h3>
+              <ul>
+                  <li><strong>Urban-Rural Divide:</strong> 
+                      <br>- Capital cities show 2-3x better access than rural areas
+                      <br>- Nigeria: 95% urban vs 43% rural water access</li>
+                  <li><strong>Conflict Zones:</strong> 
+                      <br>- Yemen (3.0x), Afghanistan (8.0x) show crisis-level disparities</li>
+                  <li><strong>Regional Leaders:</strong>
+                      <br>- <span style="color:#2E8B57">Costa Rica</span> (1.0x)
+                      <br>- <span style="color:#2E8B57">Belarus</span> (1.0x)</li>
+              </ul>
+
+              <h3>The same inequality / accessibility is shown here, only highlihgting the richest populations access to good water quality.</h3>
+              <iframe 
+                src="visual_charts_graphs/richest_access_map.html" 
+                style="width: 100%; height: 700px; border: none; border-radius: 8px;">
+              </iframe>
+
+              <h3>Service-Specific Trends</h3>
+              <ul>
+                  <li><strong>Water Access:</strong> Largest disparities in Sub-Saharan Africa (Avg ratio 4.1x)</li>
+                  <li><strong>Sanitation:</strong> South Asia shows highest inequality (India 1.1x vs Pakistan 1.2x)</li>
+                  <li><strong>Healthcare:</strong> Latin America has widest gaps (Brazil 9.0x historical peak)</li>
+              </ul>
+
+              <div class="data-highlights">
+                  <p><strong>Notable Improvements (2010-2020):</strong><br>
+                  - Bangladesh: Reduced ratio from 5.4x to 1.1x<br>
+                  - Ethiopia: 8.2x → 3.1x<br>
+                  - Cambodia: 3.0x → 1.6x</p>
+              </div>
+
+              <p style="margin-top:2rem;">
+                  <strong>Methodology Note:</strong> 'Poorest'/'Richest' represent bottom/top 20% wealth quintiles. Ratios calculated as [Richest% ÷ Poorest%].
+              </p>
+
+              <p style="margin-top:1rem;">
+                  <strong>Data Source:</strong>
+                  <a href="https://www.who.int/publications/i/item/9789240030848" target="_blank">WHO Global Health Observatory, Annex 7</a>.
+              </p>
+          </div>`
+      },
+
+          'Oxygen Map' : {
+          'title' : 'Oxygen demand',
+          html: `
+            <div class="modal-analysis">
+
+              <h2 style="text-align: center; color: #2a5885;">Oxygen Demand and Organic Pollution</h2>
+
+              <p>
+                Oxygen demand reflects the amount of dissolved oxygen needed to break down organic material in water. A high value typically signals elevated pollution from sewage, agricultural runoff, or industrial discharge. When oxygen demand is high, dissolved oxygen drops—leading to <strong>oxygen depletion</strong>, fish deaths, and long-term damage to aquatic ecosystems.
+              </p>
+
+              <h3>Choropleth Map Overview</h3>
+              <p>
+                The world map uses a red-yellow gradient to represent average oxygen demand in surface waters across countries. 
+                <strong>Darker shades (red)</strong> indicate higher levels and greater pollution risk. Countries like <strong>Mexico</strong> stand out with extremely high averages, suggesting heavy organic waste loads and insufficient treatment or monitoring systems.
+              </p>
+
+              <h3>Top 10 Countries with Highest Oxygen Demand</h3>
+              <p>
+                The horizontal bar chart highlights the countries reporting the highest biological oxygen demand. 
+                <strong>Mexico</strong> ranks far above all others, followed by the <strong>United States</strong>, <strong>Belgium</strong>, and <strong>Finland</strong>. These values may reflect population density, wastewater management practices, or specific environmental monitoring periods.
+              </p>
+
+              <h3>Why This Matters</h3>
+              <p>
+                Understanding oxygen demand is essential because it directly affects the health of rivers, lakes, and oceans. 
+                When too much organic pollution enters the water, oxygen levels drop — putting fish, plants, and other aquatic life at risk. 
+                This can lead to "dead zones" where few organisms can survive. By identifying where oxygen demand is highest, 
+                we can take action to reduce pollution sources, improve wastewater treatment, and protect ecosystems before long-term damage occurs.
+              </p>
+
+
+              <p style="margin-top: 2rem;">
+                <strong>Data Source:</strong> 
+                <a href="https://gemstat.org/data-gemstat/data-portal/" target="_blank" style="color: #2a5885;">
+                  GEMStat Water Quality Portal
+                </a>
+              </p>
+            </div>
+          ` 
+        },
+
+        'Nitrate Chlorophleth' : {
+          
+          'title' : 'Oxidized Nitrogen Levels',
+          html: `
+
+          <div class="modal-analysis">
+
+            <h2 style="text-align:center; color: #2a5885; margin-bottom: 1.5rem;">Choropleth of Global Oxidized Nitrogen Concentrations</h2>
+
+            <p>
+              This choropleth map displays the average concentration of oxidized nitrogen (mg/L) in surface waters by country, based on GEMStat data. 
+              <strong>Darker purple shades</strong> indicate higher levels of nitrogen pollution, often linked to fertilizer runoff and wastewater discharge. 
+              Countries like <strong>Greece</strong> and <strong>India</strong> show elevated values, highlighting areas at risk for eutrophication and ecological imbalance. 
+              This map supports geographically targeted water management and pollution control strategies.
+            </p>
+
+            <h2 style="text-align:center; color: #2a5885; margin: 3rem 0 1.5rem;">Global Trends in Oxidized Nitrogen (1900–2025)</h2>
+
+            <p style="text-align: center;">
+              <img src="visual_charts_graphs/images/oxidized_nitrogen_trend.png" alt="Line chart of oxidized nitrogen over time" style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem;">
+            </p>
+
+            <p>
+              Oxidized nitrogen (nitrate and nitrite) is a major pollutant in freshwater ecosystems. 
+              It primarily originates from excessive use of fertilizers, sewage discharge, and industrial waste. 
+              These compounds can trigger <strong>eutrophication</strong>, leading to harmful algal blooms, oxygen depletion, and large-scale aquatic die-offs. 
+              Elevated levels also pose public health risks if found in drinking water.
+            </p>
+
+            <h3>About the Chart</h3>
+            <p>
+              This line chart shows the <strong>global average concentration of oxidized nitrogen</strong> from 1900 to 2025. 
+              Each point reflects yearly global data submitted through GEMStat from lakes, rivers, and groundwater monitoring sites.
+            </p>
+
+            <h3>Key Observations and Long-Term Trends</h3>
+            <p>
+              This chart traces global oxidized nitrogen concentrations in freshwater from 1900 to 2025. It reveals how industrial development, environmental policy, and agricultural practices have shaped water quality over more than a century.
+            </p>
+
+            <ul>
+              <li><strong>1940s Spike:</strong> A dramatic peak around 1945 shows concentrations nearing 8 mg/L. This likely reflects intensified industrial activity during and after World War II, including expanded fertilizer use and poorly regulated waste discharge.</li>
+
+              <li><strong>Post-War Drop:</strong> A sharp decline follows the peak, possibly due to a temporary slowdown in industrial output, early environmental awareness, or a drop in available data from monitoring sites.</li>
+
+              <li><strong>1950–2000 Plateau:</strong> For several decades, global levels remained relatively stable but still elevated, indicating that while large-scale pollution may have slowed, nutrient runoff and sewage discharge remained persistent challenges. This period also aligns with the rise of water treatment policies in higher-income countries.</li>
+
+              <li><strong>Recent Increase (Post-2010):</strong> A small but consistent rise suggests renewed nitrogen pressure from modern agriculture, expanding urban areas, and more intensive land use. Even small upticks in nitrogen can have big consequences for aquatic ecosystems.</li>
+            </ul>
+
+            <p>
+              Overall, the trend suggests progress in reducing large-scale industrial pollution, but also highlights that nitrogen levels remain stubbornly high. As agriculture expands and climate variability affects water systems, this forecasted rise raises concern for future <strong>algal blooms, oxygen depletion, and ecosystem stress</strong>.
+            </p>
+
+            <h3>Why Monitoring Nitrogen Matters</h3>
+            <p>
+              Excess nitrogen in freshwater can throw ecosystems out of balance. When oxidized nitrogen (like nitrates and nitrites) enters rivers and lakes from fertilizer runoff or sewage, it acts like a growth booster, fueling excessive algae growth on the water's surface. This is called <strong>eutrophication</strong>.
+            </p>
+            <p>
+              At first, algae blooms might seem harmless or even natural. But when algae die, they sink and are broken down by bacteria, a process that uses up large amounts of oxygen in the water. This leads to <strong>oxygen depletion</strong> (or hypoxia), where fish and other aquatic life can no longer survive. In extreme cases, this creates so-called <strong>"dead zones"</strong> — areas of water with almost no oxygen left.
+            </p>
+
+            <ul>
+              <li><strong>Identifies risks early:</strong> Monitoring nitrogen levels helps spot danger zones before ecosystems collapse.</li>
+              <li><strong>Protects biodiversity:</strong> Fish, amphibians, and aquatic plants depend on balanced oxygen levels, too much nitrogen puts all of them at risk.</li>
+              <li><strong>Informs policy and farming:</strong> Data supports smarter fertilizer use, land management, and wastewater control.</li>
+              <li><strong>Connects to human health:</strong> In drinking water, high nitrate levels can cause serious health issues, especially for infants and pregnant people.</li>
+            </ul>
+
+            <p>
+              By tracking nitrogen over time, we gain a clearer picture of how human activities affect freshwater systems, and where intervention is most urgently needed.
+            </p>
+
+            <p style="margin-top: 2rem;">
+              <strong>Data Source:</strong> 
+              <a href="https://gemstat.org/data-gemstat/data-portal/" target="_blank" style="color: #2a5885;">
+                GEMStat Water Quality Database
+              </a>
+            </p>
+          </div>
+          ` 
+        },
+
+        'Nitrogen Oxygen' : {
+          title: 'Oxidized Nitrogen Levels',
+          html: `
+            <div class="modal-analysis">
+              <h2 style="text-align:center; margin-bottom: 1.2rem; color: #2a5885;">
+                Oxidized Nitrogen vs Oxygen Demand (by Country)
+              </h2>
+
+              <h3>What Does This Show?</h3>
+              <p>
+                This section visualizes the connection between two important water pollution indicators across different countries:
+                <strong>oxidized Nitrogen</strong> (from things like fertilizers and sewage) and
+                <strong>oxygen Demand</strong> (how much oxygen is used to break down waste in water).
+                When nitrogen levels are high, it often means more pollution is entering rivers and lakes,
+                which can lower oxygen and harm fish and ecosystems.
+              </p>
+
+              <h3>Chart 1: Scatter Plot</h3>
+              <p>
+                This chart compares oxidized nitrogen (x-axis) and oxygen demand (y-axis) for each country.
+                Each dot is a country. The further right a dot is, the more nitrogen pollution;
+                the higher up it is, the more oxygen is needed to clean the water.
+                Countries like <strong>Mexico</strong> and <strong>Greece</strong> stand out with high values.
+              </p>
+              <iframe 
+                src="visual_charts_graphs/nitrogen_vs_oxygen_cleaned.html" 
+                style="width: 100%; height: 700px; border: none; border-radius: 8px;">
+              </iframe>
+
+
+
+              <h3>Chart 2: Nitrogen Map</h3>
+
+              <p>
+                This world map shows how average oxidized nitrogen levels differ by country.
+                Darker colors mean higher nitrogen pollution in water bodies, often from farming, factories, or untreated sewage.
+              </p>
+
+              <p style="font-size: 14px; color: #555; text-align: center; margin-top: 0.5rem;">
+                <em>Note: Countries shown in grey had no available data in this dataset.</em>
+              </p>
+
+              <iframe 
+                src="visual_charts_graphs/choropleth_nitrogen.html" 
+                style="width: 100%; height: 600px; border: none; border-radius: 8px;">
+              </iframe>
+
+              <h3>Chart 3: Nitrogen + Oxygen Bubble Map</h3>
+              <p>
+                This map combines both indicators: 
+                <strong>bubble size = nitrogen pollution</strong> and 
+                <strong>bubble color = oxygen demand</strong>. 
+                It helps show which countries have big pollution challenges, 
+                and whether they affect both nutrients and oxygen in water.
+              </p>
+              <iframe 
+                src="visual_charts_graphs/bubble_map_nitrogen_oxygen.html" 
+                style="width: 100%; height: 600px; border: none; border-radius: 8px;">
+              </iframe>
+
+
+              <h3>Why It Matters</h3>
+              <p>
+                When too much nitrogen enters water, it can cause <strong>algae blooms</strong> that use up oxygen,
+                creating "dead zones" where fish and aquatic life can't survive.
+                Tracking both nitrogen and oxygen helps detect early warning signs and guide better water management.
+              </p>
+
+              <div style="margin-top: 2rem; border-top: 1px solid #ddd; padding-top: 1rem; font-size: 14px; color: #555;">
+                <strong>Data Source:</strong> 
+                <a href="https://gemstat.org/data-gemstat/data-portal/" target="_blank" style="color: #2a5885;">
+                  GEMStat Water Quality Database
+                </a>
+              </div>
+            </div>
+          `
+        },
+
+        'Transperency Map' : {
+          title: 'Global Transparency in Water Reporting',
+          html: `
+            <div class="modal-analysis">
+              
+              <h2 style="text-align:center; margin-bottom: 1.2rem; color: #2a5885;">
+                Transparency in National Water Quality Reporting
+              </h2>
+
+              <h3>Data Source and Methodology</h3>
+              <p>
+                This data is derived from the 
+                <a href="https://glaas.who.int" target="_blank" style="color: #2a5885;">
+                  WHO GLAAS (Global Analysis and Assessment of Sanitation and Drinking-Water)
+                </a> portal, based on the 2021 reporting cycle. It evaluates countries' practices in publishing national water safety reports across urban and rural areas.
+                Data processing and visualization were performed using <code>pandas</code>, <code>matplotlib</code>, <code>seaborn</code>, and <code>plotly.express</code> in Python.
+              </p>
+
+              <h3>Choropleth Map Overview</h3>
+              <p>
+                The map visualizes global transparency scores on a scale from 0 to 1:
+                <ul>
+                  <li><strong>Green (1):</strong> Full transparency in water reporting.</li>
+                  <li><strong>Red (0):</strong> No reporting or publicly available data.</li>
+                </ul>
+                Europe and East Asia tend to perform well, while large portions of Sub-Saharan Africa, Southeast Asia, and Latin America show serious reporting gaps.
+              </p>
+
+              <h3>Urban vs Rural Reporting</h3>
+              <p>
+                Urban areas tend to have more robust reporting systems than rural ones:
+                <ul>
+                  <li><strong>Urban:</strong> Higher share of "Fully Reported" entries.</li>
+                  <li><strong>Rural:</strong> Dominated by "No" or "Partial" reporting, a sign of systemic inequities in infrastructure and data systems.</li>
+                </ul>
+              </p>
+            
+              <iframe src="visual_charts_graphs/publishing_bar_chart.html"
+                style="width: 100%; height: 600px; border: none; border-radius: 8px;">
+              </iframe>
+
+            <h3>Publishing Status Breakdown (Pie Chart)</h3>
+              <p>The pie chart reinforce these insights:</p>
+              <ul>
+                <li>Urban water safety reports: 37.1% Fully published, 29.8% Partially, 25% Not published, and 8.06% No response.</li>
+                <li>These figures highlight ongoing inconsistencies in national WASH transparency, even in more resourced areas.</li>
+              </ul>
+
+
+              <!-- Embedded Pie Chart -->
+              <div style="text-align: center; margin: 1.5rem 0;">
+                <iframe 
+                  src="visual_charts_graphs/urban_publishing_pie.html"
+                  style="width: 100%; height: 600px; border: none; border-radius: 8px;"
+                  loading="lazy">
+                </iframe>
+              </div>
+
+
+
+              <h3>Why Transparency Matters</h3>
+              <ul>
+                <li><strong>Public Health:</strong> Transparent data enables faster responses to contamination and builds public trust.</li>
+                <li><strong>Governance:</strong> Countries that report consistently demonstrate institutional strength and accountability.</li>
+                <li><strong>Equity:</strong> The urban-rural divide underscores global inequality in monitoring systems and access to safe water.</li>
+                <li><strong>Policy Design:</strong> Reliable reporting informs better infrastructure decisions and international comparisons.</li>
+              </ul>
+
+              <h3>Conclusion</h3>
+              <p>
+                While global efforts toward WASH transparency are advancing, significant disparities persist — especially in rural and low-income regions.
+                Supporting monitoring capacity and institutional infrastructure remains essential to achieving SDG 6 (Clean Water and Sanitation for All).
+              </p>
+
+              <div style="margin-top: 2rem; border-top: 1px solid #ddd; padding-top: 1rem; font-size: 14px; color: #555;">
+                <strong>Data Source:</strong> 
+                <a href="https://glaas.who.int" target="_blank" style="color: #2a5885;">
+                  WHO GLAAS Portal
+                </a>
+              </div>
+            </div>
+          `
+          
+        },
+        'Average pH Levels': {
+        title: 'Analysis of pH Levels in Global Water Quality',
+        html: `
+          <div class="modal-analysis">
+            <h3>What the Map Shows</h3>
+            <p>
+              This map visualizes the average pH levels measured in freshwater bodies across sampled countries using data from GEMStat. The pH scale indicates the acidity or alkalinity of water, with neutral water being around 7.0.
+            </p>
+
+            <h3>How to Interpret It</h3>
+            <p>
+              • Green to yellow colors on the map represent pH values ranging from near-neutral (ideal for aquatic life) to more alkaline conditions.
+              <br>
+              • Countries with lower pH (below 6.5) may face acidification risks, while those with higher pH (above 8.5) could indicate chemical contamination, industrial discharge, or data outliers.
+            </p>
+
+            <h3>Why It Matters</h3>
+            <p>
+              Maintaining pH within a healthy range (6.5–8.5) is essential for biodiversity, drinking water safety, and ecosystem stability. This map helps identify countries that may require targeted water treatment, further testing, or environmental policy adjustments.
+            </p>
+
+            <p style="margin-top:2rem;">
+              <strong>Data Source:</strong>
+              <a href="https://ourworldindata.org/grapher/death-rates-unsafe-water?tab=table#sources-and-processing" target="_blank">
+                Our World in Data – Death Rates from Unsafe Water
+              </a>
+            </p>
+          </div>
+        `
+        },
+
+        'Water quality and Healthcare Facilities': {
+          title: 'Basic Water and Cleanliness in Healthcare Facilities',
+          html: `
+            <div class="modal-analysis">
+              <h2 style="text-align:center; margin-bottom: 1.2rem; color: #2a5885;">
+                Correlation Between Water Access and Cleanliness in Healthcare Facilities
+              </h2>
+
+              <h3>Data Context</h3>
+              <p>
+                This scatter plot is based on the 2024 JMP (WHO/UNICEF Joint Monitoring Programme) data on WASH (Water, Sanitation, and Hygiene) in healthcare facilities.
+                It visualizes the relationship between the percentage of healthcare facilities with <strong>basic water services</strong> and those with <strong>basic cleanliness</strong>.
+              </p>
+
+              <h3>Why This Matters?</h3>
+              <p>
+                Access to clean water in healthcare settings is vital for infection prevention, hygiene protocols, and patient safety. 
+                Facilities without reliable water compromise basic care delivery, especially during disease outbreaks or childbirth emergencies.
+              </p>
+
+              <h3>Scatter Plot Overview</h3>
+              <p>
+                Each dot on the chart represents one country. The x-axis indicates the percentage of healthcare facilities with basic water access, 
+                while the y-axis shows the percentage with basic cleanliness. A visible upward trend suggests that:
+                <ul>
+                  <li>Countries with stronger water infrastructure tend to also maintain better hygiene and cleanliness in healthcare environments.</li>
+                  <li>Outliers with poor cleanliness despite good water services may signal gaps in staff training or sanitation policy.</li>
+                </ul>
+              </p>
+
+              <h3><h3>Key Insights from the Dataset</h3></h3>
+              <ul>
+                <li><strong>Top Performers:</strong> Malta, Estonia, Andorra, and Oman show near-universal basic water service coverage in healthcare facilities.</li>
+                <li><strong>At-Risk Countries:</strong> Sudan, Somalia, and Guinea report widespread lack of water services, raising concern for infection control and safe care delivery.</li>
+                <li><strong>Infrastructure Disparity:</strong> Countries like Bangladesh and Burkina Faso show large proportions of facilities with only limited or no water, especially in rural or remote regions.</li>
+              </ul>
+
+              <div style="margin-top: 2rem; border-top: 1px solid #ddd; padding-top: 1rem; font-size: 14px; color: #555;">
+                <strong>Data Source:</strong> 
+                <a href="https://ourworldindata.org/grapher/death-rates-unsafe-water?tab=table#sources-and-processing" target="_blank" style="color: #2a5885;">
+                  JMP WASH in Health Care Facilities, WHO/UNICEF (2024)
+                </a>
+              </div>
+            </div>
+          `
+        },
+
+        'Forecasting Water Quality: Nitrogen & Oxygen Trends': {
+          title: 'Forecasting Water Quality: Nitrogen & Oxygen Trends (2000–2030)',
+          html: `
+            <div class="modal-analysis">
+              <h2>Forecast: Oxidized Nitrogen and Oxygen Demand</h2>
+
+              <p>
+                This chart visualizes how two key indicators of water quality—<strong>oxidized nitrogen</strong> (blue) and 
+                <strong>oxygen demand</strong> (green)—are expected to change in the coming years. The forecast is based on historical 
+                water quality measurements collected between 2000 and 2023 and modeled using Meta's Prophet time series tool. 
+              </p>
+
+              <p>
+                The red dashed vertical line marks the beginning of the forecast period (2024). All values to the right of that line are model projections through 2030. Shaded bands around each line represent uncertainty ranges. Wider shading means greater uncertainty in the prediction.
+              </p>
+
+              <h3>Why These Indicators Matter</h3>
+              <ul>
+                <li>
+                  <strong>Oxidized Nitrogen:</strong> Often enters water through fertilizer runoff, sewage, or industrial discharge. 
+                  When nitrogen levels are high, it can trigger rapid algae growth, known as <strong>algal blooms</strong>. 
+                  While algae are natural and important in small amounts, these blooms can grow out of control. 
+                  When algae die, they sink and are decomposed by bacteria, a process that uses up large amounts of oxygen in the water. 
+                  This can lead to <strong>oxygen depletion</strong>, suffocating fish and other aquatic organisms. In severe cases, it creates <strong>dead zones</strong>, which are areas where almost no life can survive.
+                </li>
+                <li>
+                  <strong>Oxygen Demand:</strong> Indicates how much organic pollution is present. When demand is high, bacteria consume more dissolved oxygen to break down waste, potentially leaving too little oxygen for fish, insects, and plants to survive.
+                </li>
+              </ul>
+
+              <h3>What the Forecast Shows</h3>
+              <ul>
+                <li><strong>Oxidized Nitrogen:</strong> Forecasted levels remain relatively stable, but show a slight upward trend. This suggests continued nutrient runoff and a need for better management of fertilizer and wastewater systems.</li>
+                <li><strong>Oxygen Demand:</strong> Historically volatile, but projected to decline gradually, which could reflect improved wastewater treatment and reduced organic pollution in some regions.</li>
+              </ul>
+
+              <h3>Environmental Insight</h3>
+              <p>
+                These trends offer early-warning signals for ecological stress, particularly the formation of <strong>low-oxygen "dead zones"</strong>—areas where aquatic life cannot survive. Even small increases in nitrogen can disrupt entire food chains and ecosystem functions. The gradual drop in oxygen demand is encouraging, but rising nutrient levels remain a cause for concern. Proactive water quality monitoring and policy intervention will be key to preventing long-term degradation.
+              </p>
+
+              <p style="font-size: 14px; color: #555;">
+                <strong>Data Source:</strong> <a href="https://gemstat.org/data-gemstat/data-portal/" target="_blank" style="color:#2a5885;">
+                  GEMStat Water Quality Database (UNEP)
+                </a>
+              </p>
+
+
+            </div>
+          `
+        },
+
+        'Forecasted Diarrheal Deaths': {
+          title: 'Forecast: Global Death Rate from Diarrheal Diseases (per 100,000)',
+          html: `
+            <div class="modal-analysis">
+
+              <p>
+                This chart presents a forecast of global mortality from diarrheal diseases per 100,000 people, using historical data from 1980 to 2020 and a 10-year projection through 2030.
+                The <strong>blue line</strong> represents the model's predicted death rate based on historical trends, while the <strong>shaded region</strong> shows the 95% confidence interval.
+                A <strong>red dashed line</strong> marks the start of the forecast period in 2024.
+              </p>
+
+              <h3>Why Diarrhea Was Chosen as a Water-Linked Indicator</h3>
+              <p>
+                Diarrheal diseases are one of the clearest indicators of poor water, sanitation, and hygiene (WASH) conditions. They are:
+              </p>
+              <ul>
+                <li><strong>Directly waterborne:</strong> Caused by consuming or coming into contact with unsafe water contaminated by bacteria, viruses, or parasites.</li>
+                <li><strong>Highly preventable:</strong> Through access to clean water, safe sanitation, and handwashing with soap.</li>
+                <li><strong>Globally impactful:</strong> Responsible for over <strong>440,000 child deaths annually</strong>, primarily in low-income countries.</li>
+              </ul>
+              <p>
+                Tracking diarrheal disease mortality offers a powerful lens into how well global water access goals (like SDG 6) are being achieved.
+              </p>
+
+              <h3>Model & Data</h3>
+              <ul>
+                <li><strong>Source Data:</strong> WHO/UNICEF Joint Monitoring Programme (JMP), IHME Global Burden of Disease (GBD)</li>
+                <li><strong>Timeframe:</strong> Observed data from 1980–2020, forecast through 2030</li>
+              </ul>
+
+              <h3>Key Insights</h3>
+              <ul>
+                <li><strong>Consistent decline:</strong> Mortality has dropped from 100 to below 20 per 100,000 between 1980 and 2020.</li>
+                <li><strong>Forecast:</strong> The trend is projected to continue, with deaths potentially reaching single digits globally by 2030.</li>
+                <li><strong>Regional Disparities:</strong> Sub-Saharan Africa and South Asia remain disproportionately affected.</li>
+              </ul>
+
+              <h3>Health and Policy Implications</h3>
+              <p>
+                The forecast underscores the critical need for <strong>sustainable water infrastructure</strong>, <strong>sanitation systems</strong>, and <strong>health education</strong>.
+                It highlights how improved WASH conditions can directly reduce child mortality and prevent future disease outbreaks.
+              </p>
+
+              <p style="margin-top: 2rem;">
+                <strong>Data Sources:</strong> 
+                <a href="https://www.who.int/data/gho" target="_blank" style="color:#2a5885;">WHO Global Health Observatory</a>, 
+                <a href="https://vizhub.healthdata.org/gbd-results/" target="_blank" style="color:#2a5885;">IHME GBD Results Tool</a>
+              </p>
+
+            </div>
+          `
+          },
+
+          'Forecast: Diarrheal Disease Death Rate':{
+            title: 'Forecast: Diarrheal Disease Death Rate',
+            html: `
+              <div class="modal-analysis">
+                <h2 style="text-align:center; margin-bottom: 1.2rem; color: #2a5885;">
+                  Forecast: Global Death Rate from Diarrheal Diseases (per 100,000 people)
+                </h2>
+
+                <p>
+                  This analysis uses time-series forecasting (Prophet model) to project death rates from diarrheal diseases through 2030. Diarrheal diseases are chosen as a key water-related health indicator because they directly reflect failures in water, sanitation, and hygiene (WASH) infrastructure, all of which are essential for preventing infectious disease transmission.
+                </p>
+
+                <h3>Why Was Diarrhea Selected?</h3>
+                <p>
+                  Diarrheal diseases are a major global health burden, particularly in low-income regions. They are among the top causes of death in children under 5, yet they are preventable through basic WASH services:
+                  <ul>
+                    <li>Access to safe drinking water</li>
+                    <li>Improved sanitation</li>
+                    <li>Handwashing with soap</li>
+                    <li>Oral rehydration salts (ORS) and zinc treatments</li>
+                  </ul>
+                  Their strong link to water quality and their high preventability make them a sensitive indicator of public health and WASH effectiveness.
+                </p>
+
+                <h3>Data and Methodology</h3>
+                <ul>
+                  <li><strong>Data Source:</strong> WHO/UNICEF JMP and Global Burden of Disease (GBD) datasets</li>
+                  <li><strong>Timeframe:</strong> 1980–2020 (observed), 2021–2030 (forecast)</li>
+                  <li><strong>Forecasting Tool:</strong> Meta Prophet model with yearly seasonality</li>
+                </ul>
+
+                <h3>Key Chart Insights</h3>
+                <p>
+                  The line chart shows a steady decline in global diarrheal death rates. The shaded area indicates the 95% confidence interval. A red dashed line marks the start of the forecast (2021). The data suggests ongoing progress but warns that rates still remain high in certain regions.
+                </p>
+
+
+                <h3>Trend and Seasonality</h3>
+                <p>
+                  The Prophet model decomposes the time series into a long-term trend and yearly seasonality:
+                </p>
+                <ul>
+                  <li><strong>Trend:</strong> Steady decrease over time reflects improvements in global health systems and WASH services.</li>
+                  <li><strong>Seasonality:</strong> Minor seasonal fluctuations could relate to rainfall, contaminated food, or seasonal disease outbreaks.</li>
+                </ul>
+
+                <p style="font-size: 14px; color: #555; text-align: center; margin-top: 1rem; margin-bottom: 1rem;">
+                  <em>📊 Swipe sideways or scroll horizontally to view the full forecasted trend and seasonality details.</em>
+                </p>
+
+                <iframe 
+                  src="visual_charts_graphs/components_plot.html" 
+                  style="width: 100%; height: 400px; border: none; border-radius: 8px;">
+                </iframe>
+
+
+                <h3>Conclusion</h3>
+                <p>
+                  While global diarrheal mortality is on the decline, the disease remains a key threat, especially in regions with limited access to clean water and sanitation. This forecast helps identify future risk zones, advocate for WASH investment, and track Sustainable Development Goal 6 (Clean Water and Sanitation) progress.
+                </p>
+
+                <h3>Why This Matters</h3>
+                <p>
+                  Diarrheal diseases highlight deep global inequalities in access to clean water and sanitation. By forecasting trends in death rates, we can:
+                </p>
+                <ul>
+                  <li><strong>Enable early intervention:</strong> Help governments and health agencies act before preventable deaths occur.</li>
+                  <li><strong>Inform policy decisions:</strong> Guide investments in WASH (Water, Sanitation, and Hygiene) infrastructure where they're most needed.</li>
+                  <li><strong>Support SDG 6 tracking:</strong> Diarrhea-related mortality is a key metric for Sustainable Development Goal 6 (Clean Water and Sanitation).</li>
+                  <li><strong>Reduce human suffering:</strong> Fewer deaths from diarrheal disease mean healthier children, stronger communities, and more resilient healthcare systems.</li>
+                </ul>
+
+
+                <p style="margin-top: 2rem;"><strong>Data Source:</strong> <a href="https://washdata.org" target="_blank" style="color: #2a5885;">WHO/UNICEF JMP & IHME Global Burden of Disease</a></p>
+              </div>
+            `
+
+          },
+            
+        'Presence of Vulnerable Marine Ecosystems': {
+          title: 'Heatmap with Presence of Vulnerable Marine Ecosystems (VME) in the Northeast Atlantic Ocean',
+          html: `
+            <div class="modal-analysis">
+
+              <p>
+                This interactive heatmap visualizes the presence of <strong>Vulnerable Marine Ecosystems (VME) in the Northeast Atlantic Ocean.</strong> The map illustrates VME density in different locations, highlighting areas where ecological conservation efforts are critical to maintain their presence in fragile habitats.
+              </p>
+
+              <p>
+                <strong>Vulnerable Marine Ecosystems</strong> are species and habitats at <strong>risk of severe harm from human activity</strong>, particularly that related to <strong>bottom fishing</strong> or <strong>seabed extraction.</strong> These habitats are home to marine species; thus, supporting the richness of biodiversity. 
+              </p>
+
+              <h3>VME provide services such as:</h3>
+              <ul>
+                <li>Nurse grounds</li>
+                <li>Biodiversity support</li>
+                <li>Carbon cycling</li>
+              </ul>
+
+              <p>Efforts to protect VME's from vulnerability are of essence as <strong>VME recovers extremely slowly, or not at all.</strong> Hence, efforts focus highly on preservation and conservation over restoration and recovery. Lower presence of VME may indicate areas in which human activity may be of high impact, leading to degradation of these ecosystems and further highlighting areas of risk that require urgent conservation efforts.</p>
+              
+              <h3>Examples of VME:</h3>
+              <ul>
+                <li>Cold-water coral reefs</li>
+                <li>Deep-sea sponge aggregations</li>
+                <li>Seapen fields</li>
+              </ul>
+              
+              <p>The Food and Agriculture Organization of the United Nations <strong>(FAO)</strong> and the United Nations General Assembly <strong>(UNGA)</strong> stressed the importance of VME presence, urging for their protection, specifically in areas beyond national jurisdiction (ABNJ).<strong> Deep-sea fishing activity</strong> and <strong>overfishing</strong> may have negative effects on the species found in these locations, which in turn may <strong>alter ecosystems</strong> and their regular functionality (i.e. damage from fishing gears). Data collection and analysis of VME is limited and uneven and underreported, highlighting the need for scientific monitoring and investigation. Several VME species remain unknown and poorly understood, indicating an area of future research that could potentially support conservation objectives. </p>
+
+
+              <p style="font-size: 14px; color: #555;">
+                <strong>Data Sources:</strong> <a href="https://www.fao.org/in-action/vulnerable-marine-ecosystems/background/en/" target="_blank" style="color:#2a5885;">
+                  FAO Vulnerable Marine Ecosystems
+                </a>
+              </p>
+
+
+            </div>
+          `
+        },
+
+        'Historical Concentration of Properties Found in GWB in The Netherlands': {
+          title: 'Concentration of Ammonium and Nitrate Found in Ground Water Bodies in the Netherlands (2000 - 2012)',
+          html: `
+            <div class="modal-analysis">
+
+              <p>
+                This interactive bar plot visualizes properties found in GWB in the Netherlands, particularly <strong>ammonium (NH₄⁺)</strong> and <strong>nitrate (NO₃⁻).</strong> The most recent data found was collected between 2000 and 2012. This indicates that data availability reflecting the current properties in GWB in the Netherlands is limited, and may further reflect one of the reasons behind the country's issues with good water quality. 
+              </p>
+            
+             <h3>Key Insights on Ammonium and Nitrate:</h3>
+              <ul>
+                <li>These two property indicators are used to <strong>assess agricultural and urban impacts on groundwater quality.</strong> Both compounds tend to be linked to fertilizer use and livestock manure.</li>
+                <li>Higher concentrations of these compounds indicate a warning sign of potential groundwater contamination.</li>
+                <li><strong>Ammonium</strong> in groundwater bodies often stems from <strong>manure management practices</strong> and <strong>insufficiently treated sewage.</strong></li>
+                <li><strong>Nitrate</strong> is recognized as a  critical indicator of groundwater contamination due to agriculture. According to EU standards, the acceptable limit for nitrate in groundwater is <strong>50 mg/L.</strong> Exceeding the limit poses a risk to <strong>ecosystem health and human health</strong> (infant and vulnerable populations are at higher risk).
+</li>
+                <li>Recent studies (from 2021) demonstrate the Netherlands has <strong>persisent nitrate pollution</strong> found in groundwater bodies that is driven by the agricultural sector. However, public datasets have not been updated with recent data, revealing transparency issues or limited data collection.</li> 
+                <li>Explore the research papers and sources below to learn more!</li> 
+              </ul>
+
+              <p style="font-size: 14px; color: #555;">
+                <strong>Data Sources:</strong> 
+                <a href="https://www.eea.europa.eu/en/datahub/datahubitem-view/208518d1-ffe3-4981-9cae-13264cd9c32c?activeAccordion=1092904%2C1092907" target="_blank" style="color:#2a5885;"> EEA Waterbase - Water Quality ICM,
+                <a href="https://www.sciencedirect.com/science/article/pii/S0269749119348936" target="_blank" style="color:#2a5885;"> Living in polluted waters: Meta Analysis, 
+                 <a href="https://www.sciencedirect.com/science/article/pii/S1352231017300316" target="_blank" style="color:#2a5885;"> Modelling trends in ammonia in the Netherlands.
+                </a>
+              </p>
+
+          </div>
+          `     
+        }
+
+        
+      };
+
+      // Handle string descriptions for backward compatibility
+      for (let key in descriptions) {
+        if (typeof descriptions[key] === 'string') {
+          descriptions[key] = {html: descriptions[key] };
+        }
+
+      }
+
+    // Main modal open function
+    function openModal(src, key) {
+        const desc = descriptions[key] || {};
+        document.getElementById('modal-title').textContent = desc.title || key;
+        document.getElementById('modal-content').src = src;
+        document.getElementById('modal-description').innerHTML = desc.html || '';
+        document.getElementById('modal').style.display = 'flex';
+    }
+
+    // Close modal function
+    function closeModal() {
+        document.getElementById('modal').style.display = 'none';
+        document.getElementById('modal-content').src = '';
+        document.getElementById('modal-description').innerHTML = '';
+        document.getElementById('modal-title').textContent = '';
+    }
+
+    // Load header and footer components
+    fetch('/assets/header.html')
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById('header').innerHTML = html;
+    // Manually load and execute the header script
+    return fetch('/assets/header.js');
+  })
+  .then(res => res.text())
+  .then(scriptContent => {
+    // Execute the script content
+    eval(scriptContent);
+  });
+
+    fetch('/assets/footer.html')
+    .then(res => res.text())
+    .then(html => document.getElementById('footer').innerHTML = html);
+
+    // Modal mapping object for URL parameters
+const modalMap = {
+  'water_quality_map': {
+    src: 'visual_charts_graphs/water_quality_map_2023.html',
+    key: 'Water Quality Map'
+  },
+  'netherlands_concentration': {
+    src: 'visual_charts_graphs/concentration_properties_GW_NL.html',
+    key: 'Historical Concentration of Properties Found in GWB in The Netherlands'
+  }
+};
+
+// Function to automatically open modal based on URL parameter
+function checkForModalParameter() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const modalParam = urlParams.get('modal');
+  
+  if (modalParam && modalMap[modalParam]) {
+    const modalConfig = modalMap[modalParam];
+    setTimeout(() => {
+      openModal(modalConfig.src, modalConfig.key);
+    }, 500);
+  }
+}
+
+// Run when page loads
+document.addEventListener('DOMContentLoaded', checkForModalParameter);
+</script>
+
+</body>
+
+</html>

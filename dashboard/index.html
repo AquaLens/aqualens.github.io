@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AquaLens</title>
+    
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="dashboard.css" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="/css/froggy-chat.css" />
+    
+    <!-- JavaScript Libraries -->
+    <script src="cities.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <div id="header"></div>
+    
+    <div class="container">
+        <main>
+            <!-- ==================== SIDEBAR FILTERS ==================== -->
+            <div class="sidebar-stack">
+
+                <!-- Return to Projects Button -->
+                <div class="button-top">
+                    <a href="../projects" class="btn-projects">Return to Project Overview</a>
+                </div>
+                
+                <aside>
+                    <div class="filters">
+                        <h2>Filter Projects</h2>
+
+                        <!-- Search Feature -->
+                        <div class="search-container">
+                            <label class="search-label">Search Projects</label>
+                            <div class="search-wrapper">
+                                <input 
+                                    type="text" 
+                                    id="project-search" 
+                                    class="search-input" 
+                                    placeholder="Search by name, organization, description..."
+                                    autocomplete="off"
+                                />
+                                <button type="button" class="search-clear" id="search-clear">&times;</button>
+                            </div>
+                            <div class="search-results-info" id="search-info"></div>
+                        </div>
+
+                        <!-- Keywords Filter -->
+                        <div class="filter-group">
+                            <strong>Keywords</strong>
+                            <label><input type="checkbox" name="keywords" value="Citizen Science" /> Citizen Science </label>
+                            <label><input type="checkbox" name="keywords" value="Flood Management" /> Flood Management </label>
+                            <label><input type="checkbox" name="keywords" value="Nature Development" /> Nature Development </label>
+                            <label><input type="checkbox" name="keywords" value="Object-based Solutions" /> Object-based Solutions </label>
+                            <label><input type="checkbox" name="keywords" value="Purification" /> Purification </label>
+                            <label><input type="checkbox" name="keywords" value="Recreation" /> Recreation </label>
+                        </div>
+
+                        <!-- Context Filter -->
+                        <div class="filter-group">
+                            <strong>Context</strong>
+                            <label><input type="checkbox" name="context" value="City" /> City</label>
+                            <label><input type="checkbox" name="context" value="Landscape" /> Landscape</label>
+                            <label><input type="checkbox" name="context" value="Peripheral" /> Peripheral</label>
+                        </div>
+
+                        <!-- Country Filter -->
+                        <div class="filter-group">
+                            <strong>Country</strong>
+                            <select id="countryDropdown">
+                                <option value="">Select a Country</option>
+                                <option value="Afghanistan">Afghanistan</option>
+                                <option value="Albania">Albania</option>
+                                <option value="Algeria">Algeria</option>
+                                <option value="Andorra">Andorra</option>
+                                <option value="Angola">Angola</option>
+                                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                <option value="Argentina">Argentina</option>
+                                <option value="Armenia">Armenia</option>
+                                <option value="Australia">Australia</option>
+                                <option value="Austria">Austria</option>
+                                <option value="Azerbaijan">Azerbaijan</option>
+                                <option value="Bahamas">Bahamas</option>
+                                <option value="Bahrain">Bahrain</option>
+                                <option value="Bangladesh">Bangladesh</option>
+                                <option value="Barbados">Barbados</option>
+                                <option value="Belarus">Belarus</option>
+                                <option value="Belgium">Belgium</option>
+                                <option value="Belize">Belize</option>
+                                <option value="Benin">Benin</option>
+                                <option value="Bhutan">Bhutan</option>
+                                <option value="Bolivia">Bolivia</option>
+                                <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                                <option value="Botswana">Botswana</option>
+                                <option value="Brazil">Brazil</option>
+                                <option value="Brunei">Brunei</option>
+                                <option value="Bulgaria">Bulgaria</option>
+                                <option value="Burkina Faso">Burkina Faso</option>
+                                <option value="Burundi">Burundi</option>
+                                <option value="Cabo Verde">Cabo Verde</option>
+                                <option value="Cambodia">Cambodia</option>
+                                <option value="Cameroon">Cameroon</option>
+                                <option value="Canada">Canada</option>
+                                <option value="Central African Republic">Central African Republic</option>
+                                <option value="Chad">Chad</option>
+                                <option value="Chile">Chile</option>
+                                <option value="China">China</option>
+                                <option value="Colombia">Colombia</option>
+                                <option value="Comoros">Comoros</option>
+                                <option value="Congo, Democratic Republic of the">Congo, Democratic Republic of the</option>
+                                <option value="Congo, Republic of the">Congo, Republic of the</option>
+                                <option value="Costa Rica">Costa Rica</option>
+                                <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+                                <option value="Croatia">Croatia</option>
+                                <option value="Cuba">Cuba</option>
+                                <option value="Cyprus">Cyprus</option>
+                                <option value="Czech Republic">Czech Republic</option>
+                                <option value="Denmark">Denmark</option>
+                                <option value="Djibouti">Djibouti</option>
+                                <option value="Dominica">Dominica</option>
+                                <option value="Dominican Republic">Dominican Republic</option>
+                                <option value="Ecuador">Ecuador</option>
+                                <option value="Egypt">Egypt</option>
+                                <option value="El Salvador">El Salvador</option>
+                                <option value="Equatorial Guinea">Equatorial Guinea</option>
+                                <option value="Eritrea">Eritrea</option>
+                                <option value="Estonia">Estonia</option>
+                                <option value="Eswatini">Eswatini</option>
+                                <option value="Ethiopia">Ethiopia</option>
+                                <option value="Fiji">Fiji</option>
+                                <option value="Finland">Finland</option>
+                                <option value="France">France</option>
+                                <option value="Gabon">Gabon</option>
+                                <option value="Gambia">Gambia</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Germany">Germany</option>
+                                <option value="Ghana">Ghana</option>
+                                <option value="Greece">Greece</option>
+                                <option value="Grenada">Grenada</option>
+                                <option value="Guatemala">Guatemala</option>
+                                <option value="Guinea">Guinea</option>
+                                <option value="Guinea-Bissau">Guinea-Bissau</option>
+                                <option value="Guyana">Guyana</option>
+                                <option value="Haiti">Haiti</option>
+                                <option value="Honduras">Honduras</option>
+                                <option value="Hungary">Hungary</option>
+                                <option value="Iceland">Iceland</option>
+                                <option value="India">India</option>
+                                <option value="Indonesia">Indonesia</option>
+                                <option value="Iran">Iran</option>
+                                <option value="Iraq">Iraq</option>
+                                <option value="Ireland">Ireland</option>
+                                <option value="Israel">Israel</option>
+                                <option value="Italy">Italy</option>
+                                <option value="Jamaica">Jamaica</option>
+                                <option value="Japan">Japan</option>
+                                <option value="Jordan">Jordan</option>
+                                <option value="Kazakhstan">Kazakhstan</option>
+                                <option value="Kenya">Kenya</option>
+                                <option value="Kiribati">Kiribati</option>
+                                <option value="Korea, North">Korea, North</option>
+                                <option value="Korea, South">Korea, South</option>
+                                <option value="Kosovo">Kosovo</option>
+                                <option value="Kuwait">Kuwait</option>
+                                <option value="Kyrgyzstan">Kyrgyzstan</option>
+                                <option value="Laos">Laos</option>
+                                <option value="Latvia">Latvia</option>
+                                <option value="Lebanon">Lebanon</option>
+                                <option value="Lesotho">Lesotho</option>
+                                <option value="Liberia">Liberia</option>
+                                <option value="Libya">Libya</option>
+                                <option value="Liechtenstein">Liechtenstein</option>
+                                <option value="Lithuania">Lithuania</option>
+                                <option value="Luxembourg">Luxembourg</option>
+                                <option value="Madagascar">Madagascar</option>
+                                <option value="Malawi">Malawi</option>
+                                <option value="Malaysia">Malaysia</option>
+                                <option value="Maldives">Maldives</option>
+                                <option value="Mali">Mali</option>
+                                <option value="Malta">Malta</option>
+                                <option value="Marshall Islands">Marshall Islands</option>
+                                <option value="Mauritania">Mauritania</option>
+                                <option value="Mauritius">Mauritius</option>
+                                <option value="Mexico">Mexico</option>
+                                <option value="Micronesia">Micronesia</option>
+                                <option value="Moldova">Moldova</option>
+                                <option value="Monaco">Monaco</option>
+                                <option value="Mongolia">Mongolia</option>
+                                <option value="Montenegro">Montenegro</option>
+                                <option value="Morocco">Morocco</option>
+                                <option value="Mozambique">Mozambique</option>
+                                <option value="Myanmar">Myanmar</option>
+                                <option value="Namibia">Namibia</option>
+                                <option value="Nauru">Nauru</option>
+                                <option value="Nepal">Nepal</option>
+                                <option value="Netherlands">Netherlands</option>
+                                <option value="New Zealand">New Zealand</option>
+                                <option value="Nicaragua">Nicaragua</option>
+                                <option value="Niger">Niger</option>
+                                <option value="Nigeria">Nigeria</option>
+                                <option value="North Macedonia">North Macedonia</option>
+                                <option value="Norway">Norway</option>
+                                <option value="Oman">Oman</option>
+                                <option value="Pakistan">Pakistan</option>
+                                <option value="Palau">Palau</option>
+                                <option value="Palestine">Palestine</option>
+                                <option value="Panama">Panama</option>
+                                <option value="Papua New Guinea">Papua New Guinea</option>
+                                <option value="Paraguay">Paraguay</option>
+                                <option value="Peru">Peru</option>
+                                <option value="Philippines">Philippines</option>
+                                <option value="Poland">Poland</option>
+                                <option value="Portugal">Portugal</option>
+                                <option value="Qatar">Qatar</option>
+                                <option value="Romania">Romania</option>
+                                <option value="Russia">Russia</option>
+                                <option value="Rwanda">Rwanda</option>
+                                <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                                <option value="Saint Lucia">Saint Lucia</option>
+                                <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
+                                <option value="Samoa">Samoa</option>
+                                <option value="San Marino">San Marino</option>
+                                <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                                <option value="Saudi Arabia">Saudi Arabia</option>
+                                <option value="Senegal">Senegal</option>
+                                <option value="Serbia">Serbia</option>
+                                <option value="Seychelles">Seychelles</option>
+                                <option value="Sierra Leone">Sierra Leone</option>
+                                <option value="Singapore">Singapore</option>
+                                <option value="Slovakia">Slovakia</option>
+                                <option value="Slovenia">Slovenia</option>
+                                <option value="Solomon Islands">Solomon Islands</option>
+                                <option value="Somalia">Somalia</option>
+                                <option value="South Africa">South Africa</option>
+                                <option value="South Sudan">South Sudan</option>
+                                <option value="Spain">Spain</option>
+                                <option value="Sri Lanka">Sri Lanka</option>
+                                <option value="Sudan">Sudan</option>
+                                <option value="Suriname">Suriname</option>
+                                <option value="Sweden">Sweden</option>
+                                <option value="Switzerland">Switzerland</option>
+                                <option value="Syria">Syria</option>
+                                <option value="Taiwan">Taiwan</option>
+                                <option value="Tajikistan">Tajikistan</option>
+                                <option value="Tanzania">Tanzania</option>
+                                <option value="Thailand">Thailand</option>
+                                <option value="Timor-Leste">Timor-Leste</option>
+                                <option value="Togo">Togo</option>
+                                <option value="Tonga">Tonga</option>
+                                <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                                <option value="Tunisia">Tunisia</option>
+                                <option value="Turkey">Turkey</option>
+                                <option value="Turkmenistan">Turkmenistan</option>
+                                <option value="Tuvalu">Tuvalu</option>
+                                <option value="Uganda">Uganda</option>
+                                <option value="Ukraine">Ukraine</option>
+                                <option value="United Arab Emirates">United Arab Emirates</option>
+                                <option value="United Kingdom">United Kingdom</option>
+                                <option value="United States">United States</option>
+                                <option value="Uruguay">Uruguay</option>
+                                <option value="Uzbekistan">Uzbekistan</option>
+                                <option value="Vanuatu">Vanuatu</option>
+                                <option value="Vatican City">Vatican City</option>
+                                <option value="Venezuela">Venezuela</option>
+                                <option value="Vietnam">Vietnam</option>
+                                <option value="Yemen">Yemen</option>
+                                <option value="Zambia">Zambia</option>
+                                <option value="Zimbabwe">Zimbabwe</option>
+                            </select>
+                            <div id="selectedCountries" class="selected-countries"></div>
+                        </div>
+
+                        <!-- Tags Filter -->
+                        <div class="filter-group">
+                            <strong>Tags</strong>
+                            <select id="tagDropdown">
+                                <option value="">Select a Tag</option>
+                                <option value="Agriculture">Agriculture</option>
+                                <option value="Artificial Reefs">Artificial Reefs</option>
+                                <option value="Awareness">Awareness</option>
+                                <option value="Aquatic Ecosystems">Aquatic Ecosystems</option>
+                                <option value="Biodiversity Enhancement">Biodiversity Enhancement</option>
+                                <option value="Bioremediation">Bioremediation</option>
+                                <option value="Blue Infrastructure">Blue Infrastructure</option>
+                                <option value="Citizen Participation">Citizen Participation</option>
+                                <option value="Clean Drinking Water">Clean Drinking Water</option>
+                                <option value="Climate Adaptation">Climate Adaptation</option>
+                                <option value="Coastal Protection">Coastal Protection</option>
+                                <option value="Coastal Resilience">Coastal Resilience</option>
+                                <option value="Ecological Corridors">Ecological Corridors</option>
+                                <option value="Ecology">Ecology</option>
+                                <option value="Ecology Restoration">Ecology Restoration</option>
+                                <option value="Energy Consumption Reduction">Energy Consumption Reduction</option>
+                                <option value="Fauna">Fauna</option>
+                                <option value="Filtering Gardens">Filtering Gardens</option>
+                                <option value="Fishing Dams">Fishing Dams</option>
+                                <option value="Floating Garden">Floating Garden</option>
+                                <option value="Flood Management">Flood Management</option>
+                                <option value="Green Infrastructure">Green Infrastructure</option>
+                                <option value="Habitat Creation">Habitat Creation</option>
+                                <option value="Habitat Restoration">Habitat Restoration</option>
+                                <option value="Heat-Island Mitigation">Heat-Island Mitigation</option>
+                                <option value="Irrigation">Irrigation</option>
+                                <option value="Indigenous">Indigenous</option>
+                                <option value="Infrastructure">Infrastructure</option>
+                                <option value="Nature-Based Solutions">Nature-Based Solutions</option>
+                                <option value="Photosynthesis">Photosynthesis</option>
+                                <option value="Pollution">Pollution</option>
+                                <option value="Purification">Purification</option>
+                                <option value="Public Space Development">Public Space Development</option>
+                                <option value="Rainwater Collection">Rainwater Collection</option>
+                                <option value="Recreation">Recreation</option>
+                                <option value="Renovation">Renovation</option>
+                                <option value="Research">Research</option>
+                                <option value="River">River</option>
+                                <option value="River Restoration">River Restoration</option>
+                                <option value="Sewer System">Sewer System</option>
+                                <option value="Soil Treatment">Soil Treatment</option>
+                                <option value="Species Preservation">Species Preservation</option>
+                                <option value="Stormwater Management">Stormwater Management</option>
+                                <option value="Sustainable Development">Sustainable Development</option>
+                                <option value="Urban Renewal">Urban Renewal</option>
+                                <option value="Urban River Systems">Urban River Systems</option>
+                                <option value="Water Consumption Reduction">Water Consumption Reduction</option>
+                                <option value="Water Park">Water Park</option>
+                                <option value="Water Purification">Water Purification</option>
+                                <option value="Water Reclamation">Water Reclamation</option>
+                                <option value="Water Treatment">Water Treatment</option>
+                                <option value="Wetland Restoration">Wetland Restoration</option>
+                            </select> 
+                            <div id="selectedTags" class="selected-countries"></div>           
+                        </div>
+                    </div>
+
+                    <!-- Froggy Chat Helper -->
+                    <div class="froggy-help">
+                        <div class="froggy-text">
+                            <div class="title">Need help?</div>
+                            <div class="subtitle">Ask Froggy a question!</div>
+                        </div>
+                        <div class="froggy-action">
+                            <img src="../images/Froggy 3.png" alt="Froggy">
+                            <button id="froggy-button">Ask Froggy</button>
+                        </div>
+                    </div>
+
+                </aside>
+            </div>
+
+            <!-- ==================== MAIN SECTION - MAP & PROJECTS ==================== -->
+            <section class="projects-section">
+                <h2>Global Water Projects</h2>
+                <p>Explore a diverse range of projects from around the world that are dedicated to improving urban water quality. Each project is a step towards a cleaner, healthier future for our cities and their ecosystems.</p>
+                <p>💡Hover over a pin to view the project.</p><br>
+                
+                <!-- Interactive Map -->
+                <div id="map" style="height: 80vh; margin-bottom: 2rem;"></div>
+                <div id="map-loading" class="loading-indicator">Loading Projects ...</div>
+
+                <!-- Submit New Project Section -->
+                <div class="submit-idea-box">
+                    <h3>Have an idea or a project that's missing here?</h3>
+                    <div class="button-wrapper">
+                        <button class="submit-idea-btn">Submit Project</button>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer Section -->
+    <div id="footer"></div>
+
+    <!-- ==================== MODAL COMPONENTS ==================== -->
+
+    <!-- Froggy Chat Popup -->
+    <div class="froggy-chat-popup" id="froggy-popup">
+        <div class="froggy-chat-header">
+            <span>Froggy (no longer available)</span>
+            <button id="froggy-close" class="froggy-close">&times;</button>
+        </div>
+        <div class="froggy-chat-messages" id="froggy-messages"></div>
+        <div class="froggy-chat-input">
+            <textarea id="froggy-question" placeholder="Type a message..."></textarea>
+            <button id="froggy-send">➤</button>
+        </div>
+    </div>
+
+    <!-- Froggy Disclaimer Modal -->
+    <div class="froggy-disclaimer-modal" id="froggy-disclaimer-modal">
+        <div class="froggy-disclaimer-content">
+            <div class="froggy-disclaimer-title">
+                <img src="../images/Froggy 3.png" alt="Froggy">
+                Chat with Froggy
+            </div>
+            <div class="froggy-disclaimer-text">
+                <p>Froggy is an AI agent that can assist you with the information on this website. Before you start chatting with Froggy, please read and understand the following:</p>
+                <ul>
+                    <li><strong>Data Processing:</strong> Your questions and conversations will be processed through Groq's AI services to provide you with responses.</li>
+                    <li><strong>Information Accuracy:</strong> While Froggy strives to provide helpful and accurate information about water quality initiatives and research, the information provided may not always be complete or accurate.</li>
+                    <li><strong>Fact-checking:</strong> If you're in doubt about any information provided, we encourage you to verify it through authoritative sources or consult with relevant experts.</li>
+                    <li><strong>No Professional Advice:</strong> Froggy's responses should not be considered as professional, legal, or scientific advice.</li>
+                </ul>
+                <p>By proceeding, you acknowledge that you understand these terms and agree to use Froggy's services accordingly.</p>
+            </div>
+            <div class="froggy-disclaimer-buttons">
+                <button id="froggy-agree" class="froggy-disclaimer-btn">I Understand & Agree</button>
+                <button id="froggy-decline" class="froggy-disclaimer-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Details Modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title">Project Title</h2>
+            <p><strong>Organization:</strong> <span id="modal-organization"></span></p>
+            <p><strong>Keyword/Label:</strong> <span id="modal-keyword"></span></p>
+            <p><strong>Country:</strong> <span id="modal-location"></span></p>
+            <p><strong>City:</strong> <span id="modal-city"></span></p>
+            <p><strong>Context:</strong> <span id="modal-context"></span></p>
+            <p id="modal-description">Project description here.</p>
+            <a id="modal-source" href="#" target="_blank">View Source</a>
+        </div>
+    </div>
+
+    <!-- Submit Project Modal -->
+    <div id="submit-modal" class="modal">
+        <div class="modal-content form-content">
+            <span class="close-button" id="submit-close">&times;</span>
+            <h2>Submit a New Initiative</h2>
+            
+            <form id="submit-form">
+                <!-- Basic Information Section -->
+                <h3>Basic Information</h3>
+                <div class="form-group required">
+                    <label for="title">Initiative Title *</label>
+                    <input type="text" name="title" id="title" required />
+                </div>
+
+                <div class="form-group required">
+                    <label for="organization">Organization *</label>
+                    <input type="text" name="organization" id="organization" required />
+                </div>
+
+                <!-- Location Section -->
+                <h3>Location</h3>
+                <div class="form-group required">
+                    <label for="country">Country *</label>
+                    <select name="country" id="country" required>
+                        <option value="">— Select Country —</option>
+                        <option value="Afghanistan">Afghanistan</option>
+                        <option value="Albania">Albania</option>
+                        <option value="Algeria">Algeria</option>
+                        <option value="Andorra">Andorra</option>
+                        <option value="Angola">Angola</option>
+                        <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Armenia">Armenia</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Austria">Austria</option>
+                        <option value="Azerbaijan">Azerbaijan</option>
+                        <option value="Bahamas">Bahamas</option>
+                        <option value="Bahrain">Bahrain</option>
+                        <option value="Bangladesh">Bangladesh</option>
+                        <option value="Barbados">Barbados</option>
+                        <option value="Belarus">Belarus</option>
+                        <option value="Belgium">Belgium</option>
+                        <option value="Belize">Belize</option>
+                        <option value="Benin">Benin</option>
+                        <option value="Bhutan">Bhutan</option>
+                        <option value="Bolivia">Bolivia</option>
+                        <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                        <option value="Botswana">Botswana</option>
+                        <option value="Brazil">Brazil</option>
+                        <option value="Brunei">Brunei</option>
+                        <option value="Bulgaria">Bulgaria</option>
+                        <option value="Burkina Faso">Burkina Faso</option>
+                        <option value="Burundi">Burundi</option>
+                        <option value="Cabo Verde">Cabo Verde</option>
+                        <option value="Cambodia">Cambodia</option>
+                        <option value="Cameroon">Cameroon</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Central African Republic">Central African Republic</option>
+                        <option value="Chad">Chad</option>
+                        <option value="Chile">Chile</option>
+                        <option value="China">China</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Comoros">Comoros</option>
+                        <option value="Congo, Democratic Republic of the">Congo, Democratic Republic of the</option>
+                        <option value="Congo, Republic of the">Congo, Republic of the</option>
+                        <option value="Costa Rica">Costa Rica</option>
+                        <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+                        <option value="Croatia">Croatia</option>
+                        <option value="Cuba">Cuba</option>
+                        <option value="Cyprus">Cyprus</option>
+                        <option value="Czech Republic">Czech Republic</option>
+                        <option value="Denmark">Denmark</option>
+                        <option value="Djibouti">Djibouti</option>
+                        <option value="Dominica">Dominica</option>
+                        <option value="Dominican Republic">Dominican Republic</option>
+                        <option value="Ecuador">Ecuador</option>
+                        <option value="Egypt">Egypt</option>
+                        <option value="El Salvador">El Salvador</option>
+                        <option value="Equatorial Guinea">Equatorial Guinea</option>
+                        <option value="Eritrea">Eritrea</option>
+                        <option value="Estonia">Estonia</option>
+                        <option value="Eswatini">Eswatini</option>
+                        <option value="Ethiopia">Ethiopia</option>
+                        <option value="Fiji">Fiji</option>
+                        <option value="Finland">Finland</option>
+                        <option value="France">France</option>
+                        <option value="Gabon">Gabon</option>
+                        <option value="Gambia">Gambia</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Ghana">Ghana</option>
+                        <option value="Greece">Greece</option>
+                        <option value="Grenada">Grenada</option>
+                        <option value="Guatemala">Guatemala</option>
+                        <option value="Guinea">Guinea</option>
+                        <option value="Guinea-Bissau">Guinea-Bissau</option>
+                        <option value="Guyana">Guyana</option>
+                        <option value="Haiti">Haiti</option>
+                        <option value="Honduras">Honduras</option>
+                        <option value="Hungary">Hungary</option>
+                        <option value="Iceland">Iceland</option>
+                        <option value="India">India</option>
+                        <option value="Indonesia">Indonesia</option>
+                        <option value="Iran">Iran</option>
+                        <option value="Iraq">Iraq</option>
+                        <option value="Ireland">Ireland</option>
+                        <option value="Israel">Israel</option>
+                        <option value="Italy">Italy</option>
+                        <option value="Jamaica">Jamaica</option>
+                        <option value="Japan">Japan</option>
+                        <option value="Jordan">Jordan</option>
+                        <option value="Kazakhstan">Kazakhstan</option>
+                        <option value="Kenya">Kenya</option>
+                        <option value="Kiribati">Kiribati</option>
+                        <option value="Korea, North">Korea, North</option>
+                        <option value="Korea, South">Korea, South</option>
+                        <option value="Kosovo">Kosovo</option>
+                        <option value="Kuwait">Kuwait</option>
+                        <option value="Kyrgyzstan">Kyrgyzstan</option>
+                        <option value="Laos">Laos</option>
+                        <option value="Latvia">Latvia</option>
+                        <option value="Lebanon">Lebanon</option>
+                        <option value="Lesotho">Lesotho</option>
+                        <option value="Liberia">Liberia</option>
+                        <option value="Libya">Libya</option>
+                        <option value="Liechtenstein">Liechtenstein</option>
+                        <option value="Lithuania">Lithuania</option>
+                        <option value="Luxembourg">Luxembourg</option>
+                        <option value="Madagascar">Madagascar</option>
+                        <option value="Malawi">Malawi</option>
+                        <option value="Malaysia">Malaysia</option>
+                        <option value="Maldives">Maldives</option>
+                        <option value="Mali">Mali</option>
+                        <option value="Malta">Malta</option>
+                        <option value="Marshall Islands">Marshall Islands</option>
+                        <option value="Mauritania">Mauritania</option>
+                        <option value="Mauritius">Mauritius</option>
+                        <option value="Mexico">Mexico</option>
+                        <option value="Micronesia">Micronesia</option>
+                        <option value="Moldova">Moldova</option>
+                        <option value="Monaco">Monaco</option>
+                        <option value="Mongolia">Mongolia</option>
+                        <option value="Montenegro">Montenegro</option>
+                        <option value="Morocco">Morocco</option>
+                        <option value="Mozambique">Mozambique</option>
+                        <option value="Myanmar">Myanmar</option>
+                        <option value="Namibia">Namibia</option>
+                        <option value="Nauru">Nauru</option>
+                        <option value="Nepal">Nepal</option>
+                        <option value="Netherlands">Netherlands</option>
+                        <option value="New Zealand">New Zealand</option>
+                        <option value="Nicaragua">Nicaragua</option>
+                        <option value="Niger">Niger</option>
+                        <option value="Nigeria">Nigeria</option>
+                        <option value="North Macedonia">North Macedonia</option>
+                        <option value="Norway">Norway</option>
+                        <option value="Oman">Oman</option>
+                        <option value="Pakistan">Pakistan</option>
+                        <option value="Palau">Palau</option>
+                        <option value="Palestine">Palestine</option>
+                        <option value="Panama">Panama</option>
+                        <option value="Papua New Guinea">Papua New Guinea</option>
+                        <option value="Paraguay">Paraguay</option>
+                        <option value="Peru">Peru</option>
+                        <option value="Philippines">Philippines</option>
+                        <option value="Poland">Poland</option>
+                        <option value="Portugal">Portugal</option>
+                        <option value="Qatar">Qatar</option>
+                        <option value="Romania">Romania</option>
+                        <option value="Russia">Russia</option>
+                        <option value="Rwanda">Rwanda</option>
+                        <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                        <option value="Saint Lucia">Saint Lucia</option>
+                        <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
+                        <option value="Samoa">Samoa</option>
+                        <option value="San Marino">San Marino</option>
+                        <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                        <option value="Saudi Arabia">Saudi Arabia</option>
+                        <option value="Senegal">Senegal</option>
+                        <option value="Serbia">Serbia</option>
+                        <option value="Seychelles">Seychelles</option>
+                        <option value="Sierra Leone">Sierra Leone</option>
+                        <option value="Singapore">Singapore</option>
+                        <option value="Slovakia">Slovakia</option>
+                        <option value="Slovenia">Slovenia</option>
+                        <option value="Solomon Islands">Solomon Islands</option>
+                        <option value="Somalia">Somalia</option>
+                        <option value="South Africa">South Africa</option>
+                        <option value="South Sudan">South Sudan</option>
+                        <option value="Spain">Spain</option>
+                        <option value="Sri Lanka">Sri Lanka</option>
+                        <option value="Sudan">Sudan</option>
+                        <option value="Suriname">Suriname</option>
+                        <option value="Sweden">Sweden</option>
+                        <option value="Switzerland">Switzerland</option>
+                        <option value="Syria">Syria</option>
+                        <option value="Taiwan">Taiwan</option>
+                        <option value="Tajikistan">Tajikistan</option>
+                        <option value="Tanzania">Tanzania</option>
+                        <option value="Thailand">Thailand</option>
+                        <option value="Timor-Leste">Timor-Leste</option>
+                        <option value="Togo">Togo</option>
+                        <option value="Tonga">Tonga</option>
+                        <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                        <option value="Tunisia">Tunisia</option>
+                        <option value="Turkey">Turkey</option>
+                        <option value="Turkmenistan">Turkmenistan</option>
+                        <option value="Tuvalu">Tuvalu</option>
+                        <option value="Uganda">Uganda</option>
+                        <option value="Ukraine">Ukraine</option>
+                        <option value="United Arab Emirates">United Arab Emirates</option>
+                        <option value="United Kingdom">United Kingdom</option>
+                        <option value="United States">United States</option>
+                        <option value="Uruguay">Uruguay</option>
+                        <option value="Uzbekistan">Uzbekistan</option>
+                        <option value="Vanuatu">Vanuatu</option>
+                        <option value="Vatican City">Vatican City</option>
+                        <option value="Venezuela">Venezuela</option>
+                        <option value="Vietnam">Vietnam</option>
+                        <option value="Yemen">Yemen</option>
+                        <option value="Zambia">Zambia</option>
+                        <option value="Zimbabwe">Zimbabwe</option>
+                    </select>
+                </div>
+
+                <div class="form-group required">
+                    <label for="continent">Continent *</label>
+                    <select name="continent" id="continent" required>
+                        <option value="">— Select Continent —</option>
+                        <option value="North America">North America</option>
+                        <option value="South America">South America</option>
+                        <option value="Europe">Europe</option>
+                        <option value="Africa">Africa</option>
+                        <option value="Asia">Asia</option>
+                        <option value="Oceania">Oceania</option>
+                        <option value="Antarctica">Antarctica</option>
+                    </select>
+                </div>
+
+                <div class="form-group required">
+                    <label for="city">City *</label>
+                    <input type="text" name="city" id="city" required />
+                </div>
+
+                <!-- Project Details Section -->
+                <h3>Project Details</h3>
+                <div class="form-group required">
+                    <label for="context">Context *</label>
+                    <select name="context" id="context" required>
+                        <option value="">— Select Context —</option>
+                        <option>City</option>
+                        <option>Landscape</option>
+                        <option>Peripheral</option>
+                    </select>
+                </div>
+
+                <div class="form-group required">
+                    <label for="keyword">Keyword *</label>
+                    <select name="keyword" id="keyword" required>
+                        <option value="">— Select Keyword —</option>
+                        <option>Citizen Science</option>
+                        <option>Flood Management</option>
+                        <option>Nature Development</option>
+                        <option>Object-based Solutions</option>
+                        <option>Purification</option>
+                        <option>Recreation</option>
+                    </select>
+                </div>
+
+                <div class="form-group required">
+                    <label for="target">Target *</label>
+                    <select name="target" id="target" required>
+                        <option value="">- Select Target -</option>
+                        <option>Drainage</option>
+                        <option>Healthy surface water</option>
+                        <option>Kwel tegenhouden</option> 
+                        <option>Local infiltration</option>
+                        <option>Local storage</option>
+                        <option>Management</option>
+                        <option>Seasonal water retention</option>
+                    </select>
+                </div>
+
+                <!-- Measurements Section (Optional) -->
+                <details>
+                    <summary><strong>Measurements (select all that apply)</strong></summary>
+                    <div class="checkbox-grid">
+                        <label><input type="checkbox" name="measurements" value="Blackwater Management" /> Blackwater Management</label>
+                        <label><input type="checkbox" name="measurements" value="Cultivation" /> Cultivation</label>
+                        <label><input type="checkbox" name="measurements" value="Drainage" /> Drainage</label>
+                        <label><input type="checkbox" name="measurements" value="Drought Prevention" /> Drought Prevention</label>
+                        <label><input type="checkbox" name="measurements" value="Energy Production" /> Energy Production</label>
+                        <label><input type="checkbox" name="measurements" value="Flood Management" /> Flood Management</label>
+                        <label><input type="checkbox" name="measurements" value="Flood Prevention" /> Flood Prevention</label>
+                        <label><input type="checkbox" name="measurements" value="Nature Development" /> Nature Development</label>
+                        <label><input type="checkbox" name="measurements" value="Purify Water" /> Purify Water</label>
+                        <label><input type="checkbox" name="measurements" value="Recreation" /> Recreation</label>
+                        <label><input type="checkbox" name="measurements" value="Water Purification" /> Water Purification</label>
+                    </div>
+                </details>
+
+                <!-- Project Tags Section (Optional) -->
+                <details>
+                    <summary><strong>Project Tags</strong></summary>
+                    <div class="checkbox-grid">
+                        <label><input type="checkbox" name="tags" value="Agriculture" /> Agriculture</label>
+                        <label><input type="checkbox" name="tags" value="Artificial Reefs" /> Artificial Reefs</label>
+                        <label><input type="checkbox" name="tags" value="Awareness" /> Awareness</label>
+                        <label><input type="checkbox" name="tags" value="Aquatic Ecosystems" /> Aquatic Ecosystems</label>
+                        <label><input type="checkbox" name="tags" value="Biodiversity Enhancement" /> Biodiversity Enhancement</label>
+                        <label><input type="checkbox" name="tags" value="Bioremediation" /> Bioremediation</label>
+                        <label><input type="checkbox" name="tags" value="Blue Infrastructure" /> Blue Infrastructure</label>
+                        <label><input type="checkbox" name="tags" value="Citizen Participation" /> Citizen Participation</label>
+                        <label><input type="checkbox" name="tags" value="Clean Drinking Water" /> Clean Drinking Water</label>
+                        <label><input type="checkbox" name="tags" value="Climate Adaptation" /> Climate Adaptation</label>
+                        <label><input type="checkbox" name="tags" value="Coastal Protection" /> Coastal Protection</label>
+                        <label><input type="checkbox" name="tags" value="Coastal Resilience" /> Coastal Resilience</label>
+                        <label><input type="checkbox" name="tags" value="Ecological Corridors" /> Ecological Corridors</label>
+                        <label><input type="checkbox" name="tags" value="Ecology" /> Ecology</label>
+                        <label><input type="checkbox" name="tags" value="Ecology Restoration" /> Ecology Restoration</label>
+                        <label><input type="checkbox" name="tags" value="Energy Consumption Reduction" /> Energy Consumption Reduction</label>
+                        <label><input type="checkbox" name="tags" value="Fauna" /> Fauna</label>
+                        <label><input type="checkbox" name="tags" value="Filtering Gardens" /> Filtering Gardens</label>
+                        <label><input type="checkbox" name="tags" value="Fishing Dams" /> Fishing Dams</label>
+                        <label><input type="checkbox" name="tags" value="Floating Garden" /> Floating Garden</label>
+                        <label><input type="checkbox" name="tags" value="Flood Management" /> Flood Management</label>
+                        <label><input type="checkbox" name="tags" value="Green Infrastructure" /> Green Infrastructure</label>
+                        <label><input type="checkbox" name="tags" value="Habitat Creation" /> Habitat Creation</label>
+                        <label><input type="checkbox" name="tags" value="Habitat Restoration" /> Habitat Restoration</label>
+                        <label><input type="checkbox" name="tags" value="Heat-Island Mitigation" /> Heat-Island Mitigation</label>
+                        <label><input type="checkbox" name="tags" value="Irrigation" /> Irrigation</label>
+                        <label><input type="checkbox" name="tags" value="Indigenous" /> Indigenous</label>
+                        <label><input type="checkbox" name="tags" value="Infrastructure" /> Infrastructure</label>
+                        <label><input type="checkbox" name="tags" value="Nature-Based Solutions" /> Nature-Based Solutions</label>
+                        <label><input type="checkbox" name="tags" value="Photosynthesis" /> Photosynthesis</label>
+                        <label><input type="checkbox" name="tags" value="Pollution" /> Pollution</label>
+                        <label><input type="checkbox" name="tags" value="Purification" /> Purification</label>
+                        <label><input type="checkbox" name="tags" value="Public Space Development" /> Public Space Development</label>
+                        <label><input type="checkbox" name="tags" value="Rainwater Collection" /> Rainwater Collection</label>
+                        <label><input type="checkbox" name="tags" value="Recreation" /> Recreation</label>
+                        <label><input type="checkbox" name="tags" value="Renovation" /> Renovation</label>
+                        <label><input type="checkbox" name="tags" value="Research" /> Research</label>
+                        <label><input type="checkbox" name="tags" value="River" /> River</label>
+                        <label><input type="checkbox" name="tags" value="River Restoration" /> River Restoration</label>
+                        <label><input type="checkbox" name="tags" value="Sewer System" /> Sewer System</label>
+                        <label><input type="checkbox" name="tags" value="Soil Treatment" /> Soil Treatment</label>
+                        <label><input type="checkbox" name="tags" value="Species Preservation" /> Species Preservation</label>
+                        <label><input type="checkbox" name="tags" value="Stormwater Management" /> Stormwater Management</label>
+                        <label><input type="checkbox" name="tags" value="Sustainable Development" /> Sustainable Development</label>
+                        <label><input type="checkbox" name="tags" value="Urban Renewal" /> Urban Renewal</label>
+                        <label><input type="checkbox" name="tags" value="Urban River Systems" /> Urban River Systems</label>
+                        <label><input type="checkbox" name="tags" value="Water Consumption Reduction" /> Water Consumption Reduction</label>
+                        <label><input type="checkbox" name="tags" value="Water Park" /> Water Park</label>
+                        <label><input type="checkbox" name="tags" value="Water Purification" /> Water Purification</label>
+                        <label><input type="checkbox" name="tags" value="Water Reclamation" /> Water Reclamation</label>
+                        <label><input type="checkbox" name="tags" value="Water Treatment" /> Water Treatment</label>
+                        <label><input type="checkbox" name="tags" value="Wetland Restoration" /> Wetland Restoration</label>
+                    </div>
+                </details>
+
+                <!-- Description Section -->
+                <h3>Description</h3>
+                <div class="form-group required">
+                    <label for="description">Project Description (summary) *</label>
+                    <textarea name="description" id="description" rows="2" required></textarea>
+                </div>
+
+                <!-- Budget Section (Optional) -->
+                <h3>Budget (optional)</h3>
+                <div class="form-group">
+                    <input type="number" name="budgetAmount" placeholder="0.00" min="0" step="1" style="width: 100px;" />
+                    <select name="budgetCurrency">
+                        <option value="EUR">EUR</option>
+                        <option value="USD">USD</option>
+                        <option value="GBP">£ GBP</option>
+                        <option value="NOK">kr NOK</option>
+                        <option value="SEK">kr SEK</option>
+                        <option value="CHF">CHF</option>
+                        <option value="JPY">¥ JPY</option>
+                        <option value="INR">₹ INR</option>
+                    </select>
+                </div>
+                
+                <!-- Metadata Section -->
+                <div class="form-group-required">
+                    <label for="source">Source (URL) *</label>
+                    <input type="url" name="source" id="source" placeholder="https://…" required/>
+                </div>
+
+                <div class="form-group">
+                    <label for="timeline">Timeline</label>
+                    <input type="text" name="timeline" id="timeline" />
+                </div>
+
+                <div class="form-group">
+                    <label for="other">Other Information</label>
+                    <input type="text" name="other" id="other" />
+                </div>
+
+                <!-- Contact Information Section -->
+                <h3>Contact Information</h3>
+                <div class="form-group required">
+                    <label for="contactName">Name *</label>
+                    <input type="text" name="contactName" id="contactName" required />
+                </div>
+                <div class="form-group required">
+                    <label for="contactEmail">Email *</label>
+                    <input type="email" name="contactEmail" id="contactEmail" required />
+                </div>
+                <div class="form-group">
+                    <label for="contactPhone">Phone</label>
+                    <input type="tel" name="contactPhone" id="contactPhone" />
+                </div>
+
+                <button type="submit" class="btn">Submit Initiative</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT SECTION ==================== -->
+    <script>
+        // ==================== INITIALIZATION ==================== 
+        
+        // Load header and footer components
+        fetch('/assets/header.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('header').innerHTML = html);
+        
+        fetch('/assets/footer.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('footer').innerHTML = html);
+
+        // Global variables for application state
+        let allProjects = [];
+        let map, markersLayer;
+        let selectedCountries = [];
+        let selectedTags = [];
+        let searchQuery = '';
+
+        // API configuration
+        const GEOCODING_API_KEY = '595604d27a984913acdce947d8a70f54';
+        const geoCache = new Map(); // In-memory cache for geocoding results
+        const projectMap = new Map(); // Maps project IDs to project objects for modal display
+        
+        // Local storage cache for city coordinates
+        let localStorageCache = {};
+        try {
+            const stored = localStorage.getItem('cityCache');
+            if (stored) {
+                localStorageCache = JSON.parse(stored);
+            }
+        } catch (error) {
+            console.error('Error loading city cache:', error);
+            localStorageCache = {};
+        }
+
+        // Country name normalization mappings
+        const countryMappings = {
+            'united states of america': 'usa',
+            'united states': 'usa',
+            'us': 'usa',
+            'usa': 'usa',
+            'united kingdom': 'united kingdom',
+            'uk': 'united kingdom',
+            'great britain': 'united kingdom',
+            'england': 'united kingdom',
+            'france': 'france',
+            'germany': 'germany',
+            'netherlands': 'netherlands',
+            'holland': 'netherlands',
+            'romania': 'romania',
+            'switzerland': 'switzerland',
+            'austria': 'austria',
+            'belgium': 'belgium',
+            'sweden': 'sweden',
+            'norway': 'norway',
+            'finland': 'finland',
+            'poland': 'poland',
+            'czech republic': 'czech republic',
+            'italy': 'italy',
+            'spain': 'spain',
+            'china': 'china',
+            'japan': 'japan',
+            'indonesia': 'indonesia',
+            'saudi arabia': 'saudi arabia',
+            'kuwait': 'kuwait',
+            'new zealand': 'new zealand',
+            'tuvalu': 'tuvalu',
+            'peru': 'peru',
+            'brazil': 'brazil',
+            'costa rica': 'costa rica',
+            'mexico': 'mexico',
+            'south africa': 'south africa',
+            'singapore': 'singapore',
+            'canada': 'canada',
+            'multiple': 'multiple' // for rivers that cross countries
+        };
+
+        // ==================== UTILITY FUNCTIONS ==================== 
+
+        /**
+         * Normalizes country names for consistent matching
+         * @param {string} country - The country name to normalize
+         * @returns {string} - The normalized country name
+         */
+        function normalizeCountry(country) {
+            const normalized = country.toLowerCase().trim();
+            return countryMappings[normalized] || normalized;
+        }
+
+        // ==================== MAIN INITIALIZATION ==================== 
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            initMap();
+            await loadProjects();
+            addProjectsToMap(allProjects);
+            setupFilters();
+            setupSearch();
+        });
+
+        // ==================== SEARCH FUNCTIONALITY ==================== 
+
+        /**
+         * Sets up the search input and related event handlers
+         */
+        function setupSearch() {
+            const searchInput = document.getElementById('project-search');
+            const clearButton = document.getElementById('search-clear');
+            const searchInfo = document.getElementById('search-info');
+            
+            let searchTimeout;
+            
+            // Real-time search with debouncing to prevent too many API calls
+            searchInput.addEventListener('input', (e) => {
+                clearTimeout(searchTimeout);
+                searchQuery = e.target.value.trim();
+                
+                // Show/hide clear button based on search content
+                if (searchQuery) {
+                    clearButton.style.display = 'block';
+                } else {
+                    clearButton.style.display = 'none';
+                    searchInfo.textContent = '';
+                }
+                
+                // Debounce search to avoid too many rapid searches
+                searchTimeout = setTimeout(() => {
+                    applyFilters();
+                }, 300);
+            });
+            
+            // Clear search functionality
+            clearButton.addEventListener('click', () => {
+                searchInput.value = '';
+                searchQuery = '';
+                clearButton.style.display = 'none';
+                searchInfo.textContent = '';
+                applyFilters();
+                searchInput.focus();
+            });
+            
+            // Allow clearing with Escape key
+            searchInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && searchQuery) {
+                    clearButton.click();
+                }
+            });
+        }
+
+        /**
+         * Searches projects based on query terms
+         * @param {Array} projects - Array of project objects to search
+         * @param {string} query - Search query string
+         * @returns {Array} - Filtered array of projects matching the search
+         */
+        function searchProjects(projects, query) {
+            if (!query) return projects;
+            
+            const searchTerms = query.toLowerCase().split(' ').filter(term => term.length > 0);
+            
+            return projects.filter(project => {
+                // Create searchable text from all relevant project fields
+                const searchableText = [
+                    project.projectName || '',
+                    project.description || '',
+                    project.companyOrganization || '',
+                    project.location || '',
+                    project.keywordLabel || '',
+                    project.context || '',
+                    (project.tags || []).join(' ')
+                ].join(' ').toLowerCase();
+                
+                // Check if all search terms are found in the searchable text
+                return searchTerms.every(term => searchableText.includes(term));
+            });
+        }
+
+        // ==================== MAP FUNCTIONALITY ==================== 
+
+        /* Initializes the Leaflet map with basic configuration */
+
+        function initMap() {
+            map = L.map('map', {
+                center: [20, 0],
+                zoom: 2,
+                minZoom: 2,
+                maxZoom: 12,
+                worldCopyJump: true, // prevent infinite horizontal scrolling
+            });
+            
+            // Add OpenStreetMap tile layer
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors',
+            }).addTo(map);
+            
+            // Create layer group for project markers
+            markersLayer = L.layerGroup().addTo(map);
+        }
+
+        // ==================== PROJECT DATA MANAGEMENT ==================== //
+
+        /* Loads project data from Sanity */
+
+        async function loadProjects() {
+            try {
+                const apiUrl = 'https://594hcrq0.api.sanity.io/v2025-04-14/data/query/production?query=' +
+                    encodeURIComponent(`*[_type == "projects"]{
+                        _id,
+                        projectName,
+                        description,
+                        "imageURL": image.asset->url,
+                        "imageAlt": projectName,
+                        location,
+                        specificLocations,
+                        keywordLabel,
+                        source,
+                        companyOrganization,
+                        context,
+                        tags
+                    }`);
+                
+                const response = await fetch(apiUrl);
+                const { result: projects } = await response.json();
+                allProjects = projects;
+            } catch (err) {
+                console.error('Failed to fetch projects:', err);
+            }
+        }
+
+        /* Adds project markers to the map
+         * @param {Array} projects - Array of project objects to display */
+        
+         async function addProjectsToMap(projects) {
+           
+          // Show loading indicator
+            const loadingIndicator = document.getElementById('map-loading');
+            if (loadingIndicator) loadingIndicator.style.display = 'block';
+
+            // Update search results info
+            const searchInfo = document.getElementById('search-info');
+            if (searchQuery) {
+                const totalCount = allProjects.length;
+                const resultCount = projects.length;
+                searchInfo.textContent = `${resultCount} of ${totalCount} projects found`;
+            } else {
+                searchInfo.textContent = '';
+            }
+
+            try {
+                // Clear existing markers
+                markersLayer.clearLayers();
+                const markerPromises = [];
+                
+                // Process each project and create markers
+                for (const project of projects) {
+                    const locations = Array.isArray(project.specificLocations) ? project.specificLocations : [];
+                    const country = project.location || '';
+                    
+                    // Custom map pin icon
+                    const customIcon = L.icon({
+                        iconUrl: 'pin2.png', 
+                        iconSize: [32, 32], 
+                        iconAnchor: [16, 32], 
+                        popupAnchor: [0, -32]
+                    });
+                    
+                    // Create markers for each city location
+                    for (const city of locations) {
+                        if (!city || !country) continue;
+                        
+                        markerPromises.push(
+                            geocodeCity(city, country).then(coords => {
+                                if (coords) {
+                                    const marker = L.marker(coords, {icon: customIcon}).addTo(markersLayer);
+                                    
+                                    // Store project reference for modal display
+                                    if (project._id) {
+                                        projectMap.set(project._id, project);
+                                    }
+                                    
+                                    // Create tooltip content for hover
+                                    const tooltipHtml = `
+                                        <div style="min-width: 200px;">
+                                            <strong>${project.projectName}</strong><br>
+                                            <em>${city}</em><br>
+                                            ${project.description?.substring(0, 80)}...<br>
+                                            <small style="color: #666;">Click for more details</small>
+                                        </div>
+                                    `;
+                                    
+                                    // Bind tooltip for hover functionality
+                                    marker.bindTooltip(tooltipHtml, {
+                                        permanent: false,
+                                        direction: 'top',
+                                        offset: [0, -10],
+                                        className: 'custom-tooltip'
+                                    });
+                                    
+                                    // Handle click to show project details modal
+                                    marker.on('click', function() {
+                                        showModalById(project._id);
+                                    });
+                                }
+                            })
+                        );
+                    }
+                }
+                
+                // Wait for all geocoding and marker creation to complete
+                await Promise.all(markerPromises);
+                map.invalidateSize();
+            } finally {
+                // Hide loading indicator whether successful or not
+                if (loadingIndicator) loadingIndicator.style.display = 'none';
+            }
+        }
+
+        // ==================== GEOCODING FUNCTIONALITY ==================== 
+
+        /**
+         * Gets latitude/longitude coordinates for a city using the local storage then API 
+         * @param {string} city - The city name
+         * @param {string} country - The country name
+         * @returns {Array|null} - [lat, lng] coordinates or null if not found
+         */
+        async function geocodeCity(city, country) {
+            const cleanCity = city.toLowerCase().trim();
+            const cleanCountry = normalizeCountry(country);
+            const cacheKey = `${cleanCity}_${cleanCountry}`;
+            
+            console.log(`Geocoding: "${city}" in "${country}" (normalized: "${cleanCountry}")`);
+            
+            // 1. Check localStorage cache first 
+            if (localStorageCache[cacheKey]) {
+                console.log(`Found in localStorage cache: ${cleanCity}, ${cleanCountry}`);
+                return [localStorageCache[cacheKey].lat, localStorageCache[cacheKey].lng];
+            }
+            
+            // 2. Check predefined cities.js cache
+            if (typeof cityCache !== 'undefined' && cityCache[cleanCity]) {
+                const cityData = cityCache[cleanCity];
+                const normalizedCityCountry = normalizeCountry(cityData.country);
+                
+                console.log(`Found city in predefined cache: ${cleanCity}`);
+                console.log(`City country: "${cityData.country}" (normalized: "${normalizedCityCountry}")`);
+                console.log(`Looking for: "${cleanCountry}"`);
+                
+                // Match if countries match OR if the city has "multiple" countries (rivers, etc.)
+                if (normalizedCityCountry === cleanCountry || cityData.country === 'multiple') {
+                    console.log(`Country match - Using predefined coordinates for ${cleanCity}`);
+                    
+                    // Cache it locally for faster future lookups
+                    const coordData = { lat: cityData.lat, lng: cityData.lng };
+                    localStorageCache[cacheKey] = coordData;
+                    localStorage.setItem('cityCache', JSON.stringify(localStorageCache));
+                    
+                    return [cityData.lat, cityData.lng];
+                } else {
+                    console.log(`Country mismatch for ${cleanCity}: expected "${cleanCountry}", got "${normalizedCityCountry}"`);
+                }
+            } else {
+                console.log(`City "${cleanCity}" not found in predefined cache`);
+                if (typeof cityCache === 'undefined') {
+                    console.error('cityCache is undefined - cities.js may not have loaded properly');
+                }
+            }
+            
+            // 3. Fall back to geocoding API 
+            try {
+                const response = await fetch(
+                    `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(city)},${encodeURIComponent(country)}&key=${GEOCODING_API_KEY}`
+                );
+                
+                if (response.status === 402) {
+                    console.error('API quota exceeded - OpenCage API returned 402 Payment Required');
+                    return null;
+                }
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                if (data.results && data.results.length > 0) {
+                    const coords = data.results[0].geometry;
+                    console.log(`API success for ${cleanCity}, ${cleanCountry}: [${coords.lat}, ${coords.lng}]`);
+                    
+                    // Add to localStorage cache for future use
+                    localStorageCache[cacheKey] = {
+                        lat: coords.lat,
+                        lng: coords.lng
+                    };
+                    localStorage.setItem('cityCache', JSON.stringify(localStorageCache));
+                    
+                    return [coords.lat, coords.lng];
+                } else {
+                    console.warn(`No API results found for ${city}, ${country}`);
+                    return null;
+                }
+            } catch (error) {
+                console.error(`Geocoding API Error for ${city}, ${country}:`, error);
+                return null;
+            }
+        }
+
+        // ==================== MODAL FUNCTIONALITY ==================== 
+
+        /**
+         * Shows project details in a modal
+         * @param {Object} project - The project object to display
+         */
+        function showModal(project) {
+            document.getElementById('modal-title').textContent = project.projectName || 'Untitled Project';
+            document.getElementById('modal-description').textContent = project.description || 'No description available';
+            document.getElementById('modal-organization').textContent = project.companyOrganization || 'Unknown organization';
+            document.getElementById('modal-keyword').textContent = project.keywordLabel || 'No label specified';
+            document.getElementById('modal-location').textContent = project.location || 'No country specified';
+            document.getElementById('modal-city').textContent = project.specificLocations || 'No city specified';
+            document.getElementById('modal-context').textContent = project.context || 'No context';
+            
+            // Handle source link
+            const modalSource = document.getElementById('modal-source');
+            if (project.source) {
+                modalSource.href = project.source;
+                modalSource.style.display = 'inline';
+            } else {
+                modalSource.style.display = 'none';
+            }
+            
+            document.getElementById('project-modal').style.display = 'block';
+        }
+
+        /**
+         * Shows project details modal by project ID
+         * @param {string} projectId - The project ID to display
+         */
+
+        function showModalById(projectId) {
+            const project = projectMap.get(projectId);
+            if (project) {
+                showModal(project);
+            } else {
+                console.error('Project not found for ID:', projectId);
+            }
+        }
+
+        /**
+         * Closes the project details modal
+         */
+        function closeModal() {
+            document.getElementById('project-modal').style.display = 'none';
+        }
+
+        // ==================== FILTERING FUNCTIONALITY ==================== 
+
+        /**
+         * Sets up all filter event handlers and dropdown functionality
+         */
+
+        function setupFilters() {
+            // Setup checkbox filters for keywords and context
+            document.querySelectorAll('input[type="checkbox"]').forEach(input => {
+                input.addEventListener('change', applyFilters);
+            });
+
+            // Country dropdown filter setup
+            const countryDropdown = document.getElementById('countryDropdown');
+            const selectedCountriesDiv = document.getElementById('selectedCountries');
+            selectedCountries = [];
+            
+            if (countryDropdown) {
+                countryDropdown.addEventListener('change', () => {
+                    const selected = countryDropdown.value;
+                    if (selected && !selectedCountries.includes(selected)) {
+                        selectedCountries.push(selected);
+                        updateSelectedCountries();
+                        applyFilters();
+                    }
+                    countryDropdown.value = ""; // Reset dropdown after selection
+                });
+            }
+
+            /**
+             * Updates the visual display of selected countries with remove buttons
+             */
+            
+            function updateSelectedCountries() {
+                selectedCountriesDiv.innerHTML = '';
+                selectedCountries.forEach(country => {
+                    const span = document.createElement('span');
+                    span.className = 'country-chip';
+                    span.textContent = country;
+                    
+                    const removeBtn = document.createElement('button');
+                    removeBtn.textContent = '×';
+                    removeBtn.className = 'remove-btn';
+                    removeBtn.onclick = () => {
+                        selectedCountries = selectedCountries.filter(c => c !== country);
+                        updateSelectedCountries();
+                        applyFilters();
+                    };
+                    
+                    span.appendChild(removeBtn);
+                    selectedCountriesDiv.appendChild(span);
+                });
+            }
+
+            // Tag dropdown filter setup
+            const tagDropdown = document.getElementById('tagDropdown');
+            const selectedTagsDiv = document.getElementById('selectedTags');
+            selectedTags = [];
+
+            tagDropdown.addEventListener('change', () => {
+                const selected = tagDropdown.value;
+                if (selected && !selectedTags.includes(selected)) {
+                    selectedTags.push(selected);
+                    updateSelectedTags();
+                    applyFilters();
+                }
+                tagDropdown.value = ""; // Reset dropdown after selection
+            });
+
+            /**
+             * Updates the visual display of selected tags with remove buttons
+             */
+            function updateSelectedTags() {
+                selectedTagsDiv.innerHTML = '';
+                selectedTags.forEach(tag => {
+                    const span = document.createElement('span');
+                    span.className = 'country-chip';
+                    span.textContent = tag;
+
+                    const removeBtn = document.createElement('button');
+                    removeBtn.textContent = '×';
+                    removeBtn.className = 'remove-btn';
+                    removeBtn.onclick = () => {
+                        selectedTags = selectedTags.filter(t => t !== tag);
+                        updateSelectedTags();
+                        applyFilters();
+                    };
+
+                    span.appendChild(removeBtn);
+                    selectedTagsDiv.appendChild(span);
+                });
+            }
+        }
+
+        /**
+         * Applies all active filters to the project list and updates the map
+         */
+        function applyFilters() {
+            // Get selected filter values
+            const selectedKeywords = Array.from(
+                document.querySelectorAll('input[name="keywords"]:checked')
+            ).map(cb => cb.value);
+            
+            const selectedContexts = Array.from(
+                document.querySelectorAll('input[name="context"]:checked')
+            ).map(cb => cb.value);
+
+            // Start with all projects
+            let filteredProjects = allProjects;
+
+            // Apply search filter first
+            if (searchQuery) {
+                filteredProjects = searchProjects(filteredProjects, searchQuery);
+            }
+
+            // Apply other filters if any are selected
+            if (selectedKeywords.length > 0 || selectedContexts.length > 0 || selectedCountries.length > 0 || selectedTags.length > 0) {
+                filteredProjects = filteredProjects.filter(project => {
+                    // Handle special case for "Object-based Solutions" keyword matching
+                    const matchesKeyword = selectedKeywords.length === 0 || 
+                        selectedKeywords.some(keyword => {
+                            if (keyword === "Object-based Solutions") {
+                                return project.keywordLabel === keyword || 
+                                      project.keywordLabel === "Object - based Solutions";
+                            }
+                            return project.keywordLabel === keyword;
+                        });
+
+                    const matchesContext = selectedContexts.length === 0 || 
+                        selectedContexts.some(context => project.context?.includes(context));
+
+                    const matchesCountry = selectedCountries.length === 0 || 
+                        selectedCountries.includes(project.location);
+
+                    // Check if project has any of the selected tags
+                    const matchesTags = selectedTags.length === 0 || 
+                        selectedTags.some(tag => {
+                            return project.tags && project.tags.includes(tag);
+                        });
+
+                    return matchesKeyword && matchesContext && matchesCountry && matchesTags;
+                });
+            }
+
+            console.log('Filtered projects:', filteredProjects);
+            addProjectsToMap(filteredProjects);
+        }
+
+        // ==================== PROJECT SUBMISSION FUNCTIONALITY ==================== 
+
+        /**
+         * Sets up the project submission form and modal
+         */
+        document.addEventListener('DOMContentLoaded', () => {
+            const submitBtn = document.querySelector('.submit-idea-btn');
+            const submitModal = document.getElementById('submit-modal');
+            const submitClose = document.getElementById('submit-close');
+            const submitForm = document.getElementById('submit-form');
+            
+            // Show submission modal
+            submitBtn.addEventListener('click', () => {
+                submitModal.style.display = 'flex';
+            });
+            
+            // Close modal on X button
+            submitClose.addEventListener('click', () => {
+                submitModal.style.display = 'none';
+            });
+            
+            // Close modal on backdrop click
+            submitModal.addEventListener('click', e => {
+                if (e.target === submitModal) submitModal.style.display = 'none';
+            });
+            
+            // Handle form submission - saves as draft to Sanity CMS
+            submitForm.addEventListener('submit', async e => {
+                console.log('submit handler triggered');
+                e.preventDefault();
+                
+                // Extract form data
+                const values = Object.fromEntries(new FormData(submitForm).entries());
+                const measurements = Array.from(
+                    submitForm.querySelectorAll('input[name="measurements"]:checked')
+                ).map(el => el.value);
+                const tags = Array.from(
+                    submitForm.querySelectorAll('input[name="tags"]:checked')
+                ).map(el => el.value);
+                
+                // Format budget if provided
+                let budget;
+                if (values.budgetAmount) {
+                    budget = `${parseFloat(values.budgetAmount).toFixed(2)} ${values.budgetCurrency}`;
+                }
+                
+                // Create document structure for Sanity
+                const doc = {
+                    _id: `drafts.${Date.now()}`, // Draft ID must start with "drafts."
+                    _type: 'projects',
+                    projectName: values.title,
+                    companyOrganization: values.organization,
+                    continent: values.continent,
+                    location: values.country,
+                    specificLocations: [values.city],
+                    context: values.context,
+                    keywordLabel: values.keyword,
+                    target: values.target,
+                    measurements,
+                    tags,
+                    description: values.description,
+                    fullText: values['full-description'],
+                    source: values.source,
+                    other: values.other,
+                    ...(budget && { budget }), // Only include budget if provided
+                    contact: {
+                        name: values.contactName,
+                        email: values.contactEmail,
+                        phone: values.contactPhone
+                    }
+                };
+                
+                try {
+                    // Submit to Sanity CMS
+                    const res = await fetch(
+                        'https://594hcrq0.api.sanity.io/v2025-04-14/data/mutate/production',
+                        {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                Authorization: 'Bearer skcRAaDkrmCvD2VQSMccbrU1AsLeuZt4vtz8fqnxWvOB4rw2U8S6P8nSGW10rIHpVo2Ce7YyPtN9TSAj79vizQhDzzIsF0gKBOKkXIdtdoyyn1ipA5lbKbmjRoak8I54sPaiE9zfvameZuLcSCxzWNzborON7Vpw0QtAlrKAN8AgjqufBiAK'
+                            },
+                            body: JSON.stringify({
+                                mutations: [{ create: doc }]
+                            })
+                        }
+                    );
+                    
+                    const payload = await res.json();
+                    if (payload.error) throw new Error(payload.error.message);
+                    
+                    alert('Your submission was saved and will be uploaded after verification.');
+                } catch (err) {
+                    console.error('Sanity draft-save error:', err);
+                    alert('Failed to save draft. Check console for details.');
+                }
+                
+                // Clean up UI
+                submitModal.style.display = 'none';
+                submitForm.reset();
+            });
+        });
+    </script>
+    
+    <!-- Load Froggy chat functionality -->
+    <script src="/assets/froggy-chat.js"></script>
+</body>
+</html>

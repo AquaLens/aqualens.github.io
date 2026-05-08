@@ -1,0 +1,491 @@
+/* ==================== ABOUT US PAGE SPECIFIC STYLES ==================== */
+
+/* ==================== SIDE NAVIGATION ==================== */
+
+/* Fixed side navigation container */
+.side-nav {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Basic navigation pin styling */
+.nav-pin {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Main pin for "Here in the Netherlands" section */
+.nav-pin.main-pin {
+    width: 15px;
+    height: 15px;
+    margin-left: 0;
+}
+
+/* Sub-pins for individual case studies (smaller and indented) */
+.nav-pin.sub-pin {
+    width: 10px;
+    height: 10px;
+    margin-left: 10px;
+}
+
+/* Active and hover states for navigation pins */
+.nav-pin:hover, 
+.nav-pin.active {
+    background-color: #a4b5ca;
+    transform: scale(1.2);
+}
+
+/* Tooltip styling for navigation pins */
+.nav-pin .tooltip {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Show tooltip on hover */
+.nav-pin:hover .tooltip {
+    opacity: 1;
+}
+
+/* ==================== SECTION LAYOUT & POSITIONING ==================== */
+
+/* Full-screen section container for scroll animations */
+section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    visibility: hidden; /* Hidden by default, shown via GSAP */
+}
+
+/* First section visible by default */
+section.first {
+    visibility: visible;
+}
+
+/* Outer wrapper for GSAP slide animations */
+.outer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Inner wrapper for GSAP slide animations */
+.inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Background container for each section */
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f8f8f8;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* ==================== SECTION-SPECIFIC BACKGROUNDS ==================== */
+
+/* Video backgrounds for intro and community sections */
+.bg.one, 
+.bg.five {
+    position: relative;
+    overflow: hidden;
+}
+
+.bg.one video,
+.bg.one img,
+.bg.five video,
+.bg.five img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    z-index: -1; /* Behind content */
+    pointer-events: none;
+}
+
+/* Foundation section background with gradient and pattern */
+.bg.book {
+    position: relative;
+    background: linear-gradient(135deg, #2c4a66 0%, #3d5a78 50%, #4e6b8a 100%);
+}
+
+/* Decorative pattern overlay for book section */
+.bg.book::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(45deg, rgba(164, 181, 202, 0.1) 25%, transparent 25%), 
+        linear-gradient(-45deg, rgba(164, 181, 202, 0.1) 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, rgba(164, 181, 202, 0.1) 75%), 
+        linear-gradient(-45deg, transparent 75%, rgba(164, 181, 202, 0.1) 75%);
+    background-size: 60px 60px;
+    background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+/* Case study sections with image backgrounds */
+.bg.two, 
+.bg.three, 
+.bg.four {
+    position: relative;
+}
+
+/* Case study background images */
+.case-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Behind content */
+    opacity: 0.7; /* Semi-transparent for text readability */
+}
+
+/* ==================== CONTENT STYLING ==================== */
+
+/* Main content container with glassmorphism effect */
+.section-content {
+    max-width: 800px;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.92);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    text-align: left;
+    position: relative;
+    z-index: 2; /* Above background */
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Paragraph spacing and readability */
+.section-content p {
+    margin-bottom: 1.2em;
+    line-height: 1.6;
+}
+
+/* Section heading styling */
+.section-heading {
+    margin-bottom: 1.5rem;
+    color: #2c4a66;
+    font-size: 2.8rem;
+    overflow: hidden;
+    position: relative;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Wrapper for GSAP animation of headings */
+.heading-text {
+    display: block;
+}
+
+/* ==================== TEXT ENHANCEMENT STYLES ==================== */
+
+/* Gradient highlight text effect */
+.highlight {
+    background: linear-gradient(120deg, #a4b5ca 0%, #7c8fa8 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+/* Statistics highlighting */
+.stat {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: #2c4a66;
+    background-color: rgba(164, 181, 202, 0.2);
+    padding: 2px 8px;
+    border-radius: 4px;
+    border-left: 4px solid #a4b5ca;
+}
+
+/* Emphasized text styling */
+.emphasis {
+    font-weight: 600;
+    color: #2c4a66;
+}
+
+/* Key point callout boxes */
+.key-point {
+    background-color: rgba(164, 181, 202, 0.15);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #a4b5ca;
+    margin: 15px 0;
+    font-style: italic;
+}
+
+/* Innovation tags for case studies */
+.innovation-tag {
+    display: inline-block;
+    background: linear-gradient(45deg, #a4b5ca, #7c8fa8);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 600;
+    margin: 5px 5px 5px 0;
+    box-shadow: 0 2px 8px rgba(164, 181, 202, 0.3);
+}
+
+/* In-text links styling */
+.in-text {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* ==================== BUTTON STYLING ==================== */
+
+/* Primary call-to-action button */
+.btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 12px 24px;
+    background: linear-gradient(45deg, #a4b5ca, #7c8fa8);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(164, 181, 202, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Button hover effects */
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(164, 181, 202, 0.6);
+    background: linear-gradient(45deg, #7c8fa8, #6a7a94);
+}
+
+/* ==================== SCROLL INDICATOR ==================== */
+
+/* Down arrow for scroll indication */
+.down-arrow {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 1rem;
+    color: #333;
+    animation: bounce 2s infinite;
+    cursor: pointer;
+    z-index: 10;
+    position: relative;
+}
+
+/* Clickable arrow link */
+.down-arrow a {
+    color: inherit;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+    z-index: 11;
+}
+
+/* Arrow hover effect */
+.down-arrow a:hover {
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+/* Bouncing animation for scroll indicator */
+@keyframes bounce {
+    0%, 100% { 
+        transform: translateY(0); 
+    }
+    50% { 
+        transform: translateY(10px); 
+    }
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+
+/* Tablet and small desktop adjustments */
+@media (max-width: 768px) {
+
+    /* Allow sections to scroll when content is taller than screen */
+    section {
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Reduce content container size */
+    .section-content {
+        max-width: 92%;
+        padding: 1.25rem;
+        margin: 0 auto;
+    }
+
+    /* Smaller heading size */
+    .section-heading {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Smaller paragraph text */
+    .section-content p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 0.8em;
+    }
+
+    /* Key point callout */
+    .key-point {
+        font-size: 0.85rem;
+        padding: 10px 12px;
+        margin: 10px 0;
+    }
+
+    /* Innovation tags */
+    .innovation-tag {
+        font-size: 0.75rem;
+        padding: 3px 8px;
+        margin: 3px 3px 3px 0;
+    }
+
+    /* Stats */
+    .stat {
+        font-size: 1em;
+    }
+
+    /* Button */
+    .btn {
+        font-size: 0.9rem;
+        padding: 10px 18px;
+        margin-top: 1rem;
+    }
+
+    /* Move side navigation closer to edge */
+    .side-nav {
+        right: 8px;
+        gap: 10px;
+    }
+
+    .nav-pin {
+        width: 12px;
+        height: 12px;
+    }
+
+    .nav-pin.sub-pin {
+        width: 8px;
+        height: 8px;
+        margin-left: 8px;
+    }
+
+    /* Hide tooltips on mobile (they get in the way of touch) */
+    .nav-pin .tooltip {
+        display: none;
+    }
+
+    /* Down arrow */
+    .down-arrow {
+        font-size: 1.5rem;
+        margin-top: 0.5rem;
+    }
+}
+
+/* Mobile phone adjustments */
+@media (max-width: 480px) {
+    .section-content {
+        padding: 1rem;
+        max-width: 96%;
+    }
+
+    .section-heading {
+        font-size: 1.35rem;
+    }
+
+    .section-content p {
+        font-size: 0.82rem;
+        line-height: 1.45;
+    }
+
+    .key-point {
+        font-size: 0.78rem;
+        padding: 8px 10px;
+    }
+
+    .innovation-tag {
+        font-size: 0.7rem;
+    }
+
+    .btn {
+        font-size: 0.85rem;
+        padding: 10px 16px;
+        display: block;
+        text-align: center;
+    }
+
+    .side-nav {
+        right: 5px;
+        gap: 8px;
+    }
+
+    .nav-pin {
+        width: 10px;
+        height: 10px;
+    }
+
+    .nav-pin.sub-pin {
+        width: 7px;
+        height: 7px;
+        margin-left: 6px;
+    }
+}
