@@ -8,6 +8,7 @@ class FroggyChat {
       this.AI_MESSAGE_CLASS = 'froggy-message froggy-froggy';
       this.API_ENDPOINT = 'https://aqualens-froggy-backend.hf.space/api/ask';
       this.RESET_ENDPOINT = 'https://aqualens-froggy-backend.hf.space/api/reset_conversation';
+      this.HEALTH_ENDPOINT = 'https://aqualens-froggy-backend.hf.space/health';
       
       // Check if on the standalone froggy page
       this.isStandalonePage = document.body.classList.contains('froggy-standalone-page');
@@ -258,13 +259,20 @@ class FroggyChat {
       const WAKEUP_SECONDS = 90;
       let wakeupIntervalId = null;
 
+      // Ping the health check: if it answers, the server is awake and a slow reply is just Froggy thinking
+      let serverAwake = false;
+      fetch(this.HEALTH_ENDPOINT, { mode: 'cors', credentials: 'omit', cache: 'no-store' })
+        .then(res => res.json())
+        .then(data => { if (data.status === 'ok') serverAwake = true; })
+        .catch(() => {});
+
       // AbortController times out when the wake-up countdown runs out (HF cold starts can take 30-60s)
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), WAKEUP_HINT_DELAY_MS + WAKEUP_SECONDS * 1000);
 
       const wakeupTimeoutId = setTimeout(() => {
         const typingMsg = document.getElementById(typingMsgId);
-        if (!typingMsg) return;
+        if (!typingMsg || serverAwake) return;
         let secondsLeft = WAKEUP_SECONDS;
         typingMsg.innerHTML = '<div class="froggy-typing"><span></span><span></span><span></span></div><em>I haven\'t been asked a question in a while — just waking up. This might take a moment...<br>Expected wake-up time: <span class="froggy-wakeup-countdown">' + secondsLeft + '</span>s</em>';
         const countdownEl = typingMsg.querySelector('.froggy-wakeup-countdown');
