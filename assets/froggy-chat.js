@@ -253,17 +253,30 @@ class FroggyChat {
       // Scroll to bottom of conversation
       this.messages.scrollTop = this.messages.scrollHeight;
       
-      // AbortController with 90s timeout (HF cold starts can take 30-60s)
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 90000);
+      // Show a "waking up" hint after 3s, then count down the expected wake-up time
+      const WAKEUP_HINT_DELAY_MS = 3000;
+      const WAKEUP_SECONDS = 90;
+      let wakeupIntervalId = null;
 
-      // Show a "waking up" hint if it takes longer than 3 seconds
+      // AbortController times out when the wake-up countdown runs out (HF cold starts can take 30-60s)
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), WAKEUP_HINT_DELAY_MS + WAKEUP_SECONDS * 1000);
+
       const wakeupTimeoutId = setTimeout(() => {
         const typingMsg = document.getElementById(typingMsgId);
-        if (typingMsg) {
-          typingMsg.innerHTML = '<div class="froggy-typing"><span></span><span></span><span></span></div><em>I haven\'t been asked a question in a while — just waking up. This might take a moment...</em>';
-        }
-      }, 3000);
+        if (!typingMsg) return;
+        let secondsLeft = WAKEUP_SECONDS;
+        typingMsg.innerHTML = '<div class="froggy-typing"><span></span><span></span><span></span></div><em>I haven\'t been asked a question in a while — just waking up. This might take a moment...<br>Expected wake-up time: <span class="froggy-wakeup-countdown">' + secondsLeft + '</span>s</em>';
+        const countdownEl = typingMsg.querySelector('.froggy-wakeup-countdown');
+        wakeupIntervalId = setInterval(() => {
+          if (secondsLeft > 1) {
+            secondsLeft--;
+            countdownEl.textContent = secondsLeft;
+          } else {
+            clearInterval(wakeupIntervalId);
+          }
+        }, 1000);
+      }, WAKEUP_HINT_DELAY_MS);
 
       try {
         // Send request to backend with all known session IDs
@@ -286,6 +299,7 @@ class FroggyChat {
 
         clearTimeout(timeoutId);
         clearTimeout(wakeupTimeoutId);
+        clearInterval(wakeupIntervalId);
 
         // Remove typing indicator
         const typingMsg = document.getElementById(typingMsgId);
@@ -327,6 +341,7 @@ class FroggyChat {
       } catch (error) {
         clearTimeout(timeoutId);
         clearTimeout(wakeupTimeoutId);
+        clearInterval(wakeupIntervalId);
 
         // Remove typing indicator if it still exists
         const typingMsg = document.getElementById(typingMsgId);
